@@ -8,6 +8,7 @@ import com.goat.rbac.goatrbac.system.service.IUserService;
 import com.goat.rbac.goatrbac.system.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,10 +25,11 @@ import java.util.List;
 public class UserServiceImpl implements IUserService {
 
     @Autowired
-    UserMapper userMapper;
+    private UserMapper userMapper;
 
     @Autowired
     private UserRoleMapper userRoleMapper;
+
 
     @Override
     public User findByName(String userName) {
@@ -99,8 +101,15 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    @Transactional
     public Long deleteByIds(String[] ids) {
         Long aLong = userMapper.deleteByIds(ids);
-        return aLong;
+        List<Long> temp = new ArrayList<>();
+        for (int i = 0; i < ids.length; i++) {
+            temp.add(Long.valueOf(ids[i]));
+        }
+        int i = 2/0;
+        Long aLong1 = userRoleMapper.deleteByIds(temp);
+        return aLong1;
     }
 }

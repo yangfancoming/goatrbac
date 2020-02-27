@@ -22,4 +22,17 @@
             <if test="roleId!=null and roleId!='' or roleId==0 ">#{roleId}, </if>
         </trim>)
     </insert>
+
+<!--    <delete id="deleteById">-->
+<!--        delete from t_user_role where id = #{userId}-->
+<!--    </delete>-->
+
+
+    <delete id="deleteByIds" parameterType="Long">
+        delete from t_user_role where USER_ID in
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
 </mapper>
