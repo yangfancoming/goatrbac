@@ -17,7 +17,6 @@ public class MenuController extends BaseController {
 	@Autowired
 	private IMenuService menuService;
 
-
     @RequestMapping("menu/getUserMenu")
     @ResponseBody
     public ResponseBo getUserMenu(String userName) {
