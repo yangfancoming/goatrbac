@@ -1,5 +1,14 @@
 <div class="card" xmlns:shiro="http://www.w3.org/1999/xhtml">
+
+<!--  加载 system/user/目录下的 userAdd.html
+     userAdd.html 继续加载 userAdd.js    <script data-th-src="@{js/app/system/user/userAdd.js}"></script>
+     userAdd.js  	     initRole() 发起  $.post(ctx + "role/list" 请求
+     userAdd.js    createDeptTree() 发起  $.post(ctx + "dept/tree  请求
+
+ -->
+
     <div data-th-include="system/user/userAdd"></div>
+
     <div class="card-block">
         <div class="table-responsive">
             <div id="data-table_wrapper" class="dataTables_wrapper">
@@ -66,5 +75,5 @@
         </div>
     </div>
 </div>
-<script data-th-src="@{js/app/system/user/user.js}"></script>
-<script data-th-src="@{js/app/system/user/userEdit.js}"></script>
+<!--<script data-th-src="@{js/app/system/user/user.js}"></script>-->
+<!--<script data-th-src="@{js/app/system/user/userEdit.js}"></script>-->

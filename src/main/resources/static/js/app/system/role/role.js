@@ -9,18 +9,12 @@ $(function() {
                 roleName: $(".role-table-form").find("input[name='roleName']").val().trim(),
             };
         },
-        columns: [{
-            checkbox: true
-        }, {
-            field: 'roleName',
-            title: '角色'
-        }, {
-            field: 'remark',
-            title: '描述'
-        }, {
-            field: 'createTime',
-            title: '创建时间'
-        }]
+        columns: [
+            { checkbox: true},
+            { field: 'roleName',title: '角色'},
+            { field: 'remark',title: '描述'},
+            { field: 'createTime',title: '创建时间'},
+      ]
     }
     $MB.initTable('roleTable', settings);
 });
