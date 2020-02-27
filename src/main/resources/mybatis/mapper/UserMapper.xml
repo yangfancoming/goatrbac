@@ -63,13 +63,12 @@
 <!--        </foreach>-->
 <!--    </delete>-->
 
-    <delete id="deleteByIds" parameterType="long">
+    <delete id="deleteByIds" parameterType="String">
         delete from t_user where USER_ID in
-        <foreach item="item" collection="array" open="(" separator="," close=")">
-            #{ids}
+        <foreach collection="array" item="item" index="index" open="(" separator="," close=")">
+            #{item}
         </foreach>
     </delete>
-
 
     <select id="findUserOne" resultMap="userMap" parameterType="user">
         SELECT * FROM t_user WHERE 1 = 1

@@ -31,5 +31,5 @@ public interface IUserService {
 	
 	void updateUserProfile(User user);
 
-    Long deleteByIds(List<Long> ids);
+    Long deleteByIds(String[] ids);
 }

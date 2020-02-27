@@ -99,7 +99,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public Long deleteByIds(List<Long> ids) {
+    public Long deleteByIds(String[] ids) {
         Long aLong = userMapper.deleteByIds(ids);
         return aLong;
     }

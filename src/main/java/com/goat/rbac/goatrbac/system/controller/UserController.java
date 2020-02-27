@@ -60,9 +60,10 @@ public class UserController extends BaseController {
     @RequiresPermissions("user:delete")
     @RequestMapping("user/delete")
     @ResponseBody
-    public ResponseBo deleteByIds(List<Long> ids) {
+    public ResponseBo deleteByIds(String ids) {
         try {
-            userService.deleteByIds(ids);
+            String[] split = ids.split(",");
+            userService.deleteByIds(split);
             return ResponseBo.ok("删除用户成功！");
         } catch (Exception e) {
             e.printStackTrace();
