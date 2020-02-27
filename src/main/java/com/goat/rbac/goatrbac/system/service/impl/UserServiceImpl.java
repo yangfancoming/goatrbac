@@ -1,12 +1,16 @@
 package com.goat.rbac.goatrbac.system.service.impl;
 
 import com.goat.rbac.goatrbac.system.dao.UserMapper;
+import com.goat.rbac.goatrbac.system.dao.UserRoleMapper;
 import com.goat.rbac.goatrbac.system.model.User;
+import com.goat.rbac.goatrbac.system.model.UserRole;
 import com.goat.rbac.goatrbac.system.service.IUserService;
+import com.goat.rbac.goatrbac.system.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,6 +26,9 @@ public class UserServiceImpl implements IUserService {
     @Autowired
     UserMapper userMapper;
 
+    @Autowired
+    private UserRoleMapper userRoleMapper;
+
     @Override
     public User findByName(String userName) {
         return null;
@@ -35,7 +42,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     public List<User> findUserWithDept(User user) {
         try {
-            return this.userMapper.findUserWithDept(user);
+            return userMapper.findUserWithDept(user);
         } catch (Exception e) {
             e.printStackTrace();
             return new ArrayList<>();
@@ -54,7 +61,14 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public void addUser(User user, Long[] roles) {
-
+        user.setCrateTime(new Date());
+        user.setTheme(User.DEFAULT_THEME);
+        user.setAvatar(User.DEFAULT_AVATAR);
+        user.setPassword(MD5Utils.encrypt(user.getUsername(), user.getPassword()));
+        Long userId = userMapper.insert(user);
+        for (Long roleId : roles) {
+            userRoleMapper.insert(new UserRole(user.getUserId(),roleId));
+        }
     }
 
     @Override

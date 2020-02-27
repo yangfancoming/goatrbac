@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.goat.rbac.goatrbac.system.dao.UserRoleMapper">
+
+  <resultMap id="userRoleMap" type="com.goat.rbac.goatrbac.system.model.UserRole">
+    <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <result column="ROLE_ID" jdbcType="DECIMAL" property="roleId" />
+  </resultMap>
+
+
+    <insert id="insert" parameterType="userRole">
+        INSERT INTO t_user_role (
+        <trim suffix="" suffixOverrides=",">
+            <if test="userId!=null and userId!='' or userId==0 ">USER_ID, </if>
+            <if test="roleId!=null and roleId!='' or roleId==0 ">ROLE_ID, </if>
+        </trim>)
+        VALUES (
+        <trim suffix="" suffixOverrides=",">
+            <if test="userId!=null and userId!='' or userId==0 ">#{userId}, </if>
+            <if test="roleId!=null and roleId!='' or roleId==0 ">#{roleId}, </if>
+        </trim>)
+    </insert>
+</mapper>

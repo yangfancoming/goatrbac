@@ -33,12 +33,9 @@ public class User implements Serializable {
 
 	private String deptName;
 
-
 	private String email;
 
-
 	private String mobile;
-
 
 	private String status = STATUS_VALID;
 

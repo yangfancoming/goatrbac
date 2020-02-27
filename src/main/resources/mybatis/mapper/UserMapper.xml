@@ -3,31 +3,66 @@
 
 <mapper namespace="com.goat.rbac.goatrbac.system.dao.UserMapper">
 
-<!--  <resultMap id="BaseResultMap" type="com.goat.rbac.goatrbac.system.model.User">-->
-<!--    <id column="USER_ID" jdbcType="DECIMAL" property="userId" />-->
-<!--    <result column="USERNAME" jdbcType="VARCHAR" property="username" />-->
-<!--    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />-->
-<!--    <result column="DEPT_ID" jdbcType="DECIMAL" property="deptId" />-->
-<!--    <result column="EMAIL" jdbcType="VARCHAR" property="email" />-->
-<!--    <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />-->
-<!--    <result column="STATUS" jdbcType="CHAR" property="status" />-->
-<!--    <result column="CRATE_TIME" jdbcType="TIMESTAMP" property="crateTime" />-->
-<!--    <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />-->
-<!--    <result column="LAST_LOGIN_TIME" jdbcType="TIMESTAMP" property="lastLoginTime" />-->
-<!--    <result column="SSEX" jdbcType="CHAR" property="ssex" />-->
-<!--    <result column="THEME" jdbcType="VARCHAR" property="theme" />-->
-<!--    <result column="AVATAR" jdbcType="VARCHAR" property="avatar" />-->
-<!--    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>-->
-<!--  </resultMap>-->
+  <resultMap id="userMap" type="com.goat.rbac.goatrbac.system.model.User">
+    <id column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="DEPT_ID" jdbcType="DECIMAL" property="deptId" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
+    <result column="STATUS" jdbcType="CHAR" property="status" />
+    <result column="CRATE_TIME" jdbcType="TIMESTAMP" property="crateTime" />
+    <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="LAST_LOGIN_TIME" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="SSEX" jdbcType="CHAR" property="ssex" />
+    <result column="THEME" jdbcType="VARCHAR" property="theme" />
+    <result column="AVATAR" jdbcType="VARCHAR" property="avatar" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
+  </resultMap>
+
+    <insert id="insert" parameterType="dept" useGeneratedKeys="true" keyProperty="userId">
+        INSERT INTO t_user (
+        <trim suffix="" suffixOverrides=",">
+            <if test="username!=null and username!='' ">USERNAME, </if>
+            <if test="password!=null and password!='' ">PASSWORD, </if>
+            <if test="deptId!=null and deptId!='' ">DEPT_ID, </if>
+            <if test="email!=null and email!='' ">EMAIL, </if>
+            <if test="mobile!=null and mobile!='' ">MOBILE, </if>
+            <if test="status!=null and status!='' ">status, </if>
+            <if test="crateTime!=null  ">CRATE_TIME, </if>
+            <if test="modifyTime!=null  ">MODIFY_TIME, </if>
+            <if test="lastLoginTime!=null  ">LAST_LOGIN_TIME, </if>
+            <if test="ssex!=null and ssex!='' ">SSEX, </if>
+            <if test="theme!=null and theme!='' ">theme, </if>
+            <if test="avatar!=null and avatar!='' ">AVATAR, </if>
+            <if test="description!=null and description!='' ">DESCRIPTION, </if>
+        </trim>)
+        VALUES (
+        <trim suffix="" suffixOverrides=",">
+            <if test="username!=null and username!='' ">#{username}, </if>
+            <if test="password!=null and password!=''">#{password}, </if>
+            <if test="deptId!=null and deptId!=''">#{deptId}, </if>
+            <if test="email!=null and email!=''">#{email}, </if>
+            <if test="mobile!=null and mobile!=''">#{mobile}, </if>
+            <if test="status!=null and status!=''">#{status}, </if>
+            <if test="crateTime!=null ">#{crateTime}, </if>
+            <if test="modifyTime!=null ">#{modifyTime}, </if>
+            <if test="lastLoginTime!=null ">#{lastLoginTime}, </if>
+            <if test="ssex!=null and ssex!=''">#{ssex}, </if>
+            <if test="theme!=null and theme!=''">#{theme}, </if>
+            <if test="avatar!=null and avatar!=''">#{avatar}, </if>
+            <if test="description!=null and description!=''">#{description}, </if>
+        </trim>)
+    </insert>
 
 
-    <select id="findUserOne" resultType="user" parameterType="user">
+    <select id="findUserOne" resultMap="userMap" parameterType="user">
         SELECT * FROM t_user WHERE 1 = 1
         <if test="userId != null and userId != ''"> AND userId = #{userId} </if>
         <if test="username != null and username != ''"> AND username = #{username} </if>
     </select>
 
-  <select id="findUserWithDept" resultType="user" parameterType="user">
+  <select id="findUserWithDept" resultMap="userMap" parameterType="user">
   		select u.user_id userId,u.username,u.email,u.mobile,u.status,u.crate_time crateTime,
   		u.ssex,d.dept_name deptName from t_user u 
   		left join t_dept d on(u.dept_id = d.dept_id)
@@ -55,7 +90,7 @@
 <!--		where u.user_id = #{userId}-->
 <!--  </select>-->
   
-  <select id="findUserProfile" resultType="user" parameterType="user">
+  <select id="findUserProfile" resultMap="userMap" parameterType="user">
 	SELECT
 		U .USERNAME,
 		U .USER_ID userId,

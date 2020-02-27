@@ -4,12 +4,14 @@ package com.goat.rbac.goatrbac.system.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.goat.rbac.goatrbac.system.model.QueryRequest;
+import com.goat.rbac.goatrbac.system.model.ResponseBo;
 import com.goat.rbac.goatrbac.system.model.User;
 import com.goat.rbac.goatrbac.system.service.IUserService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -19,8 +21,8 @@ import java.util.Map;
 @Controller
 public class UserController extends BaseController {
 
-	@Autowired
-	private IUserService userService;
+    @Autowired
+    private IUserService userService;
 
     @RequestMapping("user")
     @RequiresPermissions("user:list")
@@ -38,6 +40,23 @@ public class UserController extends BaseController {
         PageInfo<User> pageInfo = new PageInfo<>(list);
         return getDataTable(pageInfo);
     }
+
+
+    @RequiresPermissions("user:add")
+    @PostMapping("user/add")
+    @ResponseBody
+    public ResponseBo addUser(User user, Long[] roles) {
+        try {
+            String status = "on".equalsIgnoreCase(user.getStatus())?"1":"0";
+            user.setStatus(status);
+            userService.addUser(user, roles);
+            return ResponseBo.ok("新增用户成功！");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseBo.error("新增用户失败，请联系网站管理员！");
+        }
+    }
+
 
     @RequestMapping("user/profile")
     public String profileIndex(Model model) {

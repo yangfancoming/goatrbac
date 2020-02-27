@@ -15,4 +15,6 @@ public interface UserMapper  {
 	User findUserProfile(User user);
 
 	User findUserOne(User user);
+
+	Long insert(User user);
 }
