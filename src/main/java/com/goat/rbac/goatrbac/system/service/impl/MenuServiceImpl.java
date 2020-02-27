@@ -1,10 +1,14 @@
 package com.goat.rbac.goatrbac.system.service.impl;
 
+import com.goat.rbac.goatrbac.system.dao.MenuMapper;
 import com.goat.rbac.goatrbac.system.model.Menu;
 import com.goat.rbac.goatrbac.system.model.Tree;
 import com.goat.rbac.goatrbac.system.service.IMenuService;
+import com.goat.rbac.goatrbac.system.util.TreeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,6 +21,9 @@ import java.util.List;
 @Service
 public class MenuServiceImpl implements IMenuService {
 
+    @Autowired
+    private MenuMapper menuMapper;
+
     @Override
     public List<Menu> findUserPermissions(String userName) {
         return null;
@@ -24,7 +31,7 @@ public class MenuServiceImpl implements IMenuService {
 
     @Override
     public List<Menu> findUserMenus(String userName) {
-        return null;
+        return menuMapper.findUserMenus(userName);
     }
 
     @Override
@@ -44,7 +51,19 @@ public class MenuServiceImpl implements IMenuService {
 
     @Override
     public Tree<Menu> getUserMenu(String userName) {
-        return null;
+        List<Tree<Menu>> trees = new ArrayList<>();
+        List<Menu> menus = findUserMenus(userName);
+        for (Menu menu : menus) {
+            Tree<Menu> tree = new Tree<>();
+            tree.setId(menu.getMenuId().toString());
+            tree.setParentId(menu.getParentId().toString());
+            tree.setText(menu.getMenuName());
+            tree.setIcon(menu.getIcon());
+            tree.setUrl(menu.getUrl());
+            trees.add(tree);
+        }
+        Tree<Menu> t = TreeUtils.build(trees);
+        return t;
     }
 
     @Override
