@@ -147,4 +147,11 @@ public class Tree<T> {
         this.hasParent = hasParent;
     }
 
+    public Tree(String id, String text, String parentId) {
+        this.id = id;
+        this.text = text;
+        this.parentId = parentId;
+    }
+
+
 }

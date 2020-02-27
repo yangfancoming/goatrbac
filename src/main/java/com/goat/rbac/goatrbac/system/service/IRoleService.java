@@ -10,8 +10,8 @@ public interface IRoleService {
 
 	List<Role> findUserRole(String userName);
 
-	List<Role> findAllRole(Role role);
-	
+	List<Role> findRoleList(Role role);
+
 
 	Role findByName(String roleName);
 

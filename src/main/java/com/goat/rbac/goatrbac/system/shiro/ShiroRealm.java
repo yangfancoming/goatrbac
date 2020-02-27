@@ -41,7 +41,7 @@ public class ShiroRealm extends AuthorizingRealm {
         //获取用户的输入的账号、密码
         String userName = (String) token.getPrincipal();
         // 1. 判断账号
-        User user = this.userService.findUserOne(new User(userName));
+        User user = userService.findUserOne(new User(userName));
         if (user == null) {
             throw new UnknownAccountException("用户名或密码错误！");
         }

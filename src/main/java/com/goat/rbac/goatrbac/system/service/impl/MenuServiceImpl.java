@@ -40,7 +40,10 @@ public class MenuServiceImpl implements IMenuService {
 
     @Override
     public Tree<Menu> getMenuButtonTree() {
-        return null;
+        List<Tree<Menu>> trees = new ArrayList<>();
+        List<Menu> menus = menuMapper.findMenuList(new Menu());
+        menus.forEach(menu->trees.add(new Tree<>(menu.getMenuId().toString(), menu.getMenuName(), menu.getParentId().toString())));
+        return TreeUtils.build(trees);
     }
 
     @Override

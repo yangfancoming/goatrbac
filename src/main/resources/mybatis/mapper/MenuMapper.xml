@@ -3,7 +3,7 @@
 
 <mapper namespace="com.goat.rbac.goatrbac.system.dao.MenuMapper">
 
-  <resultMap id="menu" type="com.goat.rbac.goatrbac.system.model.Menu">
+  <resultMap id="menuMap" type="com.goat.rbac.goatrbac.system.model.Menu">
     <id column="MENU_ID" jdbcType="DECIMAL" property="menuId" />
     <result column="PARENT_ID" jdbcType="DECIMAL" property="parentId" />
     <result column="MENU_NAME" jdbcType="VARCHAR" property="menuName" />
@@ -16,7 +16,7 @@
     <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
   </resultMap>
   
-  <select id="findUserPermissions" resultMap="menu">
+  <select id="findUserPermissions" resultMap="menuMap">
   	select m.perms from t_role r
         left join t_user_role ur on(r.role_id = ur.role_id) 
         left join t_user u on(u.user_id = ur.user_id)
@@ -25,7 +25,7 @@
         where u.username = #{userName} and m.perms is not null and m.perms &lt;&gt; ''
   </select>
   
-  <select id="findUserMenus" resultMap="menu">
+  <select id="findUserMenus" resultMap="menuMap">
   	select m.* from t_menu m
     where m.type &lt;&gt; 1 and m.MENU_ID in 
         (select distinct rm.menu_id from t_role_menu rm 
@@ -43,4 +43,21 @@
   	</foreach>
   	) ) a )
   </update>
+
+
+    <select id="findMenuList" resultMap="menuMap" parameterType="menu">
+        SELECT *  FROM t_menu WHERE 1=1
+        <if test="menuId !=null and menuId != ''">
+            AND menuId = #{menuId}
+        </if>
+        <if test="parentId !=null and parentId != ''">
+            AND parentId = #{parentId}
+        </if>
+        <if test="url !=null and url != ''">
+            AND url = #{url}
+        </if>
+        <if test="menuName !=null and menuName != ''">
+            AND menuName like concat('%', #{menuName}, '%')
+        </if>
+    </select>
 </mapper>

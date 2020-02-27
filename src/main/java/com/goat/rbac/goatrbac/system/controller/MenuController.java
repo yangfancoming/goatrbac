@@ -7,6 +7,8 @@ import com.goat.rbac.goatrbac.system.model.Tree;
 import com.goat.rbac.goatrbac.system.service.IMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -24,6 +26,18 @@ public class MenuController extends BaseController {
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseBo.error("获取用户菜单失败！");
+        }
+    }
+
+    @RequestMapping("menu/menuButtonTree")
+    @ResponseBody
+    public ResponseBo getMenuButtonTree() {
+        try {
+            Tree<Menu> tree = menuService.getMenuButtonTree();
+            return ResponseBo.ok(tree);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseBo.error("获取菜单列表失败！");
         }
     }
 }

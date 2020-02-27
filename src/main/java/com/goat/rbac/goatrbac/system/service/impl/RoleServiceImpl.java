@@ -27,8 +27,8 @@ public class RoleServiceImpl implements IRoleService {
     }
 
     @Override
-    public List<Role> findAllRole(Role role) {
-        return null;
+    public List<Role> findRoleList(Role role) {
+        return roleMapper.findRoleList(role);
     }
 
     @Override
