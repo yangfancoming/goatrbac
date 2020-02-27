@@ -4,7 +4,6 @@
 <mapper namespace="com.goat.rbac.goatrbac.system.dao.RoleMapper">
 
   <resultMap id="roleMap" type="com.goat.rbac.goatrbac.system.model.Role">
-
     <result column="ROLE_ID" jdbcType="DECIMAL" property="roleId" />
     <result column="ROLE_NAME" jdbcType="VARCHAR" property="roleName" />
     <result column="REMARK" jdbcType="VARCHAR" property="remark" />

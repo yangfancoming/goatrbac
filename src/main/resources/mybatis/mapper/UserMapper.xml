@@ -4,14 +4,15 @@
 <mapper namespace="com.goat.rbac.goatrbac.system.dao.UserMapper">
 
   <resultMap id="userMap" type="com.goat.rbac.goatrbac.system.model.User">
-    <id column="USER_ID" jdbcType="DECIMAL" property="userId" />
+<!--    <id column="USER_ID" jdbcType="DECIMAL" property="userId" />-->
+    <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
     <result column="USERNAME" jdbcType="VARCHAR" property="username" />
     <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
     <result column="DEPT_ID" jdbcType="DECIMAL" property="deptId" />
     <result column="EMAIL" jdbcType="VARCHAR" property="email" />
     <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
     <result column="STATUS" jdbcType="CHAR" property="status" />
-    <result column="CRATE_TIME" jdbcType="TIMESTAMP" property="crateTime" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
     <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
     <result column="LAST_LOGIN_TIME" jdbcType="TIMESTAMP" property="lastLoginTime" />
     <result column="SSEX" jdbcType="CHAR" property="ssex" />
@@ -20,7 +21,7 @@
     <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
   </resultMap>
 
-    <insert id="insert" parameterType="dept" useGeneratedKeys="true" keyProperty="userId">
+    <insert id="insert" parameterType="user" useGeneratedKeys="true" keyProperty="userId">
         INSERT INTO t_user (
         <trim suffix="" suffixOverrides=",">
             <if test="username!=null and username!='' ">USERNAME, </if>
@@ -29,7 +30,7 @@
             <if test="email!=null and email!='' ">EMAIL, </if>
             <if test="mobile!=null and mobile!='' ">MOBILE, </if>
             <if test="status!=null and status!='' ">status, </if>
-            <if test="crateTime!=null  ">CRATE_TIME, </if>
+            <if test="createTime!=null  ">CREATE_TIME, </if>
             <if test="modifyTime!=null  ">MODIFY_TIME, </if>
             <if test="lastLoginTime!=null  ">LAST_LOGIN_TIME, </if>
             <if test="ssex!=null and ssex!='' ">SSEX, </if>
@@ -45,7 +46,7 @@
             <if test="email!=null and email!=''">#{email}, </if>
             <if test="mobile!=null and mobile!=''">#{mobile}, </if>
             <if test="status!=null and status!=''">#{status}, </if>
-            <if test="crateTime!=null ">#{crateTime}, </if>
+            <if test="createTime!=null ">#{createTime}, </if>
             <if test="modifyTime!=null ">#{modifyTime}, </if>
             <if test="lastLoginTime!=null ">#{lastLoginTime}, </if>
             <if test="ssex!=null and ssex!=''">#{ssex}, </if>
@@ -55,6 +56,20 @@
         </trim>)
     </insert>
 
+<!--    <delete id="deleteByIds" parameterType="String">-->
+<!--        delete from sys_dict_data where dict_code in-->
+<!--        <foreach collection="array" item="dictCode" open="(" separator="," close=")">-->
+<!--            #{dictCode}-->
+<!--        </foreach>-->
+<!--    </delete>-->
+
+    <delete id="deleteByIds" parameterType="long">
+        delete from t_user where USER_ID in
+        <foreach item="item" collection="array" open="(" separator="," close=")">
+            #{ids}
+        </foreach>
+    </delete>
+
 
     <select id="findUserOne" resultMap="userMap" parameterType="user">
         SELECT * FROM t_user WHERE 1 = 1
@@ -62,8 +77,11 @@
         <if test="username != null and username != ''"> AND username = #{username} </if>
     </select>
 
-  <select id="findUserWithDept" resultMap="userMap" parameterType="user">
-  		select u.user_id userId,u.username,u.email,u.mobile,u.status,u.crate_time crateTime,
+
+<!--  doit 为啥上面这个 resultMap="userMap" 调用后无法赋值 userId 和 createTime属性？-->
+<!--  <select id="findUserWithDept" resultMap="userMap" parameterType="user">-->
+  <select id="findUserWithDept" resultType="user"  parameterType="user">
+  		select u.user_id userId,u.username,u.email,u.mobile,u.status,u.CREATE_TIME createTime,
   		u.ssex,d.dept_name deptName from t_user u 
   		left join t_dept d on(u.dept_id = d.dept_id)
   		where 1=1
@@ -90,7 +108,7 @@
 <!--		where u.user_id = #{userId}-->
 <!--  </select>-->
   
-  <select id="findUserProfile" resultMap="userMap" parameterType="user">
+  <select id="findUserProfile" resultType="user" parameterType="user">
 	SELECT
 		U .USERNAME,
 		U .USER_ID userId,

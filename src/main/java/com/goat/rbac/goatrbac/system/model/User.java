@@ -39,7 +39,7 @@ public class User implements Serializable {
 
 	private String status = STATUS_VALID;
 
-	private Date crateTime;
+	private Date createTime;
 
 	private Date modifyTime;
 
@@ -127,11 +127,11 @@ public class User implements Serializable {
     }
 
     public Date getCrateTime() {
-        return crateTime;
+        return createTime;
     }
 
-    public void setCrateTime(Date crateTime) {
-        this.crateTime = crateTime;
+    public void setCrateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public Date getModifyTime() {

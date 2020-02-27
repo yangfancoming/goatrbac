@@ -42,7 +42,8 @@ public class UserServiceImpl implements IUserService {
     @Override
     public List<User> findUserWithDept(User user) {
         try {
-            return userMapper.findUserWithDept(user);
+            List<User> users = userMapper.findUserWithDept(user);
+            return users;
         } catch (Exception e) {
             e.printStackTrace();
             return new ArrayList<>();
@@ -76,10 +77,6 @@ public class UserServiceImpl implements IUserService {
 
     }
 
-    @Override
-    public void deleteUsers(String userIds) {
-
-    }
 
     @Override
     public void updateLoginTime(String userName) {
@@ -99,5 +96,11 @@ public class UserServiceImpl implements IUserService {
     @Override
     public void updateUserProfile(User user) {
 
+    }
+
+    @Override
+    public Long deleteByIds(List<Long> ids) {
+        Long aLong = userMapper.deleteByIds(ids);
+        return aLong;
     }
 }

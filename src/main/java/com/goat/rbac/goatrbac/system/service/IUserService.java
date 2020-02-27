@@ -7,7 +7,6 @@ import java.util.List;
 
 public interface IUserService {
 
-
 	User findByName(String userName);
 
 	User findUserOne(User user);
@@ -22,7 +21,7 @@ public interface IUserService {
 
 	void updateUser(User user, Long[] roles);
 	
-	void deleteUsers(String userIds);
+
 
 	void updateLoginTime(String userName);
 	
@@ -31,4 +30,6 @@ public interface IUserService {
 	User findUserProfile(User user);
 	
 	void updateUserProfile(User user);
+
+    Long deleteByIds(List<Long> ids);
 }

@@ -17,4 +17,6 @@ public interface UserMapper  {
 	User findUserOne(User user);
 
 	Long insert(User user);
+
+    Long deleteByIds(List<Long> ids);
 }

@@ -57,6 +57,18 @@ public class UserController extends BaseController {
         }
     }
 
+    @RequiresPermissions("user:delete")
+    @RequestMapping("user/delete")
+    @ResponseBody
+    public ResponseBo deleteByIds(List<Long> ids) {
+        try {
+            userService.deleteByIds(ids);
+            return ResponseBo.ok("删除用户成功！");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseBo.error("删除用户失败，请联系网站管理员！");
+        }
+    }
 
     @RequestMapping("user/profile")
     public String profileIndex(Model model) {

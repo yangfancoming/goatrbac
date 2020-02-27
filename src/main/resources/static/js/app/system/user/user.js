@@ -25,7 +25,7 @@ $(function() {
                     else return '保密';
                 }
             },
-            {field: 'crateTime',title: '创建时间'},
+            {field: 'createTime',title: '创建时间'},
             {
                 field: 'status',title: '状态',
                 formatter: function(value, row, index) {
