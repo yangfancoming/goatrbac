@@ -11,9 +11,7 @@ import java.util.Map;
 public class TreeUtils {
 	
 	public static <T> Tree<T> build(List<Tree<T>> nodes) {
-		if (nodes == null) {
-			return null;
-		}
+		if (nodes == null) return null;
 		List<Tree<T>> topNodes = new ArrayList<>();
 		for (Tree<T> children : nodes) {
 			String pid = children.getParentId();
