@@ -20,11 +20,9 @@ public class Menu implements Serializable {
 
 	private String url;
 
-
 	private String perms;
 
 	private String icon;
-
 
 	private String type;
 

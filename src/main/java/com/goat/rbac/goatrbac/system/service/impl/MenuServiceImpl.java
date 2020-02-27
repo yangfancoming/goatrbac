@@ -53,15 +53,7 @@ public class MenuServiceImpl implements IMenuService {
     public Tree<Menu> getUserMenu(String userName) {
         List<Tree<Menu>> trees = new ArrayList<>();
         List<Menu> menus = findUserMenus(userName);
-        for (Menu menu : menus) {
-            Tree<Menu> tree = new Tree<>();
-            tree.setId(menu.getMenuId().toString());
-            tree.setParentId(menu.getParentId().toString());
-            tree.setText(menu.getMenuName());
-            tree.setIcon(menu.getIcon());
-            tree.setUrl(menu.getUrl());
-            trees.add(tree);
-        }
+        menus.forEach(menu->trees.add(new Tree<>(menu.getMenuId().toString(), menu.getParentId().toString(), menu.getMenuName(), menu.getIcon(), menu.getUrl())));
         Tree<Menu> t = TreeUtils.build(trees);
         return t;
     }

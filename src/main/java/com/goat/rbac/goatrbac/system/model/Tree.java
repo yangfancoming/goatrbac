@@ -141,26 +141,14 @@ public class Tree<T> {
 		this.url = url;
 	}
 
-	public Tree(String id, String text, Map<String, Object> state, boolean checked, Map<String, Object> attributes,
-                List<Tree<T>> children, String icon, String url, boolean isParent, boolean isChildren, String parentID) {
-		super();
-		this.id = id;
-		this.text = text;
-		this.icon = icon;
-		this.url = url;
-		this.state = state;
-		this.checked = checked;
-		this.attributes = attributes;
-		this.children = children;
-		this.hasParent = isParent;
-		this.hasChildren = isChildren;
-		this.parentId = parentID;
-	}
+	public Tree() {}
 
-	public Tree() {
-		super();
-	}
-
-
+    public Tree(String id, String icon, String url, String text, String parentId) {
+        this.id = id;
+        this.icon = icon;
+        this.url = url;
+        this.text = text;
+        this.parentId = parentId;
+    }
 
 }
