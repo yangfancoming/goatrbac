@@ -1,7 +1,9 @@
 package com.goat.rbac.goatrbac.system.service.impl;
 
+import com.goat.rbac.goatrbac.system.dao.RoleMapper;
 import com.goat.rbac.goatrbac.system.model.Role;
 import com.goat.rbac.goatrbac.system.service.IRoleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,10 +18,12 @@ import java.util.List;
 @Service
 public class RoleServiceImpl implements IRoleService {
 
+    @Autowired
+    private RoleMapper roleMapper;
 
     @Override
     public List<Role> findUserRole(String userName) {
-        return null;
+        return this.roleMapper.findUserRole(userName);
     }
 
     @Override

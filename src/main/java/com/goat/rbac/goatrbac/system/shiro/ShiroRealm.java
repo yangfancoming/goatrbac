@@ -73,7 +73,7 @@ public class ShiroRealm extends AuthorizingRealm {
         SimpleAuthorizationInfo authInfo = new SimpleAuthorizationInfo();
 
         // 授权角色信息
-        List<Role> roleList = this.roleService.findUserRole(userName);
+        List<Role> roleList = roleService.findUserRole(userName);
         Set<String> roleSet = new HashSet<>();
         for (Role r : roleList) {
             roleSet.add(r.getRoleName());
@@ -81,7 +81,7 @@ public class ShiroRealm extends AuthorizingRealm {
         authInfo.setRoles(roleSet);
 
         //授权菜单信息
-        List<Menu> permissionList = this.menuService.findUserPermissions(userName);
+        List<Menu> permissionList = menuService.findUserPermissions(userName);
         Set<String> permissionSet = new HashSet<>();
         for (Menu m : permissionList) {
             permissionSet.add(m.getPerms());

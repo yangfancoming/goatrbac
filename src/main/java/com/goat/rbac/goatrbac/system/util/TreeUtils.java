@@ -29,11 +29,9 @@ public class TreeUtils {
 				}
 			}
 		}
-
         Map<String, Object> state = new HashMap<>(16);
         state.put("opened", true);
 		return new Tree<>("0","根节点",state,true,topNodes,true,"",false);
-
 	}
 
 }

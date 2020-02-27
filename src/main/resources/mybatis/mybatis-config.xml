@@ -18,6 +18,7 @@
 
     <typeAliases>
         <typeAlias alias="user" type="com.goat.rbac.goatrbac.system.model.User"/>
+        <typeAlias alias="dict" type="com.goat.rbac.goatrbac.system.model.Dict"/>
     </typeAliases>
 
 </configuration>

@@ -25,7 +25,7 @@ public class MenuServiceImpl implements IMenuService {
 
     @Override
     public List<Menu> findUserPermissions(String userName) {
-        return null;
+        return menuMapper.findUserPermissions(userName);
     }
 
     @Override

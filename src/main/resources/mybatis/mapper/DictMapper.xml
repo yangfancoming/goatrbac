@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.goat.rbac.goatrbac.system.dao.DictMapper">
+
+<!--  <resultMap id="dict" type="com.goat.rbac.goatrbac.system.model.Dict">-->
+<!--    <id column="DICT_ID" jdbcType="DECIMAL" property="dictId" />-->
+<!--    <result column="KEY" jdbcType="DECIMAL" property="key" />-->
+<!--    <result column="VALUE" jdbcType="VARCHAR" property="value" />-->
+<!--    <result column="FIELD_NAME" jdbcType="VARCHAR" property="fieldName" />-->
+<!--    <result column="TABLE_NAME" jdbcType="VARCHAR" property="tableName" />-->
+<!--  </resultMap>-->
+
+    <insert id="insert" parameterType="dict" >
+        insert into t_dict (KEYY, VALUE,FIELD_NAME,TABLE_NAME) values(#{KEYY},#{VALUE},#{FIELD_NAME},#{TABLE_NAME})
+    </insert>
+
+</mapper>
