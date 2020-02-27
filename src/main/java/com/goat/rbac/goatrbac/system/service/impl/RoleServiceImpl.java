@@ -23,7 +23,7 @@ public class RoleServiceImpl implements IRoleService {
 
     @Override
     public List<Role> findUserRole(String userName) {
-        return this.roleMapper.findUserRole(userName);
+        return roleMapper.findUserRole(userName);
     }
 
     @Override

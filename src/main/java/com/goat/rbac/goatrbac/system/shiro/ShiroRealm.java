@@ -69,23 +69,18 @@ public class ShiroRealm extends AuthorizingRealm {
         log.info("进入 授权 ");
         User user = (User) SecurityUtils.getSubject().getPrincipal();
         String userName = user.getUsername();
-
         SimpleAuthorizationInfo authInfo = new SimpleAuthorizationInfo();
 
         // 授权角色信息
         List<Role> roleList = roleService.findUserRole(userName);
         Set<String> roleSet = new HashSet<>();
-        for (Role r : roleList) {
-            roleSet.add(r.getRoleName());
-        }
+        roleList.forEach(role->roleSet.add(role.getRoleName()));
         authInfo.setRoles(roleSet);
 
-        //授权菜单信息
+        // 授权菜单信息
         List<Menu> permissionList = menuService.findUserPermissions(userName);
         Set<String> permissionSet = new HashSet<>();
-        for (Menu m : permissionList) {
-            permissionSet.add(m.getPerms());
-        }
+        permissionList.forEach(menu->permissionSet.add(menu.getPerms()));
         authInfo.setStringPermissions(permissionSet);
         return authInfo;
     }
