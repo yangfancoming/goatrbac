@@ -12,23 +12,11 @@ function initTreeTable() {
         ajaxParams: {
             deptName: $(".dept-table-form").find("input[name='deptName']").val().trim()
         },
-        columns: [{
-                field: 'selectItem',
-                checkbox: true
-            },
-            {
-                title: '编号',
-                field: 'deptId',
-                width: '50px'
-            },
-            {
-                title: '名称',
-                field: 'deptName'
-            },
-            {
-                title: '创建时间',
-                field: 'createTime'
-            }
+        columns: [
+            { field: 'selectItem',checkbox: true },
+            { title: '编号',field: 'deptId',width: '50px'},
+            { title: '名称',field: 'deptName'},
+            { title: '创建时间',field: 'createTime'}
         ]
     }
     $MB.initTreeTable('deptTable', setting);

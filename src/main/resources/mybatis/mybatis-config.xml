@@ -21,6 +21,7 @@
         <typeAlias alias="dict" type="com.goat.rbac.goatrbac.system.model.Dict"/>
         <typeAlias alias="role" type="com.goat.rbac.goatrbac.system.model.Role"/>
         <typeAlias alias="menu" type="com.goat.rbac.goatrbac.system.model.Menu"/>
+        <typeAlias alias="dept" type="com.goat.rbac.goatrbac.system.model.Dept"/>
     </typeAliases>
 
 </configuration>

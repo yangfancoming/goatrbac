@@ -88,12 +88,8 @@ function createDeptTree() {
                     'data': data.children,
                     'multiple': false
                 },
-                "state": {
-                    "disabled": true
-                },
-                "checkbox": {
-                    "three_state": false
-                },
+                "state": { "disabled": true},
+                "checkbox": { "three_state": false },
                 "plugins": ["wholerow", "checkbox"]
             });
         } else {
