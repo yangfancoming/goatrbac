@@ -17,7 +17,7 @@ public class DictServiceImpl implements IDictService {
 
 	@Override
 	public List<Dict> findAllDicts(Dict dict) {
-	    return null;
+	    return dictMapper.findDictList(dict);
 	}
 
 	@Override
