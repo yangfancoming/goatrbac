@@ -6,51 +6,38 @@ import java.util.List;
 import java.util.Map;
 
 public class Tree<T> {
-	/**
-	 * 节点ID
-	 */
+
+    // 节点ID
 	private String id;
-	/**
-	 * 图标
-	 */
+
+    // 图标
 	private String icon;
-	/**
-	 * url
-	 */
+
+    // url
 	private String url;
-	/**
-	 * 显示节点文本
-	 */
+
+    // 显示节点文本
 	private String text;
-	/**
-	 * 节点状态，open closed
-	 */
+
+    // 节点状态，open closed
 	private Map<String, Object> state;
-	/**
-	 * 节点是否被选中 true false
-	 */
+
+    // 节点是否被选中 true false
 	private boolean checked = false;
-	/**
-	 * 节点属性
-	 */
+
+    // 节点属性
 	private Map<String, Object> attributes;
 
-	/**
-	 * 节点的子节点
-	 */
+    // 节点的子节点
 	private List<Tree<T>> children = new ArrayList<>();
 
-	/**
-	 * 父ID
-	 */
+    // 父ID
 	private String parentId;
-	/**
-	 * 是否有父节点
-	 */
+
+    // 是否有父节点
 	private boolean hasParent = false;
-	/**
-	 * 是否有子节点
-	 */
+
+    // 是否有子节点
 	private boolean hasChildren = false;
 
 	public String getId() {
@@ -101,7 +88,11 @@ public class Tree<T> {
 		this.children = children;
 	}
 
-	public boolean isHasParent() {
+    public void setHasChildren(boolean hasChildren) {
+        this.hasChildren = hasChildren;
+    }
+
+    public boolean isHasParent() {
 		return hasParent;
 	}
 
@@ -111,10 +102,6 @@ public class Tree<T> {
 
 	public boolean isHasChildren() {
 		return hasChildren;
-	}
-
-	public void setChildren(boolean isChildren) {
-		this.hasChildren = isChildren;
 	}
 
 	public String getParentId() {
@@ -141,14 +128,23 @@ public class Tree<T> {
 		this.url = url;
 	}
 
-	public Tree() {}
-
     public Tree(String id, String icon, String url, String text, String parentId) {
         this.id = id;
         this.icon = icon;
         this.url = url;
         this.text = text;
         this.parentId = parentId;
+    }
+
+    public Tree(String id, String text, Map<String, Object> state, boolean checked, List<Tree<T>> children,boolean hasChildren, String parentId, boolean hasParent) {
+        this.id = id;
+        this.text = text;
+        this.state = state;
+        this.checked = checked;
+        this.children = children;
+        this.hasChildren = hasChildren;
+        this.parentId = parentId;
+        this.hasParent = hasParent;
     }
 
 }

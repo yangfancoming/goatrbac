@@ -24,26 +24,16 @@ public class TreeUtils {
 				if (id != null && id.equals(pid)) {
 					parent.getChildren().add(children);
 					children.setHasParent(true);
-					parent.setChildren(true);
+					parent.setHasChildren(true);
 					continue;
 				}
 			}
-
 		}
 
-		Tree<T> root = new Tree<>();
-		root.setId("0");
-		root.setParentId("");
-		root.setHasParent(false);
-		root.setChildren(true);
-		root.setChecked(true);
-		root.setChildren(topNodes);
-		root.setText("根节点");
-		Map<String, Object> state = new HashMap<>(16);
-		state.put("opened", true);
-		root.setState(state);
-		return root;
-	}
+        Map<String, Object> state = new HashMap<>(16);
+        state.put("opened", true);
+		return new Tree<>("0","根节点",state,true,topNodes,true,"",false);
 
+	}
 
 }

@@ -13,7 +13,6 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2020/2/26.
- *
  * @ Description: TODO
  * @ author  山羊来了
  * @ date 2020/2/26---15:51
@@ -53,7 +52,7 @@ public class MenuServiceImpl implements IMenuService {
     public Tree<Menu> getUserMenu(String userName) {
         List<Tree<Menu>> trees = new ArrayList<>();
         List<Menu> menus = findUserMenus(userName);
-        menus.forEach(menu->trees.add(new Tree<>(menu.getMenuId().toString(), menu.getParentId().toString(), menu.getMenuName(), menu.getIcon(), menu.getUrl())));
+        menus.forEach(menu->trees.add(new Tree<>(menu.getMenuId().toString(), menu.getIcon(), menu.getUrl(), menu.getMenuName(),menu.getParentId().toString())));
         Tree<Menu> t = TreeUtils.build(trees);
         return t;
     }
