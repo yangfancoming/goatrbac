@@ -6,6 +6,7 @@ import com.goat.rbac.goatrbac.system.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,7 +34,12 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public List<User> findUserWithDept(User user) {
-        return null;
+        try {
+            return this.userMapper.findUserWithDept(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 
     @Override

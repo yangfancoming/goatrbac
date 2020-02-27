@@ -7,8 +7,8 @@ import com.goat.rbac.goatrbac.system.model.*;
 import com.goat.rbac.goatrbac.system.service.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -25,7 +25,7 @@ public class RoleController extends BaseController {
 		return "system/role/role";
 	}
 
-	@GetMapping("role/list")
+	@RequestMapping("role/list")
 	@ResponseBody
 	public Map<String, Object> roleList(QueryRequest request, Role role) {
 		PageHelper.startPage(request.getPageNum(), request.getPageSize());
