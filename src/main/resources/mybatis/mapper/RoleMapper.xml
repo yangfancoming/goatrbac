@@ -31,4 +31,22 @@
             AND remark like concat('%', #{remark}, '%')
         </if>
     </select>
+
+
+    <insert id="insert" parameterType="role" useGeneratedKeys="true" keyProperty="roleId">
+        INSERT INTO t_role (
+        <trim suffix="" suffixOverrides=",">
+            <if test="roleName!=null and roleName!='' ">ROLE_NAME, </if>
+            <if test="remark!=null and remark!='' ">REMARK, </if>
+            <if test="createTime!=null  ">CREATE_TIME, </if>
+            <if test="modifyTime!=null  ">MODIFY_TIME, </if>
+        </trim>)
+        VALUES (
+        <trim suffix="" suffixOverrides=",">
+            <if test="roleName!=null and roleName!='' ">#{roleName}, </if>
+            <if test="remark!=null and remark!='' ">#{remark}, </if>
+            <if test="createTime!=null ">#{createTime}, </if>
+            <if test="modifyTime!=null ">#{modifyTime}, </if>
+        </trim>)
+    </insert>
 </mapper>

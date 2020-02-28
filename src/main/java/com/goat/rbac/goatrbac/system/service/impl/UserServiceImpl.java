@@ -4,7 +4,6 @@ import com.goat.rbac.goatrbac.system.dao.UserMapper;
 import com.goat.rbac.goatrbac.system.dao.UserRoleMapper;
 import com.goat.rbac.goatrbac.system.model.User;
 import com.goat.rbac.goatrbac.system.model.UserRole;
-import com.goat.rbac.goatrbac.system.model.UserWithRole;
 import com.goat.rbac.goatrbac.system.service.IUserService;
 import com.goat.rbac.goatrbac.system.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,10 +71,11 @@ public class UserServiceImpl implements IUserService {
         user.setTheme(User.DEFAULT_THEME);
         user.setAvatar(User.DEFAULT_AVATAR);
         user.setPassword(MD5Utils.encrypt(user.getUsername(), user.getPassword()));
-        Long userId = userMapper.insert(user);
-        for (Long roleId : roles) {
-            userRoleMapper.insert(new UserRole(user.getUserId(),roleId));
-        }
+        userMapper.insert(user);
+        List<UserRole> userRoleList = new ArrayList<>(16);
+        Arrays.asList(roles).forEach(x->userRoleList.add(new UserRole(user.getUserId(),x)));
+        int i = userRoleMapper.insertList(userRoleList);
+        System.out.println(i);
     }
 
     @Override

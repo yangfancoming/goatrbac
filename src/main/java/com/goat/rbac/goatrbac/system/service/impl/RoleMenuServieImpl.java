@@ -18,7 +18,6 @@ import java.util.List;
 @Service
 public class RoleMenuServieImpl implements IRoleMenuServie {
 
-
     @Autowired
     RoleMenuMapper roleMenuMapper;
 
@@ -37,6 +36,12 @@ public class RoleMenuServieImpl implements IRoleMenuServie {
     @Override
     public int deleteByMenuIds(List<String> menuIds) {
         int i = roleMenuMapper.deleteByMenuIds(menuIds);
+        return i;
+    }
+
+    @Override
+    public int insertList(List<RoleMenu> roleMenuList) {
+        int i = roleMenuMapper.insertList(roleMenuList);
         return i;
     }
 }

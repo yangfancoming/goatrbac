@@ -22,4 +22,5 @@ public interface RoleMenuMapper {
 
     List<RoleWithMenu> findRoleWithMenus(Long roleId);
 
+    int insertList(List<RoleMenu> roleMenuList);
 }

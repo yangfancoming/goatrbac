@@ -35,4 +35,11 @@
         left join t_role_menu rm on(r.role_id = rm.role_id)
         where r.role_id = #{roleId}
     </select>
+
+    <insert id="insertList">
+        insert into t_role_menu(ROLE_ID,MENU_ID) values
+        <foreach item="item" index="index" collection="list" separator=",">
+            (#{item.roleId},#{item.menuId})
+        </foreach>
+    </insert>
 </mapper>

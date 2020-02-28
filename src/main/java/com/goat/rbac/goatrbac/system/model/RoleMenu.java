@@ -11,6 +11,11 @@ public class RoleMenu implements Serializable {
 
     private Long menuId;
 
+    public RoleMenu(Long roleId, Long menuId) {
+        this.roleId = roleId;
+        this.menuId = menuId;
+    }
+
     public Long getRoleId() {
         return roleId;
     }

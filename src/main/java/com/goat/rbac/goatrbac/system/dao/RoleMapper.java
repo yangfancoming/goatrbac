@@ -12,5 +12,7 @@ public interface RoleMapper  {
 
 	List<Role> findRoleList(Role role);
 
+	int insert(Role role);
+
 
 }

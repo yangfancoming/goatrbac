@@ -3,12 +3,15 @@ package com.goat.rbac.goatrbac.system.service.impl;
 import com.goat.rbac.goatrbac.system.dao.RoleMapper;
 import com.goat.rbac.goatrbac.system.dao.RoleMenuMapper;
 import com.goat.rbac.goatrbac.system.model.Role;
+import com.goat.rbac.goatrbac.system.model.RoleMenu;
 import com.goat.rbac.goatrbac.system.model.RoleWithMenu;
 import com.goat.rbac.goatrbac.system.service.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -43,7 +46,13 @@ public class RoleServiceImpl implements IRoleService {
 
     @Override
     public void addRole(Role role, Long[] menuIds) {
+        role.setCreateTime(new Date());
+        roleMapper.insert(role);
 
+        List<RoleMenu> roleMenuList = new ArrayList<>(16);
+        Arrays.asList(menuIds).forEach(x->roleMenuList.add(new RoleMenu(role.getRoleId(),x)));
+        int i = roleMenuMapper.insertList(roleMenuList);
+        System.out.println(i);
     }
 
     @Override
@@ -65,5 +74,11 @@ public class RoleServiceImpl implements IRoleService {
         RoleWithMenu roleWithMenu = list.get(0);
         roleWithMenu.setMenuIds(menuList);
         return roleWithMenu;
+    }
+
+    @Override
+    public int insert(Role role) {
+        int insert = roleMapper.insert(role);
+        return insert;
     }
 }

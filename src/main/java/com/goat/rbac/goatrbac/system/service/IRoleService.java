@@ -24,4 +24,6 @@ public interface IRoleService {
 
     RoleWithMenu findRoleWithMenus(Long roleId);
 
+    int insert(Role role);
+
 }

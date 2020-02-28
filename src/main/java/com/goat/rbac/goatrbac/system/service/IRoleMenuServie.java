@@ -18,4 +18,6 @@ public interface IRoleMenuServie {
     int deleteByRoleIds(List<String> roleIds);
 
     int deleteByMenuIds(List<String> menuIds);
+
+    int insertList(List<RoleMenu> roleMenuList);
 }
