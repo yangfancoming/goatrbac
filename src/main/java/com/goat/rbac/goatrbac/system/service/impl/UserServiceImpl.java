@@ -79,10 +79,10 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    @Transactional
     public void update(User user, Long[] roles) {
         // 更新用户
-        Long num = userMapper.update(user);
-        System.out.println(num);
+        userMapper.update(user);
         // 删除该用户下所有角色信息
         userRoleMapper.deleteById(user.getUserId());
         // 插入该用户的所有角色信息

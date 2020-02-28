@@ -32,6 +32,13 @@ public class Menu implements Serializable {
 
 	private Date modifyTime;
 
+    public Menu() {
+    }
+
+    public Menu(String type) {
+        this.type = type;
+    }
+
     public Long getMenuId() {
         return menuId;
     }
