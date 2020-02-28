@@ -7,61 +7,38 @@ function initTreeTable() {
         id: 'menuId',
         code: 'menuId',
         url: ctx + 'menu/list',
-        expandAll: true,
+        expandAll: false,
         expandColumn: "2",
         ajaxParams: {
             menuName: $(".menu-table-form").find("input[name='menuName']").val().trim(),
             type: $(".menu-table-form").find("select[name='type']").val()
         },
-        columns: [{
-                field: 'selectItem',
-                checkbox: true
-            },
-            {
-                title: '编号',
-                field: 'menuId',
-                width: '50px'
-            },
-            {
-                title: '名称',
-                field: 'menuName'
-            },
-
-            {
-                title: '图标',
-                field: 'icon',
+        columns: [
+            {field: 'selectItem',checkbox: true},
+            {title: '编号',field: 'menuId',width: '50px' },
+            {title: '名称',field: 'menuName' },
+            {title: '图标',field: 'icon',
                 formatter: function(item, index) {
                     return '<i class="zmdi ' + item.icon + '"></i>';
                 }
-
             },
-            {
-                title: '类型',
-                field: 'type',
+            {title: '类型',field: 'type',
                 formatter: function(item, index) {
                     if (item.type == '0') return '<span class="badge badge-success">菜单</span>';
                     if (item.type == '1') return '<span class="badge badge-warning">按钮</span>';
                 }
-
             },
-            {
-                title: '地址',
-                field: 'url',
+            {title: '地址',field: 'url',
                 formatter: function(item, index) {
                     return item.url == 'null' ? '' : item.url;
                 }
             },
-            {
-                title: '权限标识',
-                field: 'perms',
+            {title: '权限标识', field: 'perms',
                 formatter: function(item, index) {
                     return item.perms == 'null' ? '' : item.perms;
                 }
             },
-            {
-                title: '创建时间',
-                field: 'createTime'
-            }
+            {title: '创建时间',field: 'createTime' }
         ]
     }
 
