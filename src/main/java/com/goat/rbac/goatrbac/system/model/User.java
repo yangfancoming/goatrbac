@@ -126,11 +126,11 @@ public class User implements Serializable {
         this.status = status;
     }
 
-    public Date getCrateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCrateTime(Date createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 

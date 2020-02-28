@@ -64,7 +64,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public void addUser(User user, Long[] roles) {
-        user.setCrateTime(new Date());
+        user.setCreateTime(new Date());
         user.setTheme(User.DEFAULT_THEME);
         user.setAvatar(User.DEFAULT_AVATAR);
         user.setPassword(MD5Utils.encrypt(user.getUsername(), user.getPassword()));
