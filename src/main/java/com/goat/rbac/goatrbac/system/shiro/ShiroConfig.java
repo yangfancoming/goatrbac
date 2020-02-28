@@ -62,15 +62,15 @@ public class ShiroConfig {
     }
 
 	/**
-	 * 凭证匹配器 （由于我们的密码校验交给Shiro的SimpleAuthenticationInfo进行处理了 ）
+	 * 凭证匹配器 （由于我们的密码校验交给Shiro的SimpleAuthenticationInfo进行处理了 ） doit 为啥这里开启后 后会 执行两次 认证？？？
 	 */
-	@Bean
-	public HashedCredentialsMatcher hashedCredentialsMatcher(){
-		HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
-		hashedCredentialsMatcher.setHashAlgorithmName("md5");//散列算法:这里使用MD5算法;
-		hashedCredentialsMatcher.setHashIterations(2);//散列的次数，比如散列两次，相当于 md5(md5(""));
-		return hashedCredentialsMatcher;
-	}
+//	@Bean
+//	public HashedCredentialsMatcher hashedCredentialsMatcher(){
+//		HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
+//		hashedCredentialsMatcher.setHashAlgorithmName("md5");//散列算法:这里使用MD5算法;
+//		hashedCredentialsMatcher.setHashIterations(2);//散列的次数，比如散列两次，相当于 md5(md5(""));
+//		return hashedCredentialsMatcher;
+//	}
 
 	/**  用于  thymeleaf 和 shiro 标签配合使用 （为了在thymeleaf里使用shiro的标签的bean）  */
     @Bean
