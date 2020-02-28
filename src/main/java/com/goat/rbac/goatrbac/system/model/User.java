@@ -58,6 +58,10 @@ public class User implements Serializable {
     public User() {
     }
 
+    public User(Long userId) {
+        this.userId = userId;
+    }
+
     public User(String username) {
         this.username = username;
     }

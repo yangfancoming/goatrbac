@@ -41,7 +41,6 @@ public class UserController extends BaseController {
         return getDataTable(pageInfo);
     }
 
-
     @RequiresPermissions("user:add")
     @PostMapping("user/add")
     @ResponseBody
@@ -70,6 +69,19 @@ public class UserController extends BaseController {
             return ResponseBo.error("删除用户失败，请联系网站管理员！");
         }
     }
+
+    @RequestMapping("user/getUser")
+    @ResponseBody
+    public ResponseBo getUser(Long userId) {
+        try {
+            User user = userService.findUserOne(new User(userId));
+            return ResponseBo.ok(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseBo.error("获取用户信息失败，请联系网站管理员！");
+        }
+    }
+
 
     @RequestMapping("user/profile")
     public String profileIndex(Model model) {

@@ -108,7 +108,7 @@ public class UserServiceImpl implements IUserService {
         for (int i = 0; i < ids.length; i++) {
             temp.add(Long.valueOf(ids[i]));
         }
-        int i = 2/0;
+//        int i = 2/0;
         Long aLong1 = userRoleMapper.deleteByIds(temp);
         return aLong1;
     }

@@ -72,8 +72,8 @@
 
     <select id="findUserOne" resultMap="userMap" parameterType="user">
         SELECT * FROM t_user WHERE 1 = 1
-        <if test="userId != null and userId != ''"> AND userId = #{userId} </if>
-        <if test="username != null and username != ''"> AND username = #{username} </if>
+        <if test="userId != null and userId != ''"> AND USER_ID = #{userId} </if>
+        <if test="username != null and username != ''"> AND USERNAME = #{username} </if>
     </select>
 
 

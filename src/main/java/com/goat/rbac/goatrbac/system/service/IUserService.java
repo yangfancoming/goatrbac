@@ -1,7 +1,5 @@
 package com.goat.rbac.goatrbac.system.service;
 
-
-
 import com.goat.rbac.goatrbac.system.model.User;
 import java.util.List;
 
@@ -20,7 +18,6 @@ public interface IUserService {
 	void addUser(User user, Long[] roles);
 
 	void updateUser(User user, Long[] roles);
-	
 
 
 	void updateLoginTime(String userName);
