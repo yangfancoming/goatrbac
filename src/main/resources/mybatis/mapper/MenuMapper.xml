@@ -63,4 +63,32 @@
             AND MENU_NAME like concat('%', #{menuName}, '%')
         </if>
     </select>
+
+
+    <insert id="insert" parameterType="menu" useGeneratedKeys="true" keyProperty="menuId">
+        INSERT INTO t_menu (
+        <trim suffix="" suffixOverrides=",">
+            <if test="parentId!=null and parentId!='' ">PARENT_ID, </if>
+            <if test="menuName!=null and menuName!='' ">MENU_NAME, </if>
+            <if test="url!=null and url!='' ">URL, </if>
+            <if test="perms!=null and perms!='' ">PERMS, </if>
+            <if test="icon!=null and icon!='' ">ICON, </if>
+            <if test="type!=null and type!='' ">TYPE, </if>
+            <if test="orderNum!=null and orderNum!='' ">ORDER_NUM, </if>
+            <if test="createTime!=null  ">CREATE_TIME, </if>
+            <if test="modifyTime!=null  ">MODIFY_TIME, </if>
+        </trim>)
+        VALUES (
+        <trim suffix="" suffixOverrides=",">
+            <if test="parentId!=null and parentId!='' ">#{parentId}, </if>
+            <if test="menuName!=null and menuName!=''">#{menuName}, </if>
+            <if test="url!=null and url!=''">#{url}, </if>
+            <if test="perms!=null and perms!=''">#{perms}, </if>
+            <if test="icon!=null and icon!=''">#{icon}, </if>
+            <if test="type!=null and type!=''">#{type}, </if>
+            <if test="orderNum!=null and orderNum!=''">#{orderNum}, </if>
+            <if test="createTime!=null ">#{createTime}, </if>
+            <if test="modifyTime!=null ">#{modifyTime}, </if>
+        </trim>)
+    </insert>
 </mapper>

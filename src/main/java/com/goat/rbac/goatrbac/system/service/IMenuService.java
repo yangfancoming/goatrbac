@@ -12,7 +12,7 @@ public interface IMenuService {
 
 	List<Menu> findUserMenus(String userName);
 
-	List<Menu> findAllMenus(Menu menu);
+	List<Menu> findMenuList(Menu menu);
 
 	Tree<Menu> getMenu(Menu menu);
 
@@ -22,7 +22,7 @@ public interface IMenuService {
 
 	Menu findByNameAndType(String menuName, String type);
 
-	void addMenu(Menu menu);
+	void insert(Menu menu);
 
 	void updateMenu(Menu menu);
 	

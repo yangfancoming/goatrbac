@@ -34,7 +34,7 @@ public class MenuServiceImpl implements IMenuService {
     }
 
     @Override
-    public List<Menu> findAllMenus(Menu menu) {
+    public List<Menu> findMenuList(Menu menu) {
         List<Menu> menus = menuMapper.findMenuList(menu);
         return menus;
     }
@@ -72,8 +72,9 @@ public class MenuServiceImpl implements IMenuService {
     }
 
     @Override
-    public void addMenu(Menu menu) {
-
+    public void insert(Menu menu) {
+        int insert = menuMapper.insert(menu);
+        System.out.println(insert);
     }
 
     @Override

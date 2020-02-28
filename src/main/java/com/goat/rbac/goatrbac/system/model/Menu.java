@@ -39,6 +39,15 @@ public class Menu implements Serializable {
         this.type = type;
     }
 
+    public Menu(Long menuId) {
+        this.menuId = menuId;
+    }
+
+    public Menu(String menuName, String type) {
+        this.menuName = menuName;
+        this.type = type;
+    }
+
     public Long getMenuId() {
         return menuId;
     }

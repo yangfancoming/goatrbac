@@ -16,4 +16,6 @@ public interface MenuMapper {
 
 	// 删除父节点，子节点变成顶级节点（根据实际业务调整）
 	void changeToTop(List<String> menuIds);
+
+	int insert(Menu menu);
 }
