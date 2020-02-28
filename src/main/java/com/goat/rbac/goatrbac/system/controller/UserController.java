@@ -6,6 +6,8 @@ import com.github.pagehelper.PageInfo;
 import com.goat.rbac.goatrbac.system.model.QueryRequest;
 import com.goat.rbac.goatrbac.system.model.ResponseBo;
 import com.goat.rbac.goatrbac.system.model.User;
+import com.goat.rbac.goatrbac.system.model.UserWithRole;
+import com.goat.rbac.goatrbac.system.service.IUserRoleService;
 import com.goat.rbac.goatrbac.system.service.IUserService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ public class UserController extends BaseController {
 
     @Autowired
     private IUserService userService;
+
+    @Autowired
+    private IUserRoleService userRoleService;
 
     @RequestMapping("user")
     @RequiresPermissions("user:list")
@@ -74,8 +79,8 @@ public class UserController extends BaseController {
     @ResponseBody
     public ResponseBo getUser(Long userId) {
         try {
-            User user = userService.findUserOne(new User(userId));
-            return ResponseBo.ok(user);
+            UserWithRole userWithRole = userRoleService.findUserWithRole(new User(userId));
+            return ResponseBo.ok(userWithRole);
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseBo.error("获取用户信息失败，请联系网站管理员！");

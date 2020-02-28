@@ -1,5 +1,8 @@
 package com.goat.rbac.goatrbac.system.service;
 
+import com.goat.rbac.goatrbac.system.model.User;
+import com.goat.rbac.goatrbac.system.model.UserWithRole;
+
 import java.util.List;
 
 /**
@@ -13,4 +16,6 @@ public interface IUserRoleService {
 
     Long deleteByIds(List<Long> ids);
 
+
+    UserWithRole findUserWithRole(User user);
 }

@@ -1,13 +1,15 @@
 package com.goat.rbac.goatrbac.system.service;
 
 import com.goat.rbac.goatrbac.system.model.User;
+import com.goat.rbac.goatrbac.system.model.UserWithRole;
+
 import java.util.List;
 
 public interface IUserService {
 
 	User findByName(String userName);
 
-	User findUserOne(User user);
+    User findUserOne(User user);
 
 	List<User> findUserWithDept(User user);
 

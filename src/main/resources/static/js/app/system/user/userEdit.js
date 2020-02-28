@@ -1,14 +1,9 @@
 function updateUser() {
     var selected = $("#userTable").bootstrapTable('getSelections');
     var selected_length = selected.length;
-    if (!selected_length) {
-        $MB.n_warning('请勾选需要修改的用户！');
-        return;
-    }
-    if (selected_length > 1) {
-        $MB.n_warning('一次只能修改一个用户！');
-        return;
-    }
+    if (!selected_length)  {$MB.n_warning('请勾选需要修改的用户！');return;}
+    if (selected_length > 1)  {$MB.n_warning('一次只能修改一个用户！');return;}
+
     var userId = selected[0].userId;
     $.post(ctx + "user/getUser", { "userId": userId }, function(r) {
         if (r.code == 0) {

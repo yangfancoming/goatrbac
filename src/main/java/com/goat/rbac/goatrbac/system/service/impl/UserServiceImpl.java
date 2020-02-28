@@ -4,6 +4,7 @@ import com.goat.rbac.goatrbac.system.dao.UserMapper;
 import com.goat.rbac.goatrbac.system.dao.UserRoleMapper;
 import com.goat.rbac.goatrbac.system.model.User;
 import com.goat.rbac.goatrbac.system.model.UserRole;
+import com.goat.rbac.goatrbac.system.model.UserWithRole;
 import com.goat.rbac.goatrbac.system.service.IUserService;
 import com.goat.rbac.goatrbac.system.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,8 @@ public class UserServiceImpl implements IUserService {
     public User findUserOne(User user) {
         return userMapper.findUserOne(user);
     }
+
+
 
     @Override
     public List<User> findUserWithDept(User user) {

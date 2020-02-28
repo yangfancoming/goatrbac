@@ -27,6 +27,12 @@
 <!--        delete from t_user_role where id = #{userId}-->
 <!--    </delete>-->
 
+    <select id="findUserWithRole" resultType="userWithRole" parameterType="user">
+        select u.user_id userId,u.username,u.dept_id deptId,u.email,u.mobile,
+               u.status,u.ssex,ur.role_id roleId from t_user u
+        left join t_user_role ur on (u.user_id = ur.user_id)
+        where u.user_id = #{userId}
+    </select>
 
     <delete id="deleteByIds" parameterType="Long">
         delete from t_user_role where USER_ID in

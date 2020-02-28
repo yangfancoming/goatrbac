@@ -1,6 +1,8 @@
 package com.goat.rbac.goatrbac.system.dao;
 
+import com.goat.rbac.goatrbac.system.model.User;
 import com.goat.rbac.goatrbac.system.model.UserRole;
+import com.goat.rbac.goatrbac.system.model.UserWithRole;
 
 import java.util.List;
 
@@ -19,7 +21,7 @@ public interface UserRoleMapper {
 
     Long deleteByIds(List<Long> userId);
 
-
+    List<UserWithRole> findUserWithRole(User user);
 
 
 }
