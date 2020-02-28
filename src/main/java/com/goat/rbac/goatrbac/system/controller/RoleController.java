@@ -34,5 +34,15 @@ public class RoleController extends BaseController {
 		return getDataTable(pageInfo);
 	}
 
-
+    @RequestMapping("role/getRole")
+    @ResponseBody
+    public ResponseBo getRole(Long roleId) {
+        try {
+            Role role = roleService.findRoleWithMenus(roleId);
+            return ResponseBo.ok(role);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseBo.error("获取角色信息失败，请联系网站管理员！");
+        }
+    }
 }

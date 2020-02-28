@@ -1,6 +1,7 @@
 package com.goat.rbac.goatrbac.system.dao;
 
 import com.goat.rbac.goatrbac.system.model.RoleMenu;
+import com.goat.rbac.goatrbac.system.model.RoleWithMenu;
 
 import java.util.List;
 
@@ -19,5 +20,6 @@ public interface RoleMenuMapper {
 
     int deleteByMenuIds(List<String> menuIds);
 
+    List<RoleWithMenu> findRoleWithMenus(Long roleId);
 
 }
