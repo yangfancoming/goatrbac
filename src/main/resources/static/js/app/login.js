@@ -42,7 +42,7 @@ function login() {
 	var $loginButton = $("#loginButton");
     var username = $(".one input[name='username']").val().trim();
     var password = $(".one input[name='password']").val().trim();
-    var code = $(".one input[name='code']").val().trim();
+    // var code = $(".one input[name='code']").val().trim();
     var rememberMe = $(".one input[name='rememberme']").is(':checked');
     // if (username == "")$MB.n_warning("请输入用1111户名！");return;
     // if (password == "") $MB.n_warning("请输入密码！");return;
@@ -56,7 +56,7 @@ function login() {
         data: {
             "username": username,
             "password": password,
-            "code": code,
+            // "code": code,
             "rememberMe": rememberMe
         },
         dataType: "json",
