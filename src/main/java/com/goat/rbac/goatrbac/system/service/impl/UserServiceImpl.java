@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -78,8 +79,17 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public void updateUser(User user, Long[] roles) {
-
+    public void update(User user, Long[] roles) {
+        // 更新用户
+        Long num = userMapper.update(user);
+        System.out.println(num);
+        // 删除该用户下所有角色信息
+        userRoleMapper.deleteById(user.getUserId());
+        // 插入该用户的所有角色信息
+        List<UserRole> userRoleList = new ArrayList<>(16);
+        Arrays.asList(roles).forEach(x->userRoleList.add(new UserRole(user.getUserId(),x)));
+        int i = userRoleMapper.insertList(userRoleList);
+        System.out.println(i);
     }
 
 

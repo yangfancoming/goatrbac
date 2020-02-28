@@ -21,6 +21,23 @@
     <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
   </resultMap>
 
+    <update id="update" parameterType="user">
+        update t_user
+        <set>
+            DEPT_ID = #{deptId},
+            <if test="email != null and email != ''">EMAIL = #{email},</if>
+            <if test="mobile != null and mobile != ''">MOBILE = #{mobile},</if>
+            <if test="status != null and status != ''">STATUS = #{status},</if>
+            <if test="ssex != null and ssex != ''">SSEX = #{ssex},</if>
+            <if test="theme != null and theme != ''">THEME = #{theme},</if>
+            <if test="avatar != null and avatar != ''">AVATAR = #{avatar},</if>
+            <if test="description != null and description != ''">DESCRIPTION = #{description},</if>
+            MODIFY_TIME = sysdate()
+        </set>
+        where USER_ID = #{userId}
+    </update>
+
+
     <insert id="insert" parameterType="user" useGeneratedKeys="true" keyProperty="userId">
         INSERT INTO t_user (
         <trim suffix="" suffixOverrides=",">
@@ -56,11 +73,8 @@
         </trim>)
     </insert>
 
-<!--    <delete id="deleteByIds" parameterType="String">-->
-<!--        delete from sys_dict_data where dict_code in-->
-<!--        <foreach collection="array" item="dictCode" open="(" separator="," close=")">-->
-<!--            #{dictCode}-->
-<!--        </foreach>-->
+<!--    <delete id="deleteById" parameterType="Long">-->
+<!--        delete from t_user where dict_code in-->
 <!--    </delete>-->
 
     <delete id="deleteByIds" parameterType="String">

@@ -1,6 +1,7 @@
 package com.goat.rbac.goatrbac.system.service;
 
 import com.goat.rbac.goatrbac.system.model.User;
+import com.goat.rbac.goatrbac.system.model.UserRole;
 import com.goat.rbac.goatrbac.system.model.UserWithRole;
 
 import java.util.List;
@@ -18,4 +19,6 @@ public interface IUserRoleService {
 
 
     UserWithRole findUserWithRole(User user);
+
+    int insertList(List<UserRole> userRoleList);
 }

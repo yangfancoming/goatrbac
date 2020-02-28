@@ -41,4 +41,14 @@
         </foreach>
     </delete>
 
+    <delete id="deleteById" parameterType="Long">
+        delete from t_user_role where USER_ID = #{userId}
+    </delete>
+
+    <insert id="insertList">
+        insert into t_user_role(USER_ID,ROLE_ID) values
+        <foreach item="item" index="index" collection="list" separator=",">
+            (#{item.userId},#{item.roleId})
+        </foreach>
+    </insert>
 </mapper>

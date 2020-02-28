@@ -13,6 +13,7 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -87,6 +88,35 @@ public class UserController extends BaseController {
         }
     }
 
+    @RequiresPermissions("user:update")
+    @RequestMapping("user/update")
+    @ResponseBody
+    public ResponseBo updateUser(User user, Long[] rolesSelect) {
+        try {
+            if ("on".equalsIgnoreCase(user.getStatus()))
+                user.setStatus("1");
+            else
+                user.setStatus("0");
+            userService.update(user, rolesSelect);
+            return ResponseBo.ok("修改用户成功！");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseBo.error("修改用户失败，请联系网站管理员！");
+        }
+    }
+
+
+    @RequestMapping("user/checkUserName")
+    @ResponseBody
+    public boolean checkUserName(String username, String oldusername) {
+        if (!StringUtils.isEmpty(oldusername) && username.equalsIgnoreCase(oldusername)) {
+            return true;
+        }
+        User result = userService.findByName(username);
+        if (result != null)
+            return false;
+        return true;
+    }
 
     @RequestMapping("user/profile")
     public String profileIndex(Model model) {

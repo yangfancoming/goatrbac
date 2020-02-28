@@ -18,5 +18,7 @@ public interface UserMapper  {
 
 	Long insert(User user);
 
+	Long update(User user);
+
     Long deleteByIds(String[] ids);
 }

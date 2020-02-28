@@ -23,5 +23,6 @@ public interface UserRoleMapper {
 
     List<UserWithRole> findUserWithRole(User user);
 
+    int insertList(List<UserRole> userRoleList);
 
 }
