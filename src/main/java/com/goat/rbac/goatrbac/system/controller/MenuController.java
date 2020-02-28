@@ -37,7 +37,7 @@ public class MenuController extends BaseController {
     @ResponseBody
     public ResponseBo getMenuButtonTree() {
         try {
-            Tree<Menu> tree = menuService.getMenuButtonTree();
+            Tree<Menu> tree = menuService.getMenu(null);
             return ResponseBo.ok(tree);
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,7 +55,7 @@ public class MenuController extends BaseController {
     @ResponseBody
     public ResponseBo getMenuTree() {
         try {
-            Tree<Menu> tree = menuService.getMenuTree();
+            Tree<Menu> tree = menuService.getMenu(new Menu("0"));
             return ResponseBo.ok(tree);
         } catch (Exception e) {
             e.printStackTrace();

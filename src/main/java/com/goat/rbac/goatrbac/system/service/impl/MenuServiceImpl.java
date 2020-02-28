@@ -40,19 +40,14 @@ public class MenuServiceImpl implements IMenuService {
     }
 
     @Override
-    public Tree<Menu> getMenuButtonTree() {
-        List<Menu> menus = menuMapper.findMenuList(null);
-        return test(menus);
+    public Tree<Menu> getMenu(Menu menu) {
+        return test(menu);
     }
 
-    @Override
-    public Tree<Menu> getMenuTree() {
-        List<Menu> menus = menuMapper.findMenuList(new Menu("0"));
-        return test(menus);
-    }
 
-    private Tree<Menu> test(List<Menu> menus) {
+    private Tree<Menu> test(Menu param) {
         List<Tree<Menu>> trees = new ArrayList<>();
+        List<Menu> menus = menuMapper.findMenuList(param);
         menus.forEach(menu->trees.add(new Tree<>(menu.getMenuId().toString(), menu.getMenuName(), menu.getParentId().toString())));
         return TreeUtils.build(trees);
     }

@@ -14,10 +14,8 @@ public interface IMenuService {
 
 	List<Menu> findAllMenus(Menu menu);
 
-	Tree<Menu> getMenuButtonTree();
-	
-	Tree<Menu> getMenuTree();
-	
+	Tree<Menu> getMenu(Menu menu);
+
 	Tree<Menu> getUserMenu(String userName);
 	
 	Menu findById(Long menuId);
