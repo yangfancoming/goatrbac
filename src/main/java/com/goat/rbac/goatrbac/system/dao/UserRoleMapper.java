@@ -21,6 +21,8 @@ public interface UserRoleMapper {
 
     Long deleteByIds(List<Long> userId);
 
+    Long deleteByRoleIds(List<String> roleIds);
+
     List<UserWithRole> findUserWithRole(User user);
 
     int insertList(List<UserRole> userRoleList);

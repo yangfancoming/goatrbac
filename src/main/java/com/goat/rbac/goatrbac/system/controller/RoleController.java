@@ -62,4 +62,18 @@ public class RoleController extends BaseController {
             return ResponseBo.error("新增角色失败，请联系网站管理员！");
         }
     }
+
+    @RequiresPermissions("role:delete")
+    @RequestMapping("role/delete")
+    @ResponseBody
+    public ResponseBo deleteRoles(String ids) {
+        try {
+            this.roleService.deleteRoles(ids);
+            return ResponseBo.ok("删除角色成功！");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseBo.error("删除角色失败，请联系网站管理员！");
+        }
+    }
+
 }

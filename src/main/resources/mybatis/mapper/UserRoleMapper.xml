@@ -34,6 +34,13 @@
         where u.user_id = #{userId}
     </select>
 
+    <delete id="deleteByRoleIds" parameterType="String">
+        delete from t_user_role where ROLE_ID in
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
     <delete id="deleteByIds" parameterType="Long">
         delete from t_user_role where USER_ID in
         <foreach collection="list" item="item" index="index" open="(" separator="," close=")">

@@ -2,12 +2,14 @@ package com.goat.rbac.goatrbac.system.service.impl;
 
 import com.goat.rbac.goatrbac.system.dao.RoleMapper;
 import com.goat.rbac.goatrbac.system.dao.RoleMenuMapper;
+import com.goat.rbac.goatrbac.system.dao.UserRoleMapper;
 import com.goat.rbac.goatrbac.system.model.Role;
 import com.goat.rbac.goatrbac.system.model.RoleMenu;
 import com.goat.rbac.goatrbac.system.model.RoleWithMenu;
 import com.goat.rbac.goatrbac.system.service.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,6 +30,9 @@ public class RoleServiceImpl implements IRoleService {
     private RoleMapper roleMapper;
     @Autowired
     private RoleMenuMapper roleMenuMapper;
+
+    @Autowired
+    private UserRoleMapper userRoleMapper;
 
     @Override
     public List<Role> findUserRole(String userName) {
@@ -61,8 +66,14 @@ public class RoleServiceImpl implements IRoleService {
     }
 
     @Override
+    @Transactional
     public void deleteRoles(String roleIds) {
-
+        String[] split = roleIds.split(",");
+        List<String> list = Arrays.asList(split);
+        roleMapper.deleteByIds(list);
+        int i = roleMenuMapper.deleteByRoleIds(list);
+        Long aLong = userRoleMapper.deleteByRoleIds(list);
+        System.out.println(aLong);
     }
 
     @Override
@@ -80,5 +91,21 @@ public class RoleServiceImpl implements IRoleService {
     public int insert(Role role) {
         int insert = roleMapper.insert(role);
         return insert;
+    }
+
+    @Override
+    public int deleteById(Long roleId) {
+        return roleMapper.deleteById(roleId);
+    }
+
+    @Override
+    public int deleteByIds(List<String> roleIds) {
+        int i = roleMapper.deleteByIds(roleIds);
+        return i;
+    }
+
+    @Override
+    public Long deleteByRoleIds(List<String> roleIds) {
+        return null;
     }
 }

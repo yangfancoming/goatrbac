@@ -26,4 +26,9 @@ public interface IRoleService {
 
     int insert(Role role);
 
+    int deleteById(Long roleId);
+
+    int deleteByIds(List<String> roleIds);
+
+    Long deleteByRoleIds(List<String> roleIds);
 }

@@ -49,4 +49,17 @@
             <if test="modifyTime!=null ">#{modifyTime}, </if>
         </trim>)
     </insert>
+
+        <delete id="deleteById" parameterType="Long">
+            delete from t_role where ROLE_ID = #{roleId}
+        </delete>
+
+    <delete id="deleteByIds" parameterType="Long">
+        delete from t_role where ROLE_ID in
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+
 </mapper>
