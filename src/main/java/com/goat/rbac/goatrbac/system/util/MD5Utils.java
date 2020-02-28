@@ -5,7 +5,7 @@ import org.apache.shiro.util.ByteSource;
 
 public class MD5Utils {
 
-	private static final String SALT = "goat";
+	private static final String SALT = "mrbird";
 
 	private static final String ALGORITH_NAME = "md5";
 
