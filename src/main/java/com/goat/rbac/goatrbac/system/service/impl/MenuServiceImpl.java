@@ -4,6 +4,7 @@ import com.goat.rbac.goatrbac.system.dao.MenuMapper;
 import com.goat.rbac.goatrbac.system.model.Menu;
 import com.goat.rbac.goatrbac.system.model.Tree;
 import com.goat.rbac.goatrbac.system.service.IMenuService;
+import com.goat.rbac.goatrbac.system.service.IRoleMenuServie;
 import com.goat.rbac.goatrbac.system.util.TreeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -86,4 +87,13 @@ public class MenuServiceImpl implements IMenuService {
     public void deleteMeuns(String menuIds) {
 
     }
+    @Autowired
+    private IRoleMenuServie roleMenuService;
+    @Override
+    public int deleteByIds(List<String> menuIds) {
+        int i = menuMapper.deleteByIds(menuIds);
+        int i1 = roleMenuService.deleteByMenuIds(menuIds);
+        return i1;
+    }
+
 }

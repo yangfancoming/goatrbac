@@ -24,6 +24,7 @@
         <typeAlias alias="dept" type="com.goat.rbac.goatrbac.system.model.Dept"/>
         <typeAlias alias="userRole" type="com.goat.rbac.goatrbac.system.model.UserRole"/>
         <typeAlias alias="userWithRole" type="com.goat.rbac.goatrbac.system.model.UserWithRole"/>
+        <typeAlias alias="roleMenu" type="com.goat.rbac.goatrbac.system.model.RoleMenu"/>
     </typeAliases>
 
 </configuration>

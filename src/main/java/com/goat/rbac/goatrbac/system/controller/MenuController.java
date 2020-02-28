@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -117,5 +118,19 @@ public class MenuController extends BaseController {
         if (menuList.size()>0 )
             return false;
         return true;
+    }
+
+    @RequiresPermissions("menu:delete")
+    @RequestMapping("menu/delete")
+    @ResponseBody
+    public ResponseBo deleteMenus(String ids) {
+        try {
+            List<String> split = Arrays.asList(ids.split(","));
+            menuService.deleteByIds(split);
+            return ResponseBo.ok("删除成功！");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseBo.error("删除失败，请联系网站管理员！");
+        }
     }
 }

@@ -27,4 +27,6 @@ public interface IMenuService {
 	void updateMenu(Menu menu);
 	
 	void deleteMeuns(String menuIds);
+
+    int deleteByIds(List<String> menuIds);
 }

@@ -18,4 +18,6 @@ public interface MenuMapper {
 	void changeToTop(List<String> menuIds);
 
 	int insert(Menu menu);
+
+    int deleteByIds(List<String> menuIds);
 }
