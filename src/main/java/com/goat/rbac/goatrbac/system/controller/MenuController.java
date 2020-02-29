@@ -49,7 +49,6 @@ public class MenuController extends BaseController {
     }
 
     @RequestMapping("menu")
-    @RequiresPermissions("menu:list")
     public String index() {
         return "system/menu/menu";
     }
@@ -89,7 +88,6 @@ public class MenuController extends BaseController {
         }
     }
 
-    @RequiresPermissions("menu:add")
     @RequestMapping("menu/add")
     @ResponseBody
     public ResponseBo addMenu(Menu menu) {
@@ -120,7 +118,6 @@ public class MenuController extends BaseController {
         return true;
     }
 
-    @RequiresPermissions("menu:delete")
     @RequestMapping("menu/delete")
     @ResponseBody
     public ResponseBo deleteMenus(String ids) {

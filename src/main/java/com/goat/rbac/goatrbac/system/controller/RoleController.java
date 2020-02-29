@@ -50,7 +50,6 @@ public class RoleController extends BaseController {
         }
     }
 
-    @RequiresPermissions("role:add")
     @RequestMapping("role/add")
     @ResponseBody
     public ResponseBo addRole(Role role, Long[] menuId) {
@@ -63,7 +62,6 @@ public class RoleController extends BaseController {
         }
     }
 
-    @RequiresPermissions("role:delete")
     @RequestMapping("role/delete")
     @ResponseBody
     public ResponseBo deleteRoles(String ids) {
@@ -76,7 +74,6 @@ public class RoleController extends BaseController {
         }
     }
 
-    @RequiresPermissions("role:update")
     @RequestMapping("role/update")
     @ResponseBody
     public ResponseBo updateRole(Role role, Long[] menuId) {

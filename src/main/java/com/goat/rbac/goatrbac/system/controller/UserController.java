@@ -31,7 +31,6 @@ public class UserController extends BaseController {
     private IUserRoleService userRoleService;
 
     @RequestMapping("user")
-    @RequiresPermissions("user:list")
     public String index(Model model) {
         User user = getCurrentUser();
         model.addAttribute("user", user);
@@ -47,7 +46,6 @@ public class UserController extends BaseController {
         return getDataTable(pageInfo);
     }
 
-    @RequiresPermissions("user:add")
     @PostMapping("user/add")
     @ResponseBody
     public ResponseBo addUser(User user, Long[] roles) {
@@ -62,7 +60,6 @@ public class UserController extends BaseController {
         }
     }
 
-    @RequiresPermissions("user:delete")
     @RequestMapping("user/delete")
     @ResponseBody
     public ResponseBo deleteByIds(String ids) {
@@ -88,7 +85,6 @@ public class UserController extends BaseController {
         }
     }
 
-    @RequiresPermissions("user:update")
     @RequestMapping("user/update")
     @ResponseBody
     public ResponseBo updateUser(User user, Long[] rolesSelect) {
