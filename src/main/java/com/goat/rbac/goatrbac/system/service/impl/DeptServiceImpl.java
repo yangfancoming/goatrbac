@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -22,29 +23,23 @@ public class DeptServiceImpl  implements IDeptService {
     @Override
     public Tree<Dept> getDeptTree() {
         List<Tree<Dept>> trees = new ArrayList<>();
-        List<Dept> depts = deptMapper.findDeptList(new Dept());
+        List<Dept> depts = deptMapper.find(null);
         depts.forEach(dept->trees.add(new Tree<>(dept.getDeptId().toString(), dept.getDeptName(), dept.getParentId().toString())));
         Tree<Dept> t = TreeUtils.build(trees);
         return t;
     }
 
     @Override
-    public List<Dept> findDeptList(Dept dept) {
-        return deptMapper.findDeptList(dept);
+    public List<Dept> find(Dept dept) {
+        return deptMapper.find(dept);
     }
 
-    @Override
-    public Dept findByName(String deptName) {
-        return null;
-    }
-
-    @Override
-    public Dept findById(Long deptId) {
-        return null;
-    }
 
     @Override
     public void insert(Dept dept) {
+        Long parentId = dept.getParentId();
+        if (parentId == null) dept.setParentId(0l);
+        dept.setCreateTime(new Date());
         deptMapper.insert(dept);
     }
 

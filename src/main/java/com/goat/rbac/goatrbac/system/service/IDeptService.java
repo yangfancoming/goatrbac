@@ -10,12 +10,8 @@ public interface IDeptService {
 
 	Tree<Dept> getDeptTree();
 
-	List<Dept> findDeptList(Dept dept);
+	List<Dept> find(Dept dept);
 
-	Dept findByName(String deptName);
-
-	Dept findById(Long deptId);
-	
 	void insert(Dept dept);
 	
 	void updateDept(Dept dept);

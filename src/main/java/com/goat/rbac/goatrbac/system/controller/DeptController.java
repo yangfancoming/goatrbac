@@ -29,7 +29,7 @@ public class DeptController {
 	@ResponseBody
 	public List<Dept> deptList(Dept dept) {
 		try {
-			return deptService.findDeptList(dept);
+			return deptService.find(dept);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -71,6 +71,18 @@ public class DeptController {
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseBo.error("删除部门失败，请联系网站管理员！");
+        }
+    }
+
+    @RequestMapping("dept/getDept")
+    @ResponseBody
+    public ResponseBo getDept(Long deptId) {
+        try {
+            List<Dept> depts = deptService.find(new Dept(deptId));
+            return ResponseBo.ok(depts.get(0));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseBo.error("获取部门信息失败，请联系网站管理员！");
         }
     }
 

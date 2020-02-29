@@ -18,6 +18,12 @@ public class Dept implements Serializable {
 
 	private Date createTime;
 
+    public Dept() {
+    }
+
+    public Dept(Long deptId) {
+        this.deptId = deptId;
+    }
 
     public Long getDeptId() {
         return deptId;

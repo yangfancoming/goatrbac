@@ -18,25 +18,22 @@
         </foreach>
     </delete>
 
-    <select id="findDeptList" resultMap="deptMap" parameterType="dept">
+    <select id="find" resultMap="deptMap" parameterType="dept">
         SELECT *  FROM t_dept
         WHERE 1=1
         <if test="deptId !=null and deptId != ''">
-            AND deptId = #{deptId}
+            AND DEPT_ID = #{deptId}
         </if>
         <if test="parentId !=null and parentId != ''">
-            AND parentId = #{parentId}
+            AND PARENT_ID = #{parentId}
         </if>
-
         <if test="deptName !=null and deptName != ''">
-            AND deptName like concat('%', #{deptName}, '%')
+            AND DEPT_NAME like concat('%', #{deptName}, '%')
         </if>
         <if test="orderNum !=null and orderNum != ''">
-            AND orderNum = #{orderNum}
+            AND ORDER_NUM = #{orderNum}
         </if>
     </select>
-
-
 
     <insert id="insert" parameterType="dept">
         INSERT INTO t_dept (
@@ -44,12 +41,14 @@
             <if test="parentId!=null and parentId!='' or parentId==0 ">PARENT_ID, </if>
             <if test="deptName!=null and deptName!='' ">DEPT_NAME, </if>
             <if test="orderNum!=null and orderNum!='' ">ORDER_NUM, </if>
+            <if test="createTime!=null  ">CREATE_TIME, </if>
         </trim>)
         VALUES (
         <trim suffix="" suffixOverrides=",">
             <if test="parentId!=null and parentId!='' or parentId==0 ">#{parentId}, </if>
             <if test="deptName!=null and deptName!='' ">#{deptName}, </if>
             <if test="orderNum!=null and orderNum!=''">#{orderNum}, </if>
+            <if test="createTime!=null ">#{createTime}, </if>
         </trim>)
     </insert>
 
