@@ -5,7 +5,6 @@ import com.goat.rbac.goatrbac.system.model.User;
 import com.goat.rbac.goatrbac.system.service.IUserService;
 import com.goat.rbac.goatrbac.system.util.MD5Utils;
 import org.apache.shiro.authc.*;
-import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -60,8 +59,8 @@ public class LoginController extends BaseController {
         password = MD5Utils.encrypt(username.toLowerCase(), password);
         UsernamePasswordToken token = new UsernamePasswordToken(username, password, rememberMe);
         try {
-            super.login(token);
-            this.userService.updateLoginTime(username);
+            login(token);
+            userService.updateLoginTime(username);
             return ResponseBo.ok();
         } catch (UnknownAccountException e) {
             return ResponseBo.error(e.getMessage());

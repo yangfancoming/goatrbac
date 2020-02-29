@@ -14,6 +14,8 @@ public interface RoleMapper  {
 
 	int insert(Role role);
 
+    int update(Role role);
+
 	int deleteById(Long roleId);
 
 	int deleteByIds(List<String> roleIds);

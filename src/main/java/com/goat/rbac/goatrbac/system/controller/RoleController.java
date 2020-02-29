@@ -76,4 +76,17 @@ public class RoleController extends BaseController {
         }
     }
 
+    @RequiresPermissions("role:update")
+    @RequestMapping("role/update")
+    @ResponseBody
+    public ResponseBo updateRole(Role role, Long[] menuId) {
+        try {
+            roleService.updateRole(role, menuId);
+            return ResponseBo.ok("修改角色成功！");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseBo.error("修改角色失败，请联系网站管理员！");
+        }
+    }
+
 }

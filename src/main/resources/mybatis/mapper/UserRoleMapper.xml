@@ -23,10 +23,6 @@
         </trim>)
     </insert>
 
-<!--    <delete id="deleteById">-->
-<!--        delete from t_user_role where id = #{userId}-->
-<!--    </delete>-->
-
     <select id="findUserWithRole" resultType="userWithRole" parameterType="user">
         select u.user_id userId,u.username,u.dept_id deptId,u.email,u.mobile,
                u.status,u.ssex,ur.role_id roleId from t_user u

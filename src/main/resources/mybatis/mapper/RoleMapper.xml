@@ -10,8 +10,19 @@
     <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
     <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
   </resultMap>
-  
-  <select id="findUserRole" resultMap="roleMap">
+
+    <update id="update" parameterType="role">
+        update t_role
+        <set>
+            <if test="roleName != null and roleName != ''">ROLE_NAME = #{roleName},</if>
+            <if test="remark != null and remark != ''">REMARK = #{remark},</if>
+            MODIFY_TIME = sysdate()
+        </set>
+        where ROLE_ID = #{roleId}
+    </update>
+
+
+    <select id="findUserRole" resultMap="roleMap">
   	select r.* from t_role r 
   	left join t_user_role ur on(r.role_id = ur.role_id)
 	left join t_user u on(u.user_id = ur.user_id) 

@@ -80,14 +80,14 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     @Transactional
-    public void update(User user, Long[] roles) {
+    public void update(User user, Long[] rolesIds) {
         // 更新用户
         userMapper.update(user);
         // 删除该用户下所有角色信息
         userRoleMapper.deleteById(user.getUserId());
-        // 插入该用户的所有角色信息
+        // 重新插入该用户的所有角色信息
         List<UserRole> userRoleList = new ArrayList<>(16);
-        Arrays.asList(roles).forEach(x->userRoleList.add(new UserRole(user.getUserId(),x)));
+        Arrays.asList(rolesIds).forEach(x->userRoleList.add(new UserRole(user.getUserId(),x)));
         int i = userRoleMapper.insertList(userRoleList);
         System.out.println(i);
     }
