@@ -52,9 +52,5 @@ public class UserRoleServiceImpl implements IUserRoleService {
         return userWithRole;
     }
 
-    @Override
-    public int insertList(List<UserRole> userRoleList) {
-        int i = userRoleMapper.insertList(userRoleList);
-        return i;
-    }
+
 }

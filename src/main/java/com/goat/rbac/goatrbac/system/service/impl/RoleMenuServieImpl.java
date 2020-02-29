@@ -27,11 +27,6 @@ public class RoleMenuServieImpl implements IRoleMenuServie {
         return delete;
     }
 
-    @Override
-    public int deleteByRoleIds(List<String> roleIds) {
-        int i = roleMenuMapper.deleteByRoleIds(roleIds);
-        return i;
-    }
 
     @Override
     public int deleteByMenuIds(List<String> menuIds) {
@@ -39,9 +34,4 @@ public class RoleMenuServieImpl implements IRoleMenuServie {
         return i;
     }
 
-    @Override
-    public int insertList(List<RoleMenu> roleMenuList) {
-        int i = roleMenuMapper.insertList(roleMenuList);
-        return i;
-    }
 }

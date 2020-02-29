@@ -10,6 +10,14 @@
     <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
   </resultMap>
 
+
+    <delete id="deleteByIds" parameterType="Long">
+        delete from t_dept where DEPT_ID in
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
     <select id="findDeptList" resultMap="deptMap" parameterType="dept">
         SELECT *  FROM t_dept
         WHERE 1=1
@@ -55,4 +63,6 @@
   	</foreach>
   	) ) a )
   </update>
+
+
 </mapper>

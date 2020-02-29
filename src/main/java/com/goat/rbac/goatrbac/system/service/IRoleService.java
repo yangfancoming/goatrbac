@@ -13,9 +13,6 @@ public interface IRoleService {
 
 	List<Role> findRoleList(Role role);
 
-
-	Role findByName(String roleName);
-
 	void addRole(Role role, Long[] menuIds);
 	
 	void updateRole(Role role, Long[] menuIds);
@@ -26,9 +23,7 @@ public interface IRoleService {
 
     int insert(Role role);
 
-    int deleteById(Long roleId);
 
     int deleteByIds(List<String> roleIds);
 
-    Long deleteByRoleIds(List<String> roleIds);
 }

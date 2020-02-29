@@ -20,5 +20,5 @@ public interface IDeptService {
 	
 	void updateDept(Dept dept);
 
-	void deleteDepts(String deptIds);
+	void delete(String deptIds);
 }

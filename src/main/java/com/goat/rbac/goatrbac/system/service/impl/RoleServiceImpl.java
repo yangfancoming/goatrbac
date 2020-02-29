@@ -6,7 +6,6 @@ import com.goat.rbac.goatrbac.system.dao.UserRoleMapper;
 import com.goat.rbac.goatrbac.system.model.Role;
 import com.goat.rbac.goatrbac.system.model.RoleMenu;
 import com.goat.rbac.goatrbac.system.model.RoleWithMenu;
-import com.goat.rbac.goatrbac.system.model.UserRole;
 import com.goat.rbac.goatrbac.system.service.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +28,7 @@ public class RoleServiceImpl implements IRoleService {
 
     @Autowired
     private RoleMapper roleMapper;
+
     @Autowired
     private RoleMenuMapper roleMenuMapper;
 
@@ -43,11 +43,6 @@ public class RoleServiceImpl implements IRoleService {
     @Override
     public List<Role> findRoleList(Role role) {
         return roleMapper.findRoleList(role);
-    }
-
-    @Override
-    public Role findByName(String roleName) {
-        return null;
     }
 
     @Override
@@ -112,18 +107,9 @@ public class RoleServiceImpl implements IRoleService {
     }
 
     @Override
-    public int deleteById(Long roleId) {
-        return roleMapper.deleteById(roleId);
-    }
-
-    @Override
     public int deleteByIds(List<String> roleIds) {
         int i = roleMapper.deleteByIds(roleIds);
         return i;
     }
 
-    @Override
-    public Long deleteByRoleIds(List<String> roleIds) {
-        return null;
-    }
 }

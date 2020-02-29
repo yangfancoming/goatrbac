@@ -62,4 +62,18 @@ public class DeptController {
 		}
 	}
 
+    @RequestMapping("dept/delete")
+    @ResponseBody
+    public ResponseBo delete(String ids) {
+        try {
+            deptService.delete(ids);
+            return ResponseBo.ok("删除部门成功！");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseBo.error("删除部门失败，请联系网站管理员！");
+        }
+    }
+
 }
+
+

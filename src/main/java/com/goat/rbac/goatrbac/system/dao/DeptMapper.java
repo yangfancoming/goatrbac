@@ -15,4 +15,6 @@ public interface DeptMapper  {
     List<Dept> findDeptList(Dept dept);
 
     void insert(Dept dept);
+
+    int deleteByIds(List<String> ids);
 }

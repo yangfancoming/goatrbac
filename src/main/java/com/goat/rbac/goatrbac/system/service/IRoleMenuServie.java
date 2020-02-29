@@ -15,9 +15,6 @@ public interface IRoleMenuServie {
 
     int delete(RoleMenu roleMenu);
 
-    int deleteByRoleIds(List<String> roleIds);
-
     int deleteByMenuIds(List<String> menuIds);
 
-    int insertList(List<RoleMenu> roleMenuList);
 }
