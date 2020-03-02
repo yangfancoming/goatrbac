@@ -15,6 +15,8 @@ public class MyMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/dict").setViewName("system/dict/dict");
         registry.addViewController("/menu").setViewName("system/menu/menu");
         registry.addViewController("/").setViewName("redirect:/index"); // sos  shiro退出后会请求到这里需要重定向下 否则页面报错 用户不存在。
+
+        registry.addViewController("/device").setViewName("buzz/device/device");
     }
 
 }

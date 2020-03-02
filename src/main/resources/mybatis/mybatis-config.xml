@@ -26,6 +26,7 @@
         <typeAlias alias="userWithRole" type="com.goat.rbac.goatrbac.system.model.UserWithRole"/>
         <typeAlias alias="roleMenu" type="com.goat.rbac.goatrbac.system.model.RoleMenu"/>
         <typeAlias alias="roleWithMenu" type="com.goat.rbac.goatrbac.system.model.RoleWithMenu"/>
+        <typeAlias alias="device" type="com.goat.rbac.goatrbac.buzz.model.Device"/>
     </typeAliases>
 
 </configuration>

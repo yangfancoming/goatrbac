@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.goat.rbac.goatrbac.buzz.dao.DeviceMapper">
+
+  <resultMap id="deviceMap" type="com.goat.rbac.goatrbac.buzz.model.Device">
+      <result column="DEVICE_ID" jdbcType="DECIMAL" property="deviceId" />
+      <result column="DEVICE_NAME" jdbcType="VARCHAR" property="deviceName" />
+      <result column="DEVICE_CODE" jdbcType="VARCHAR" property="deviceCode" />
+      <result column="DEVICE_IP" jdbcType="VARCHAR" property="ip" />
+      <result column="DEVICE_PORT" jdbcType="VARCHAR" property="port" />
+      <result column="REGISTER_TIME" jdbcType="TIMESTAMP" property="registerTime" />
+      <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+
+    <insert id="insert" parameterType="role" useGeneratedKeys="true" keyProperty="deviceId">
+        INSERT INTO t_device (
+        <trim suffix="" suffixOverrides=",">
+            <if test="deviceName!=null and deviceName!='' ">DEVICE_NAME, </if>
+            <if test="deviceCode!=null and deviceCode!='' ">DEVICE_CODE, </if>
+            <if test="ip!=null and ip!='' ">DEVICE_IP, </if>
+            <if test="port!=null and port!='' ">DEVICE_PORT, </if>
+            <if test="createTime!=null  ">DEVICE_PORT, </if>
+            <if test="registerTime!=null  ">REGISTER_TIME, </if>
+        </trim>)
+        VALUES (
+        <trim suffix="" suffixOverrides=",">
+            <if test="deviceName!=null and deviceName!='' ">#{deviceName}, </if>
+            <if test="deviceCode!=null and deviceCode!='' ">#{deviceCode}, </if>
+            <if test="ip!=null and ip!='' ">#{ip}, </if>
+            <if test="port!=null and port!='' ">#{port}, </if>
+            <if test="createTime!=null ">#{createTime}, </if>
+            <if test="registerTime!=null ">#{registerTime}, </if>
+        </trim>)
+    </insert>
+
+<!--    <update id="update" parameterType="device">-->
+<!--        update t_role-->
+<!--        <set>-->
+<!--            <if test="roleName != null and roleName != ''">ROLE_NAME = #{roleName},</if>-->
+<!--            <if test="remark != null and remark != ''">REMARK = #{remark},</if>-->
+<!--            MODIFY_TIME = sysdate()-->
+<!--        </set>-->
+<!--        where ROLE_ID = #{roleId}-->
+<!--    </update>-->
+
+
+<!--    <select id="findUserRole" resultMap="roleMap">-->
+<!--        select r.* from t_role r-->
+<!--                            left join t_user_role ur on(r.role_id = ur.role_id)-->
+<!--                            left join t_user u on(u.user_id = ur.user_id)-->
+<!--        where u.username = #{userName}-->
+<!--  </select>-->
+
+
+<!--    <select id="findRoleList" resultMap="roleMap" parameterType="device">-->
+<!--        SELECT *  FROM t_role WHERE 1=1-->
+<!--        <if test="roleId !=null and roleId != ''">-->
+<!--            AND roleId = #{roleId}-->
+<!--        </if>-->
+<!--        <if test="roleName !=null and roleName != ''">-->
+<!--            AND roleName = #{roleName}-->
+<!--        </if>-->
+<!--        <if test="remark !=null and remark != ''">-->
+<!--            AND remark like concat('%', #{remark}, '%')-->
+<!--        </if>-->
+<!--    </select>-->
+
+
+
+
+        <delete id="deleteById" parameterType="Long">
+            delete from t_device where DEVICE_ID = #{deviceId}
+        </delete>
+
+    <delete id="deleteByIds" parameterType="Long">
+        delete from t_device where DEVICE_ID in
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+
+</mapper>
