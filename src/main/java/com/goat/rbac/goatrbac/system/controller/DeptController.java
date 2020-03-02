@@ -20,11 +20,6 @@ public class DeptController {
 	@Autowired
 	private IDeptService deptService;
 
-	@RequestMapping("dept")
-	public String index() {
-		return "system/dept/dept";
-	}
-
 	@RequestMapping("dept/list")
 	@ResponseBody
 	public List<Dept> deptList(Dept dept) {

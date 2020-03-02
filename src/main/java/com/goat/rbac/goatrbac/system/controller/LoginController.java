@@ -26,19 +26,12 @@ public class LoginController extends BaseController {
     @Autowired
     private IUserService userService;
 
-    // sos  shiro退出后会请求到这里需要重定向下 否则页面报错 用户不存在。
-    @RequestMapping("/")
-    public String redirectIndex() {
-        return "redirect:/index";
-    }
-
     @GetMapping("/login")
     public String login() {
-        System.out.println("wagaga11111111");
         return "login";
     }
 
-    @RequestMapping("/index")
+    @GetMapping("/index")
     public String index(Model model) {
         User user = super.getCurrentUser();
         model.addAttribute("user", user);

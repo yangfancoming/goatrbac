@@ -23,11 +23,6 @@ public class DictController extends BaseController {
 	@Autowired
 	private IDictService dictService;
 
-    @RequestMapping("dict")
-    public String index() {
-        return "system/dict/dict";
-    }
-
     @RequestMapping("dict/list")
     @ResponseBody
     public Map<String, Object> dictList(QueryRequest request, Dict dict) {

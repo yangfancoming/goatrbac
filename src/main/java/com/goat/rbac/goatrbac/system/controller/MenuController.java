@@ -47,11 +47,6 @@ public class MenuController extends BaseController {
         }
     }
 
-    @RequestMapping("menu")
-    public String index() {
-        return "system/menu/menu";
-    }
-
     @RequestMapping("menu/tree")
     @ResponseBody
     public ResponseBo getMenuTree() {

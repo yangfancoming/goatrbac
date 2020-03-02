@@ -117,33 +117,34 @@
 
 	});
 
-	// function loadMain(obj) {
-	//     var $this = $(obj);
-	//     $(".navigation").find("span").removeClass("navigation__active");
-	//     $this.addClass("navigation__active").parents("ul").prev().addClass("navigation__active");
-    //
-	//     var breadcrumnHtml = "";
-	//     var target_text = $this.text();
-	//     var text_arr = new Array();
-	//     var parent = $this.parents("ul").prev().each(function() {
-	//         var $this = $(this);
-	//         text_arr.unshift($this.text());
-	//     });
-	//     for (var i = 0; i < text_arr.length; i++) {
-	//         breadcrumnHtml += '<li class="breadcrumb-item">' + text_arr[i] + '</li>';
-	//     }
-	//     breadcrumnHtml += '<li class="breadcrumb-item">' + target_text + '</li>';
-	//     $breadcrumb.html("").append(breadcrumnHtml);
-    //
-	//     var $name = $this.attr("name");
-	//     $.post(ctx + $name, {}, function(r) {
-	//         if (r.indexOf('账户登录') != -1) {
-	//             location = location;
-	//             return;
-	//         }
-	//         $main_content.html("").append(r);
-	//     });
-	// }
+	function loadMain(obj) {
+	    var $this = $(obj);
+	    $(".navigation").find("span").removeClass("navigation__active");
+	    $this.addClass("navigation__active").parents("ul").prev().addClass("navigation__active");
+
+	    var breadcrumnHtml = "";
+	    var target_text = $this.text();
+	    var text_arr = new Array();
+	    var parent = $this.parents("ul").prev().each(function() {
+	        var $this = $(this);
+	        text_arr.unshift($this.text());
+	    });
+	    for (var i = 0; i < text_arr.length; i++) {
+	        breadcrumnHtml += '<li class="breadcrumb-item">' + text_arr[i] + '</li>';
+	    }
+	    breadcrumnHtml += '<li class="breadcrumb-item">' + target_text + '</li>';
+	    $breadcrumb.html("").append(breadcrumnHtml);
+
+	    var $name = $this.attr("name");
+        // 点击左侧菜单后 显示右侧内容
+	    $.get(ctx + $name, {}, function(r) {
+	        if (r.indexOf('账户登录') != -1) {
+	            location = location;
+	            return;
+	        }
+	        $main_content.html("").append(r);
+	    });
+	}
 
 	function fullScreen(obj) {
 	    var $this = $(obj);
