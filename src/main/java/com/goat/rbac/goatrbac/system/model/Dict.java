@@ -9,7 +9,7 @@ public class Dict implements Serializable{
 
 	private Long dictId;
 
-	private String key;
+	private String keyy;
 
 	private String value;
 
@@ -26,15 +26,15 @@ public class Dict implements Serializable{
 		this.dictId = dictId;
 	}
 
-	public String getKey() {
-		return key;
-	}
+    public String getKeyy() {
+        return keyy;
+    }
 
-	public void setKey(String key) {
-		this.key = key;
-	}
+    public void setKeyy(String keyy) {
+        this.keyy = keyy;
+    }
 
-	public String getValue() {
+    public String getValue() {
 		return value;
 	}
 

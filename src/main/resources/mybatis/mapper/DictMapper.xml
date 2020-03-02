@@ -5,14 +5,14 @@
 
   <resultMap id="dictMap" type="com.goat.rbac.goatrbac.system.model.Dict">
     <id column="DICT_ID" jdbcType="DECIMAL" property="dictId" />
-    <result column="KEY" jdbcType="DECIMAL" property="key" />
+    <result column="KEYY" jdbcType="DECIMAL" property="keyy" />
     <result column="VALUE" jdbcType="VARCHAR" property="value" />
     <result column="FIELD_NAME" jdbcType="VARCHAR" property="fieldName" />
     <result column="TABLE_NAME" jdbcType="VARCHAR" property="tableName" />
   </resultMap>
 
     <insert id="insert" parameterType="dict" >
-        insert into t_dict (KEY, VALUE,FIELD_NAME,TABLE_NAME) values(#{key},#{value},#{fieldName},#{tableName})
+        insert into t_dict (KEYY, VALUE,FIELD_NAME,TABLE_NAME) values(#{keyy},#{value},#{fieldName},#{tableName})
     </insert>
 
 
@@ -22,8 +22,8 @@
         <if test="dictId !=null and dictId != ''">
             AND dictId = #{dictId}
         </if>
-         <if test="key !=null and key != ''">
-            AND key = #{key}
+         <if test="keyy !=null and keyy != ''">
+            AND KEYY = #{keyy}
         </if>
         <if test="value !=null and value != ''">
             AND value = #{value}
@@ -34,9 +34,6 @@
         <if test="tableName !=null and tableName != ''">
             AND tableName = #{tableName}
         </if>
-<!--        <if test="phone !=null and phone != ''">-->
-<!--            AND phone like concat('%', #{phone}, '%')-->
-<!--        </if>-->
     </select>
 
 </mapper>
