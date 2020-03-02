@@ -31,8 +31,7 @@ public class UserController extends BaseController {
 
     @RequestMapping("user")
     public String index(Model model) {
-        User user = getCurrentUser();
-        model.addAttribute("user", user);
+        model.addAttribute("user", getCurrentUser());
         return "system/user/user";
     }
 
@@ -57,8 +56,7 @@ public class UserController extends BaseController {
     @RequestMapping("user/delete")
     @ResponseBody
     public ResponseBo deleteByIds(String ids) {
-        String[] split = ids.split(",");
-        userService.deleteByIds(split);
+        userService.deleteByIds(ids.split(","));
         return ResponseBo.ok("删除用户成功！");
     }
 

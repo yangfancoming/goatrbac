@@ -32,8 +32,7 @@ public class LoginController extends BaseController {
 
     @GetMapping("/index")
     public String index(Model model) {
-        User user = super.getCurrentUser();
-        model.addAttribute("user", user);
+        model.addAttribute("user", getCurrentUser());
         return "index";
     }
 
