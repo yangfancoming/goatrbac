@@ -11,20 +11,20 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 
-@Controller
+@RestController
 public class MenuController extends BaseController {
 
 	@Autowired
 	private IMenuService menuService;
 
     @PostMapping("menu/getUserMenu")
-    @ResponseBody
     public ResponseBo getUserMenu(String userName) {
         try {
             Tree<Menu> tree = menuService.getUserMenu(userName);
@@ -36,7 +36,6 @@ public class MenuController extends BaseController {
     }
 
     @RequestMapping("menu/menuButtonTree")
-    @ResponseBody
     public ResponseBo getMenuButtonTree() {
         try {
             Tree<Menu> tree = menuService.getMenu(null);
@@ -48,7 +47,6 @@ public class MenuController extends BaseController {
     }
 
     @RequestMapping("menu/tree")
-    @ResponseBody
     public ResponseBo getMenuTree() {
         try {
             Tree<Menu> tree = menuService.getMenu(new Menu("0"));
@@ -60,7 +58,6 @@ public class MenuController extends BaseController {
     }
 
     @RequestMapping("menu/list")
-    @ResponseBody
     public List<Menu> menuList(Menu menu) {
         try {
             return menuService.findMenuList(menu);
@@ -71,7 +68,6 @@ public class MenuController extends BaseController {
     }
 
     @RequestMapping("menu/getMenu")
-    @ResponseBody
     public ResponseBo getMenu(Long menuId) {
         try {
             Menu menu = menuService.findMenuList(new Menu(menuId)).get(0);
@@ -83,7 +79,6 @@ public class MenuController extends BaseController {
     }
 
     @RequestMapping("menu/add")
-    @ResponseBody
     public ResponseBo addMenu(Menu menu) {
         String name;
         if (Menu.TYPE_MENU.equals(menu.getType()))
@@ -101,7 +96,6 @@ public class MenuController extends BaseController {
     }
 
     @RequestMapping("menu/checkMenuName")
-    @ResponseBody
     public boolean checkMenuName(String menuName, String type, String oldMenuName) {
         if (!StringUtils.isEmpty(oldMenuName) && menuName.equalsIgnoreCase(oldMenuName)) {
             return true;
@@ -113,7 +107,6 @@ public class MenuController extends BaseController {
     }
 
     @RequestMapping("menu/delete")
-    @ResponseBody
     public ResponseBo deleteMenus(String ids) {
         try {
             List<String> split = Arrays.asList(ids.split(","));
@@ -126,7 +119,6 @@ public class MenuController extends BaseController {
     }
 
     @RequestMapping("menu/update")
-    @ResponseBody
     public ResponseBo updateMenu(Menu menu) {
         String name;
         if (Menu.TYPE_MENU.equals(menu.getType()))

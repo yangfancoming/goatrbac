@@ -8,21 +8,20 @@ import com.goat.rbac.goatrbac.system.model.ResponseBo;
 import com.goat.rbac.goatrbac.system.model.Role;
 import com.goat.rbac.goatrbac.system.service.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Map;
 
-@Controller
+@RestController
 public class RoleController extends BaseController {
 
 	@Autowired
 	private IRoleService roleService;
 
 	@RequestMapping("role/list")
-	@ResponseBody
 	public Map<String, Object> roleList(QueryRequest request, Role role) {
 		PageHelper.startPage(request.getPageNum(), request.getPageSize());
 		List<Role> list = roleService.findRoleList(role);
@@ -31,7 +30,6 @@ public class RoleController extends BaseController {
 	}
 
     @RequestMapping("role/getRole")
-    @ResponseBody
     public ResponseBo getRole(Long roleId) {
         try {
             Role role = roleService.findRoleWithMenus(roleId);
@@ -43,7 +41,6 @@ public class RoleController extends BaseController {
     }
 
     @RequestMapping("role/add")
-    @ResponseBody
     public ResponseBo addRole(Role role, Long[] menuId) {
         try {
             roleService.addRole(role, menuId);
@@ -67,7 +64,6 @@ public class RoleController extends BaseController {
     }
 
     @RequestMapping("role/update")
-    @ResponseBody
     public ResponseBo updateRole(Role role, Long[] menuId) {
         try {
             roleService.updateRole(role, menuId);

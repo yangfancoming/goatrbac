@@ -9,19 +9,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 import java.util.List;
 
 
-@Controller
+@RestController
 public class DeptController {
 
 	@Autowired
 	private IDeptService deptService;
 
 	@RequestMapping("dept/list")
-	@ResponseBody
 	public List<Dept> deptList(Dept dept) {
 		try {
 			return deptService.find(dept);
@@ -32,7 +32,6 @@ public class DeptController {
 	}
 
     @RequestMapping("dept/tree")
-    @ResponseBody
     public ResponseBo getDeptTree() {
         try {
             Tree<Dept> tree = deptService.getDeptTree();
@@ -44,7 +43,6 @@ public class DeptController {
     }
 
 	@RequestMapping("dept/add")
-	@ResponseBody
 	public ResponseBo addDept(Dept dept) {
 		try {
             if (dept.getParentId() == null) dept.setParentId(0l);
@@ -58,7 +56,6 @@ public class DeptController {
 	}
 
     @RequestMapping("dept/delete")
-    @ResponseBody
     public ResponseBo delete(String ids) {
         try {
             deptService.delete(ids);
@@ -70,7 +67,6 @@ public class DeptController {
     }
 
     @RequestMapping("dept/getDept")
-    @ResponseBody
     public ResponseBo getDept(Long deptId) {
         try {
             List<Dept> depts = deptService.find(new Dept(deptId));
