@@ -31,47 +31,27 @@ public class RoleController extends BaseController {
 
     @RequestMapping("role/getRole")
     public ResponseBo getRole(Long roleId) {
-        try {
-            Role role = roleService.findRoleWithMenus(roleId);
-            return ResponseBo.ok(role);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseBo.error("获取角色信息失败，请联系网站管理员！");
-        }
+        Role role = roleService.findRoleWithMenus(roleId);
+        return ResponseBo.ok(role);
     }
 
     @RequestMapping("role/add")
     public ResponseBo addRole(Role role, Long[] menuId) {
-        try {
-            roleService.addRole(role, menuId);
-            return ResponseBo.ok("新增角色成功！");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseBo.error("新增角色失败，请联系网站管理员！");
-        }
+        roleService.addRole(role, menuId);
+        return ResponseBo.ok("新增角色成功！");
     }
 
     @RequestMapping("role/delete")
     @ResponseBody
     public ResponseBo deleteRoles(String ids) {
-        try {
-            this.roleService.deleteRoles(ids);
-            return ResponseBo.ok("删除角色成功！");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseBo.error("删除角色失败，请联系网站管理员！");
-        }
+        this.roleService.deleteRoles(ids);
+        return ResponseBo.ok("删除角色成功！");
     }
 
     @RequestMapping("role/update")
     public ResponseBo updateRole(Role role, Long[] menuId) {
-        try {
-            roleService.updateRole(role, menuId);
-            return ResponseBo.ok("修改角色成功！");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseBo.error("修改角色失败，请联系网站管理员！");
-        }
+        roleService.updateRole(role, menuId);
+        return ResponseBo.ok("修改角色成功！");
     }
 
 }

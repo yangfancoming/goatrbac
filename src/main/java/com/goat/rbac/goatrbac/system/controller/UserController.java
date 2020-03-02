@@ -9,7 +9,6 @@ import com.goat.rbac.goatrbac.system.model.User;
 import com.goat.rbac.goatrbac.system.model.UserWithRole;
 import com.goat.rbac.goatrbac.system.service.IUserRoleService;
 import com.goat.rbac.goatrbac.system.service.IUserService;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,56 +48,36 @@ public class UserController extends BaseController {
     @PostMapping("user/add")
     @ResponseBody
     public ResponseBo addUser(User user, Long[] roles) {
-        try {
-            String status = "on".equalsIgnoreCase(user.getStatus())?"1":"0";
-            user.setStatus(status);
-            userService.addUser(user, roles);
-            return ResponseBo.ok("新增用户成功！");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseBo.error("新增用户失败，请联系网站管理员！");
-        }
+        String status = "on".equalsIgnoreCase(user.getStatus())?"1":"0";
+        user.setStatus(status);
+        userService.addUser(user, roles);
+        return ResponseBo.ok("新增用户成功！");
     }
 
     @RequestMapping("user/delete")
     @ResponseBody
     public ResponseBo deleteByIds(String ids) {
-        try {
-            String[] split = ids.split(",");
-            userService.deleteByIds(split);
-            return ResponseBo.ok("删除用户成功！");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseBo.error("删除用户失败，请联系网站管理员！");
-        }
+        String[] split = ids.split(",");
+        userService.deleteByIds(split);
+        return ResponseBo.ok("删除用户成功！");
     }
 
     @RequestMapping("user/getUser")
     @ResponseBody
     public ResponseBo getUser(Long userId) {
-        try {
-            UserWithRole userWithRole = userRoleService.findUserWithRole(new User(userId));
-            return ResponseBo.ok(userWithRole);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseBo.error("获取用户信息失败，请联系网站管理员！");
-        }
+        UserWithRole userWithRole = userRoleService.findUserWithRole(new User(userId));
+        return ResponseBo.ok(userWithRole);
     }
 
     @RequestMapping("user/update")
     @ResponseBody
     public ResponseBo updateUser(User user, Long[] rolesSelect) {
-        try {
-            if ("on".equalsIgnoreCase(user.getStatus()))
-                user.setStatus("1");
-            else
-                user.setStatus("0");
-            userService.update(user, rolesSelect);
-            return ResponseBo.ok("修改用户成功！");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseBo.error("修改用户失败，请联系网站管理员！");
-        }
+        if ("on".equalsIgnoreCase(user.getStatus()))
+            user.setStatus("1");
+        else
+            user.setStatus("0");
+        userService.update(user, rolesSelect);
+        return ResponseBo.ok("修改用户成功！");
     }
 
 

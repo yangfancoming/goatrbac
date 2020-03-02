@@ -27,7 +27,7 @@ public class DictServiceImpl implements IDictService {
 
 	@Override
 	public void deleteDicts(String dictIds) {
-
+	    throw new RuntimeException("123");
 	}
 
 	@Override

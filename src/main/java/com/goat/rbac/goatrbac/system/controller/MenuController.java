@@ -6,11 +6,9 @@ import com.goat.rbac.goatrbac.system.model.ResponseBo;
 import com.goat.rbac.goatrbac.system.model.Tree;
 import com.goat.rbac.goatrbac.system.service.IMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
@@ -26,56 +24,31 @@ public class MenuController extends BaseController {
 
     @PostMapping("menu/getUserMenu")
     public ResponseBo getUserMenu(String userName) {
-        try {
-            Tree<Menu> tree = menuService.getUserMenu(userName);
-            return ResponseBo.ok(tree);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseBo.error("获取用户菜单失败！");
-        }
+        Tree<Menu> tree = menuService.getUserMenu(userName);
+        return ResponseBo.ok(tree);
     }
 
     @RequestMapping("menu/menuButtonTree")
     public ResponseBo getMenuButtonTree() {
-        try {
-            Tree<Menu> tree = menuService.getMenu(null);
-            return ResponseBo.ok(tree);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseBo.error("获取菜单列表失败！");
-        }
+        Tree<Menu> tree = menuService.getMenu(null);
+        return ResponseBo.ok(tree);
     }
 
     @RequestMapping("menu/tree")
     public ResponseBo getMenuTree() {
-        try {
-            Tree<Menu> tree = menuService.getMenu(new Menu("0"));
-            return ResponseBo.ok(tree);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseBo.error("获取菜单列表失败！");
-        }
+        Tree<Menu> tree = menuService.getMenu(new Menu("0"));
+        return ResponseBo.ok(tree);
     }
 
     @RequestMapping("menu/list")
     public List<Menu> menuList(Menu menu) {
-        try {
-            return menuService.findMenuList(menu);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+        return menuService.findMenuList(menu);
     }
 
     @RequestMapping("menu/getMenu")
     public ResponseBo getMenu(Long menuId) {
-        try {
-            Menu menu = menuService.findMenuList(new Menu(menuId)).get(0);
-            return ResponseBo.ok(menu);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseBo.error("获取信息失败，请联系网站管理员！");
-        }
+        Menu menu = menuService.findMenuList(new Menu(menuId)).get(0);
+        return ResponseBo.ok(menu);
     }
 
     @RequestMapping("menu/add")
@@ -85,14 +58,9 @@ public class MenuController extends BaseController {
             name = "菜单";
         else
             name = "按钮";
-        try {
-            menu.setCreateTime(new Date());
-            menuService.insert(menu);
-            return ResponseBo.ok("新增" + name + "成功！");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseBo.error("新增" + name + "失败，请联系网站管理员！");
-        }
+        menu.setCreateTime(new Date());
+        menuService.insert(menu);
+        return ResponseBo.ok("新增" + name + "成功！");
     }
 
     @RequestMapping("menu/checkMenuName")
@@ -108,14 +76,9 @@ public class MenuController extends BaseController {
 
     @RequestMapping("menu/delete")
     public ResponseBo deleteMenus(String ids) {
-        try {
-            List<String> split = Arrays.asList(ids.split(","));
-            menuService.deleteByIds(split);
-            return ResponseBo.ok("删除成功！");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseBo.error("删除失败，请联系网站管理员！");
-        }
+        List<String> split = Arrays.asList(ids.split(","));
+        menuService.deleteByIds(split);
+        return ResponseBo.ok("删除成功！");
     }
 
     @RequestMapping("menu/update")
@@ -125,12 +88,7 @@ public class MenuController extends BaseController {
             name = "菜单";
         else
             name = "按钮";
-        try {
-            menuService.update(menu);
-            return ResponseBo.ok("修改" + name + "成功！");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseBo.error("修改" + name + "失败，请联系网站管理员！");
-        }
+        menuService.update(menu);
+        return ResponseBo.ok("修改" + name + "成功！");
     }
 }

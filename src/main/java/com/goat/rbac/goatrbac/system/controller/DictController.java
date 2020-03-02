@@ -30,15 +30,15 @@ public class DictController extends BaseController {
         return getDataTable(pageInfo);
     }
 
-
     @PostMapping("dict/add")
     public ResponseBo addDict(Dict dict) {
-        try {
-            dictService.addDict(dict);
-            return ResponseBo.ok("新增字典成功！");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseBo.error("新增字典失败，请联系网站管理员！");
-        }
+        dictService.addDict(dict);
+        return ResponseBo.ok("新增字典成功！");
+    }
+
+    @RequestMapping("dict/delete")
+    public ResponseBo delete(String ids) {
+        dictService.deleteDicts(ids);
+        return ResponseBo.ok("删除字典成功！");
     }
 }
