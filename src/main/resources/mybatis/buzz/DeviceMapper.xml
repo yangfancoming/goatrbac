@@ -34,7 +34,7 @@
             <if test="deviceCode!=null and deviceCode!='' ">DEVICE_CODE, </if>
             <if test="ip!=null and ip!='' ">DEVICE_IP, </if>
             <if test="port!=null and port!='' ">DEVICE_PORT, </if>
-            <if test="createTime!=null  ">DEVICE_PORT, </if>
+            <if test="createTime!=null  ">CREATE_TIME, </if>
             <if test="registerTime!=null  ">REGISTER_TIME, </if>
         </trim>)
         VALUES (

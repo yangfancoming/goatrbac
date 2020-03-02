@@ -17,7 +17,7 @@
 
 
     <select id="findDictList" resultMap="dictMap" parameterType="dict">
-        SELECT *  FROM t_dict
+        SELECT  *  FROM t_dict
         WHERE 1=1
         <if test="dictId !=null and dictId != ''">
             AND dictId = #{dictId}

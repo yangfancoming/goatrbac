@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("role")
+@RequestMapping("user")
 public class UserController extends BaseController {
 
     @Autowired
@@ -29,12 +29,6 @@ public class UserController extends BaseController {
 
     @Autowired
     private IUserRoleService userRoleService;
-
-    @RequestMapping("user")
-    public String index(Model model) {
-        model.addAttribute("user", getCurrentUser());
-        return "system/user/user";
-    }
 
     @RequestMapping("list")
     @ResponseBody
