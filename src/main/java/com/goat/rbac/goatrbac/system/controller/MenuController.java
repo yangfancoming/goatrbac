@@ -130,4 +130,21 @@ public class MenuController extends BaseController {
             return ResponseBo.error("删除失败，请联系网站管理员！");
         }
     }
+
+    @RequestMapping("menu/update")
+    @ResponseBody
+    public ResponseBo updateMenu(Menu menu) {
+        String name;
+        if (Menu.TYPE_MENU.equals(menu.getType()))
+            name = "菜单";
+        else
+            name = "按钮";
+        try {
+            menuService.update(menu);
+            return ResponseBo.ok("修改" + name + "成功！");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseBo.error("修改" + name + "失败，请联系网站管理员！");
+        }
+    }
 }

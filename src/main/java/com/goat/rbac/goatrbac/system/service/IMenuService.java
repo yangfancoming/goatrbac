@@ -22,7 +22,9 @@ public interface IMenuService {
 
 	Menu findByNameAndType(String menuName, String type);
 
-	void insert(Menu menu);
+    int insert(Menu menu);
+
+    int update(Menu menu);
 
 	void updateMenu(Menu menu);
 	

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -73,9 +74,17 @@ public class MenuServiceImpl implements IMenuService {
     }
 
     @Override
-    public void insert(Menu menu) {
+    public int insert(Menu menu) {
+        menu.setCreateTime(new Date());
+        if (menu.getParentId() == null) menu.setParentId(0L);
         int insert = menuMapper.insert(menu);
-        System.out.println(insert);
+        return insert;
+    }
+
+    @Override
+    public int update(Menu menu) {
+        int update = menuMapper.update(menu);
+        return update;
     }
 
     @Override

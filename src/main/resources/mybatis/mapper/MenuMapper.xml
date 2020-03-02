@@ -68,7 +68,7 @@
     <insert id="insert" parameterType="menu" useGeneratedKeys="true" keyProperty="menuId">
         INSERT INTO t_menu (
         <trim suffix="" suffixOverrides=",">
-            <if test="parentId!=null and parentId!='' ">PARENT_ID, </if>
+            <if test="parentId!=null and parentId!='' or parentId==0 ">PARENT_ID, </if>
             <if test="menuName!=null and menuName!='' ">MENU_NAME, </if>
             <if test="url!=null and url!='' ">URL, </if>
             <if test="perms!=null and perms!='' ">PERMS, </if>
@@ -80,7 +80,7 @@
         </trim>)
         VALUES (
         <trim suffix="" suffixOverrides=",">
-            <if test="parentId!=null and parentId!='' ">#{parentId}, </if>
+            <if test="parentId!=null and parentId!='' or parentId==0 ">#{parentId}, </if>
             <if test="menuName!=null and menuName!=''">#{menuName}, </if>
             <if test="url!=null and url!=''">#{url}, </if>
             <if test="perms!=null and perms!=''">#{perms}, </if>
@@ -99,4 +99,20 @@
             #{item}
         </foreach>
     </delete>
+
+
+    <update id="update" parameterType="menu">
+        update t_menu
+        <set>
+            <if test="parentId!=null and parentId!='' or parentId==0 ">PARENT_ID = #{parentId}, </if>
+            <if test="menuName != null and menuName != ''">MENU_NAME = #{menuName},</if>
+            <if test="url != null and url != ''">URL = #{url},</if>
+            <if test="perms != null and perms != ''">PERMS = #{perms},</if>
+            <if test="icon != null and icon != ''">ICON = #{icon},</if>
+            <if test="type != null and type != ''">TYPE = #{type},</if>
+            MODIFY_TIME = sysdate()
+        </set>
+        where MENU_ID = #{menuId}
+    </update>
+
 </mapper>

@@ -1,7 +1,6 @@
 package com.goat.rbac.goatrbac.system.dao;
 
 
-
 import com.goat.rbac.goatrbac.system.model.Menu;
 
 import java.util.List;
@@ -18,6 +17,8 @@ public interface MenuMapper {
 	void changeToTop(List<String> menuIds);
 
 	int insert(Menu menu);
+
+    int update(Menu user);
 
     int deleteByIds(List<String> menuIds);
 }
