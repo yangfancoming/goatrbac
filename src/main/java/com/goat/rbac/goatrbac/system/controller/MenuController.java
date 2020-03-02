@@ -5,7 +5,6 @@ import com.goat.rbac.goatrbac.system.model.Menu;
 import com.goat.rbac.goatrbac.system.model.ResponseBo;
 import com.goat.rbac.goatrbac.system.model.Tree;
 import com.goat.rbac.goatrbac.system.service.IMenuService;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
