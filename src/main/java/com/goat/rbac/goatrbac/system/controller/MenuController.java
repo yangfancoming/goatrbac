@@ -17,41 +17,42 @@ import java.util.List;
 
 
 @RestController
+@RequestMapping("menu")
 public class MenuController extends BaseController {
 
 	@Autowired
 	private IMenuService menuService;
 
-    @PostMapping("menu/getUserMenu")
+    @PostMapping("getUserMenu")
     public ResponseBo getUserMenu(String userName) {
         Tree<Menu> tree = menuService.getUserMenu(userName);
         return ResponseBo.ok(tree);
     }
 
-    @RequestMapping("menu/menuButtonTree")
+    @RequestMapping("menuButtonTree")
     public ResponseBo getMenuButtonTree() {
         Tree<Menu> tree = menuService.getMenu(null);
         return ResponseBo.ok(tree);
     }
 
-    @RequestMapping("menu/tree")
+    @RequestMapping("tree")
     public ResponseBo getMenuTree() {
         Tree<Menu> tree = menuService.getMenu(new Menu("0"));
         return ResponseBo.ok(tree);
     }
 
-    @RequestMapping("menu/list")
+    @RequestMapping("list")
     public List<Menu> menuList(Menu menu) {
         return menuService.findMenuList(menu);
     }
 
-    @RequestMapping("menu/getMenu")
+    @RequestMapping("getMenu")
     public ResponseBo getMenu(Long menuId) {
         Menu menu = menuService.findMenuList(new Menu(menuId)).get(0);
         return ResponseBo.ok(menu);
     }
 
-    @RequestMapping("menu/add")
+    @RequestMapping("add")
     public ResponseBo addMenu(Menu menu) {
         String name;
         if (Menu.TYPE_MENU.equals(menu.getType()))
@@ -63,7 +64,7 @@ public class MenuController extends BaseController {
         return ResponseBo.ok("新增" + name + "成功！");
     }
 
-    @RequestMapping("menu/checkMenuName")
+    @RequestMapping("checkMenuName")
     public boolean checkMenuName(String menuName, String type, String oldMenuName) {
         if (!StringUtils.isEmpty(oldMenuName) && menuName.equalsIgnoreCase(oldMenuName)) {
             return true;
@@ -74,14 +75,14 @@ public class MenuController extends BaseController {
         return true;
     }
 
-    @RequestMapping("menu/delete")
+    @RequestMapping("delete")
     public ResponseBo deleteMenus(String ids) {
         List<String> split = Arrays.asList(ids.split(","));
         menuService.deleteByIds(split);
         return ResponseBo.ok("删除成功！");
     }
 
-    @RequestMapping("menu/update")
+    @RequestMapping("update")
     public ResponseBo updateMenu(Menu menu) {
         String name;
         if (Menu.TYPE_MENU.equals(menu.getType()))

@@ -17,12 +17,13 @@ import java.util.Map;
 
 
 @RestController
+@RequestMapping("dict")
 public class DictController extends BaseController {
 
 	@Autowired
 	private IDictService dictService;
 
-    @RequestMapping("dict/list")
+    @RequestMapping("list")
     public Map<String, Object> dictList(QueryRequest request, Dict dict) {
         PageHelper.startPage(request.getPageNum(), request.getPageSize());
         List<Dict> list = dictService.findAllDicts(dict);
@@ -30,13 +31,13 @@ public class DictController extends BaseController {
         return getDataTable(pageInfo);
     }
 
-    @PostMapping("dict/add")
+    @PostMapping("add")
     public ResponseBo addDict(Dict dict) {
         dictService.addDict(dict);
         return ResponseBo.ok("新增字典成功！");
     }
 
-    @RequestMapping("dict/delete")
+    @RequestMapping("delete")
     public ResponseBo delete(String ids) {
         dictService.deleteDicts(ids);
         return ResponseBo.ok("删除字典成功！");

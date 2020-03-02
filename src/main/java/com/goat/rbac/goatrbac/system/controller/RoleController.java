@@ -16,12 +16,13 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@RequestMapping("role")
 public class RoleController extends BaseController {
 
 	@Autowired
 	private IRoleService roleService;
 
-	@RequestMapping("role/list")
+	@RequestMapping("list")
 	public Map<String, Object> roleList(QueryRequest request, Role role) {
 		PageHelper.startPage(request.getPageNum(), request.getPageSize());
 		List<Role> list = roleService.findRoleList(role);
@@ -29,26 +30,26 @@ public class RoleController extends BaseController {
 		return getDataTable(pageInfo);
 	}
 
-    @RequestMapping("role/getRole")
+    @RequestMapping("getRole")
     public ResponseBo getRole(Long roleId) {
         Role role = roleService.findRoleWithMenus(roleId);
         return ResponseBo.ok(role);
     }
 
-    @RequestMapping("role/add")
+    @RequestMapping("add")
     public ResponseBo addRole(Role role, Long[] menuId) {
         roleService.addRole(role, menuId);
         return ResponseBo.ok("新增角色成功！");
     }
 
-    @RequestMapping("role/delete")
+    @RequestMapping("delete")
     @ResponseBody
     public ResponseBo deleteRoles(String ids) {
         this.roleService.deleteRoles(ids);
         return ResponseBo.ok("删除角色成功！");
     }
 
-    @RequestMapping("role/update")
+    @RequestMapping("update")
     public ResponseBo updateRole(Role role, Long[] menuId) {
         roleService.updateRole(role, menuId);
         return ResponseBo.ok("修改角色成功！");

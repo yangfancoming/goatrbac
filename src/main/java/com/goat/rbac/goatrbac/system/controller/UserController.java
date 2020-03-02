@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
+@RequestMapping("role")
 public class UserController extends BaseController {
 
     @Autowired
@@ -35,7 +36,7 @@ public class UserController extends BaseController {
         return "system/user/user";
     }
 
-    @RequestMapping("user/list")
+    @RequestMapping("list")
     @ResponseBody
     public Map<String, Object> userList(QueryRequest request, User user) {
         PageHelper.startPage(request.getPageNum(), request.getPageSize());
@@ -44,7 +45,7 @@ public class UserController extends BaseController {
         return getDataTable(pageInfo);
     }
 
-    @PostMapping("user/add")
+    @PostMapping("add")
     @ResponseBody
     public ResponseBo addUser(User user, Long[] roles) {
         String status = "on".equalsIgnoreCase(user.getStatus())?"1":"0";
@@ -53,21 +54,21 @@ public class UserController extends BaseController {
         return ResponseBo.ok("新增用户成功！");
     }
 
-    @RequestMapping("user/delete")
+    @RequestMapping("delete")
     @ResponseBody
     public ResponseBo deleteByIds(String ids) {
         userService.deleteByIds(ids.split(","));
         return ResponseBo.ok("删除用户成功！");
     }
 
-    @RequestMapping("user/getUser")
+    @RequestMapping("getUser")
     @ResponseBody
     public ResponseBo getUser(Long userId) {
         UserWithRole userWithRole = userRoleService.findUserWithRole(new User(userId));
         return ResponseBo.ok(userWithRole);
     }
 
-    @RequestMapping("user/update")
+    @RequestMapping("update")
     @ResponseBody
     public ResponseBo updateUser(User user, Long[] rolesSelect) {
         if ("on".equalsIgnoreCase(user.getStatus()))
@@ -79,7 +80,7 @@ public class UserController extends BaseController {
     }
 
 
-    @RequestMapping("user/checkUserName")
+    @RequestMapping("checkUserName")
     @ResponseBody
     public boolean checkUserName(String username, String oldusername) {
         if (!StringUtils.isEmpty(oldusername) && username.equalsIgnoreCase(oldusername)) {
@@ -91,7 +92,7 @@ public class UserController extends BaseController {
         return true;
     }
 
-    @RequestMapping("user/profile")
+    @RequestMapping("profile")
     public String profileIndex(Model model) {
         User user = getCurrentUser();
         user = userService.findUserProfile(user);
