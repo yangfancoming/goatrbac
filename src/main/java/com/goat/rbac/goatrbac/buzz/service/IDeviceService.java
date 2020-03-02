@@ -2,6 +2,8 @@ package com.goat.rbac.goatrbac.buzz.service;
 
 import com.goat.rbac.goatrbac.buzz.model.Device;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2020/3/2.
  *
@@ -12,5 +14,7 @@ import com.goat.rbac.goatrbac.buzz.model.Device;
 public interface IDeviceService {
 
     int insert(Device device);
+
+    List<Device> find(Device dept);
 
 }

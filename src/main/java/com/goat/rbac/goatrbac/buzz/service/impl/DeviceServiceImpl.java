@@ -6,6 +6,8 @@ import com.goat.rbac.goatrbac.buzz.service.IDeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2020/3/2.
  *
@@ -23,5 +25,11 @@ public class DeviceServiceImpl implements IDeviceService {
     public int insert(Device device) {
         int insert = deviceMapper.insert(device);
         return insert;
+    }
+
+    @Override
+    public List<Device> find(Device device) {
+        List<Device> devices = deviceMapper.find(device);
+        return devices;
     }
 }

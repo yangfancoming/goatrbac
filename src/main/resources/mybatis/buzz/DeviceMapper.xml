@@ -13,6 +13,20 @@
       <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
   </resultMap>
 
+    <select id="find" resultMap="deviceMap" parameterType="device">
+        SELECT *  FROM t_device WHERE 1=1
+        <if test="deviceId !=null and deviceId != ''">
+            AND DEVICE_ID = #{deviceId}
+        </if>
+        <if test="deviceName !=null and deviceName != ''">
+            AND DEPT_NAME like concat('%', #{deviceName}, '%')
+        </if>
+        <if test="deviceCode !=null and deviceCode != ''">
+            AND DEVICE_CODE like concat('%', #{deviceCode}, '%')
+        </if>
+    </select>
+
+
     <insert id="insert" parameterType="role" useGeneratedKeys="true" keyProperty="deviceId">
         INSERT INTO t_device (
         <trim suffix="" suffixOverrides=",">
