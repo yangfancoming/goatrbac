@@ -12,7 +12,7 @@
   </resultMap>
 
     <insert id="insert" parameterType="dict" >
-        insert into t_dict (KEY, VALUE,FIELD_NAME,TABLE_NAME) values(#{KEY},#{VALUE},#{FIELD_NAME},#{TABLE_NAME})
+        insert into t_dict (KEY, VALUE,FIELD_NAME,TABLE_NAME) values(#{key},#{value},#{fieldName},#{tableName})
     </insert>
 
 
