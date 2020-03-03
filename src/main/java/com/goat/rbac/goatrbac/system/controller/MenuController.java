@@ -53,7 +53,7 @@ public class MenuController extends BaseController {
     }
 
     @RequestMapping("add")
-    public ResponseBo addMenu(Menu menu) {
+    public ResponseBo add(Menu menu) {
         String name;
         if (Menu.TYPE_MENU.equals(menu.getType()))
             name = "菜单";
@@ -76,14 +76,14 @@ public class MenuController extends BaseController {
     }
 
     @RequestMapping("delete")
-    public ResponseBo deleteMenus(String ids) {
+    public ResponseBo delete(String ids) {
         List<String> split = Arrays.asList(ids.split(","));
         menuService.deleteByIds(split);
         return ResponseBo.ok("删除成功！");
     }
 
     @RequestMapping("update")
-    public ResponseBo updateMenu(Menu menu) {
+    public ResponseBo update(Menu menu) {
         String name;
         if (Menu.TYPE_MENU.equals(menu.getType()))
             name = "菜单";

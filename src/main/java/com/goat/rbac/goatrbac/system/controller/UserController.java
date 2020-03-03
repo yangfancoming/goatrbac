@@ -32,7 +32,7 @@ public class UserController extends BaseController {
 
     @RequestMapping("list")
     @ResponseBody
-    public Map<String, Object> userList(QueryRequest request, User user) {
+    public Map<String, Object> list(QueryRequest request, User user) {
         PageHelper.startPage(request.getPageNum(), request.getPageSize());
         List<User> list = userService.findUserWithDept(user);
         PageInfo<User> pageInfo = new PageInfo<>(list);
@@ -41,7 +41,7 @@ public class UserController extends BaseController {
 
     @PostMapping("add")
     @ResponseBody
-    public ResponseBo addUser(User user, Long[] roles) {
+    public ResponseBo add(User user, Long[] roles) {
         String status = "on".equalsIgnoreCase(user.getStatus())?"1":"0";
         user.setStatus(status);
         userService.addUser(user, roles);
@@ -50,7 +50,7 @@ public class UserController extends BaseController {
 
     @RequestMapping("delete")
     @ResponseBody
-    public ResponseBo deleteByIds(String ids) {
+    public ResponseBo delete(String ids) {
         userService.deleteByIds(ids.split(","));
         return ResponseBo.ok("删除用户成功！");
     }
@@ -64,7 +64,7 @@ public class UserController extends BaseController {
 
     @RequestMapping("update")
     @ResponseBody
-    public ResponseBo updateUser(User user, Long[] rolesSelect) {
+    public ResponseBo update(User user, Long[] rolesSelect) {
         if ("on".equalsIgnoreCase(user.getStatus()))
             user.setStatus("1");
         else

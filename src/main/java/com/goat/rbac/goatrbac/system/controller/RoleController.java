@@ -37,20 +37,20 @@ public class RoleController extends BaseController {
     }
 
     @RequestMapping("add")
-    public ResponseBo addRole(Role role, Long[] menuId) {
+    public ResponseBo add(Role role, Long[] menuId) {
         roleService.addRole(role, menuId);
         return ResponseBo.ok("新增角色成功！");
     }
 
     @RequestMapping("delete")
     @ResponseBody
-    public ResponseBo deleteRoles(String ids) {
+    public ResponseBo delete(String ids) {
         this.roleService.deleteRoles(ids);
         return ResponseBo.ok("删除角色成功！");
     }
 
     @RequestMapping("update")
-    public ResponseBo updateRole(Role role, Long[] menuId) {
+    public ResponseBo update(Role role, Long[] menuId) {
         roleService.updateRole(role, menuId);
         return ResponseBo.ok("修改角色成功！");
     }

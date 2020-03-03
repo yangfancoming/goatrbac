@@ -33,7 +33,7 @@ public class DeptController {
     }
 
 	@RequestMapping("add")
-	public ResponseBo addDept(Dept dept) {
+	public ResponseBo add(Dept dept) {
         if (dept.getParentId() == null) dept.setParentId(0l);
         dept.setCreateTime(new Date());
         deptService.insert(dept);

@@ -24,7 +24,7 @@ public class DictController extends BaseController {
 	private IDictService dictService;
 
     @RequestMapping("list")
-    public Map<String, Object> dictList(QueryRequest request, Dict dict) {
+    public Map<String, Object> list(QueryRequest request, Dict dict) {
         PageHelper.startPage(request.getPageNum(), request.getPageSize());
         List<Dict> list = dictService.findAllDicts(dict);
         PageInfo<Dict> pageInfo = new PageInfo<>(list);
@@ -32,7 +32,7 @@ public class DictController extends BaseController {
     }
 
     @PostMapping("add")
-    public ResponseBo addDict(Dict dict) {
+    public ResponseBo add(Dict dict) {
         dictService.addDict(dict);
         return ResponseBo.ok("新增字典成功！");
     }
