@@ -1,7 +1,6 @@
 package com.goat.rbac.goatrbac.system.controller;
 
 import com.goat.rbac.goatrbac.system.model.ResponseBo;
-import com.goat.rbac.goatrbac.system.model.User;
 import com.goat.rbac.goatrbac.system.service.IUserService;
 import com.goat.rbac.goatrbac.system.util.MD5Utils;
 import org.apache.shiro.authc.UsernamePasswordToken;
