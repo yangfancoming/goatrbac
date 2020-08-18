@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface QuestionMapper {
 
-    int insert(Question device);
+    int insert(Question question);
 
-    List<Question> find(Question dept);
+    List<Question> find(Question question);
 }

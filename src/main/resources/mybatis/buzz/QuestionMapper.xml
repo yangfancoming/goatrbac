@@ -12,9 +12,9 @@
         <result column="QUESTION_ANSWER" jdbcType="VARCHAR" property="questionAnswer" />
         <result column="QUESTION_DESC" jdbcType="VARCHAR" property="questionDesc" />
         <result column="QUESTION_OPTIONS" jdbcType="VARCHAR" property="questionOptions" />
-        <result column="ORDER_NUM" jdbcType="DECIMAL" property="orderNum" />
-        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
         <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+
     </resultMap>
 
 
@@ -32,25 +32,33 @@
     </select>
 
 
-<!--    <insert id="insert" parameterType="role" useGeneratedKeys="true" keyProperty="deviceId">-->
-<!--        INSERT INTO t_device (-->
-<!--        <trim suffix="" suffixOverrides=",">-->
-<!--            <if test="deviceName!=null and deviceName!='' ">DEVICE_NAME, </if>-->
-<!--            <if test="deviceCode!=null and deviceCode!='' ">DEVICE_CODE, </if>-->
-<!--            <if test="ip!=null and ip!='' ">DEVICE_IP, </if>-->
-<!--            <if test="port!=null and port!='' ">DEVICE_PORT, </if>-->
-<!--            <if test="createTime!=null  ">CREATE_TIME, </if>-->
-<!--            <if test="registerTime!=null  ">REGISTER_TIME, </if>-->
-<!--        </trim>)-->
-<!--        VALUES (-->
-<!--        <trim suffix="" suffixOverrides=",">-->
-<!--            <if test="deviceName!=null and deviceName!='' ">#{deviceName}, </if>-->
-<!--            <if test="deviceCode!=null and deviceCode!='' ">#{deviceCode}, </if>-->
-<!--            <if test="ip!=null and ip!='' ">#{ip}, </if>-->
-<!--            <if test="port!=null and port!='' ">#{port}, </if>-->
-<!--            <if test="createTime!=null ">#{createTime}, </if>-->
-<!--            <if test="registerTime!=null ">#{registerTime}, </if>-->
-<!--        </trim>)-->
-<!--    </insert>-->
+    <insert id="insert" parameterType="question" useGeneratedKeys="true" keyProperty="questionId">
+        INSERT INTO t_question (
+        <trim suffix="" suffixOverrides=",">
+            <if test="questionType!=null and questionType!='' ">QUESTION_TYPE, </if>
+            <if test="questionStatus!=null and questionStatus!='' ">QUESTION_STATUS, </if>
+            <if test="questionAudio!=null and questionAudio!='' ">QUESTION_AUDIO, </if>
+            <if test="questioScore!=null and questioScore!='' ">QUESTION_SCORE, </if>
+            <if test="questionAnswer!=null and questionAnswer!='' ">QUESTION_ANSWER, </if>
+            <if test="questionDesc!=null and questionDesc!='' ">QUESTION_DESC, </if>
+            <if test="questionOptions!=null and questionOptions!='' ">QUESTION_OPTIONS, </if>
+            <if test="modifyTime!=null  ">MODIFY_TIME, </if>
+            <if test="createTime!=null  ">CREATE_TIME, </if>
+
+        </trim>)
+        VALUES (
+        <trim suffix="" suffixOverrides=",">
+            <if test="questionType!=null and questionType!='' ">#{questionType}, </if>
+            <if test="questionStatus!=null and questionStatus!='' ">#{questionStatus}, </if>
+            <if test="questionAudio!=null and questionAudio!='' ">#{questionAudio}, </if>
+            <if test="questioScore!=null and questioScore!='' ">#{questioScore}, </if>
+            <if test="questionAnswer!=null and questionAnswer!='' ">#{questionAnswer}, </if>
+            <if test="questionDesc!=null and questionDesc!='' ">#{questionDesc}, </if>
+            <if test="questionOptions!=null and questionOptions!='' ">#{questionOptions}, </if>
+            <if test="modifyTime!=null ">#{modifyTime}, </if>
+            <if test="createTime!=null ">#{createTime}, </if>
+
+        </trim>)
+    </insert>
 
 </mapper>
