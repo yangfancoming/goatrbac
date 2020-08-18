@@ -46,7 +46,7 @@ public class ShiroRealm extends AuthorizingRealm {
             throw new UnknownAccountException("用户名或密码错误！");
         }
         String password = new String((char[]) token.getCredentials());
-        if (!password.equals(user.getPassword())) {
+        if (password.equals(user.getPassword())) {
             throw new IncorrectCredentialsException("用户名或密码错误！");
         }
         if ("0".equals(user.getStatus())) {

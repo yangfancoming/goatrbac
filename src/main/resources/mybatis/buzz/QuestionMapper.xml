@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.goat.rbac.goatrbac.buzz.dao.QuestionMapper">
+
+    <resultMap id="questionMap" type="com.goat.rbac.goatrbac.buzz.model.Question">
+        <id column="QUESTION_ID" jdbcType="DECIMAL" property="questionId" />
+        <result column="QUESTION_TYPE" jdbcType="INTEGER" property="questionType" />
+        <result column="QUESTION_STATUS" jdbcType="INTEGER" property="questionStatus" />
+        <result column="QUESTION_AUDIO" jdbcType="VARCHAR" property="questionAudio" />
+        <result column="QUESTION_SCORE" jdbcType="INTEGER" property="questioScore" />
+        <result column="QUESTION_ANSWER" jdbcType="VARCHAR" property="questionAnswer" />
+        <result column="QUESTION_DESC" jdbcType="VARCHAR" property="questionDesc" />
+        <result column="QUESTION_OPTIONS" jdbcType="VARCHAR" property="questionOptions" />
+        <result column="ORDER_NUM" jdbcType="DECIMAL" property="orderNum" />
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
+    </resultMap>
+
+
+    <select id="find" resultMap="questionMap" parameterType="question">
+        SELECT *  FROM t_question WHERE 1=1
+<!--        <if test="deviceId !=null and deviceId != ''">-->
+<!--            AND DEVICE_ID = #{deviceId}-->
+<!--        </if>-->
+<!--        <if test="deviceName !=null and deviceName != ''">-->
+<!--            AND DEPT_NAME like concat('%', #{deviceName}, '%')-->
+<!--        </if>-->
+<!--        <if test="deviceCode !=null and deviceCode != ''">-->
+<!--            AND DEVICE_CODE like concat('%', #{deviceCode}, '%')-->
+<!--        </if>-->
+    </select>
+
+
+<!--    <insert id="insert" parameterType="role" useGeneratedKeys="true" keyProperty="deviceId">-->
+<!--        INSERT INTO t_device (-->
+<!--        <trim suffix="" suffixOverrides=",">-->
+<!--            <if test="deviceName!=null and deviceName!='' ">DEVICE_NAME, </if>-->
+<!--            <if test="deviceCode!=null and deviceCode!='' ">DEVICE_CODE, </if>-->
+<!--            <if test="ip!=null and ip!='' ">DEVICE_IP, </if>-->
+<!--            <if test="port!=null and port!='' ">DEVICE_PORT, </if>-->
+<!--            <if test="createTime!=null  ">CREATE_TIME, </if>-->
+<!--            <if test="registerTime!=null  ">REGISTER_TIME, </if>-->
+<!--        </trim>)-->
+<!--        VALUES (-->
+<!--        <trim suffix="" suffixOverrides=",">-->
+<!--            <if test="deviceName!=null and deviceName!='' ">#{deviceName}, </if>-->
+<!--            <if test="deviceCode!=null and deviceCode!='' ">#{deviceCode}, </if>-->
+<!--            <if test="ip!=null and ip!='' ">#{ip}, </if>-->
+<!--            <if test="port!=null and port!='' ">#{port}, </if>-->
+<!--            <if test="createTime!=null ">#{createTime}, </if>-->
+<!--            <if test="registerTime!=null ">#{registerTime}, </if>-->
+<!--        </trim>)-->
+<!--    </insert>-->
+
+</mapper>

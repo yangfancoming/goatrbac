@@ -18,6 +18,7 @@ public interface MenuMapper {
 
 	int insert(Menu menu);
 
+	// doit  url和权限标识 改空后 修改没有效果
     int update(Menu user);
 
     int deleteByIds(List<String> menuIds);
