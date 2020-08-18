@@ -32,7 +32,7 @@ public class Question implements Serializable {
     // 试题 选项
     private String questionOptions;
 
-    private Date registerTime;
+    private Date modifyTime;
 
     private Date createTime;
 
@@ -100,12 +100,12 @@ public class Question implements Serializable {
         this.questionOptions = questionOptions;
     }
 
-    public Date getRegisterTime() {
-        return registerTime;
+    public Date getModifyTime() {
+        return modifyTime;
     }
 
-    public void setRegisterTime(Date registerTime) {
-        this.registerTime = registerTime;
+    public void setModifyTime(Date modifyTime) {
+        this.modifyTime = modifyTime;
     }
 
     public Date getCreateTime() {
