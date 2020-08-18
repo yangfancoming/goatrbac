@@ -106,10 +106,10 @@
         <set>
             <if test="parentId!=null and parentId!='' or parentId==0 ">PARENT_ID = #{parentId}, </if>
             <if test="menuName != null and menuName != ''">MENU_NAME = #{menuName},</if>
-            <if test="url != null and url != ''">URL = #{url},</if>
-            <if test="perms != null and perms != ''">PERMS = #{perms},</if>
             <if test="icon != null and icon != ''">ICON = #{icon},</if>
             <if test="type != null and type != ''">TYPE = #{type},</if>
+            PERMS = #{perms},
+            URL = #{url},
             MODIFY_TIME = sysdate()
         </set>
         where MENU_ID = #{menuId}
