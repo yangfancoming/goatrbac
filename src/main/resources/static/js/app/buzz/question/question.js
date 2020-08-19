@@ -25,12 +25,12 @@ $(function() {
                     else return '未知题型';
                 }
              },
-            {field: 'questionStatus',title: '状态'},
-            {field: 'questionAudio',title: '音频解答'},
-            {field: 'questioScore',title: '分值'},
-            {field: 'questionAnswer',title: '答案'},
-            {field: 'questionDesc',title: '描述'},
+            {field: 'questionDesc',title: '题目'},
             {field: 'questionOptions',title: '选项'},
+            {field: 'questionAnswer',title: '答案'},
+
+            {field: 'questioScore',title: '分值'},
+            {field: 'questionAudio',title: '音频解答'},
             {field: 'modifyTime',title: '修改时间'},
             {field: 'createTime',title: '创建时间'},
             {
