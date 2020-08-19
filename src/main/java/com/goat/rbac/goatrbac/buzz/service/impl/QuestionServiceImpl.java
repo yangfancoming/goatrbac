@@ -6,6 +6,7 @@ import com.goat.rbac.goatrbac.buzz.service.IQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -31,5 +32,10 @@ public class QuestionServiceImpl implements IQuestionService {
     public List<Question> find(Question question) {
         List<Question> devices = questionMapper.find(question);
         return devices;
+    }
+
+    @Override
+    public void deleteByIds(String ids) {
+        questionMapper.deleteByIds(Arrays.asList(ids.split(",")));
     }
 }

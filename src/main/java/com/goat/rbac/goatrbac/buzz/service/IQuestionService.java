@@ -11,4 +11,5 @@ public interface IQuestionService {
 
     List<Question> find(Question question);
 
+    void deleteByIds(String ids);
 }

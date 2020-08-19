@@ -10,4 +10,6 @@ public interface QuestionMapper {
     int insert(Question question);
 
     List<Question> find(Question question);
+
+    int deleteByIds(List<String> ids);
 }

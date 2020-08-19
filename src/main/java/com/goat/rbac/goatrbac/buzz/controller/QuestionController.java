@@ -40,5 +40,10 @@ public class QuestionController extends BaseController {
         return ResponseBo.ok("新增试题成功！"+insert);
     }
 
+    @RequestMapping("delete")
+    public ResponseBo delete(String ids) {
+        questionService.deleteByIds(ids);
+        return ResponseBo.ok("删除试题成功！");
+    }
 
 }

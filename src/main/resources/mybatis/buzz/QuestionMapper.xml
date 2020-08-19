@@ -63,4 +63,12 @@
         </trim>)
     </insert>
 
+
+    <delete id="deleteByIds" parameterType="Long">
+        delete from t_question where QUESTION_ID in
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
 </mapper>

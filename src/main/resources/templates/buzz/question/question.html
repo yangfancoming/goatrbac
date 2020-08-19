@@ -21,9 +21,9 @@
                     <div class="dropdown actions__item" shiro:hasAnyPermissions="question:add,question:delete,question:update">
                         <i data-toggle="dropdown" class="zmdi zmdi-more-vert"></i>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="javascript:void(0)" class="dropdown-item" data-toggle="modal" data-target="#question-add" shiro:hasPermission="question:add">新增设备</a>
-                            <a href="javascript:void(0)" class="dropdown-item" onclick="updateDevice()" shiro:hasPermission="question:update">修改设备</a>
-                            <a href="javascript:void(0)" class="dropdown-item" onclick="deleteDevices()" shiro:hasPermission="question:delete">删除设备</a>
+                            <a href="javascript:void(0)" class="dropdown-item" data-toggle="modal" data-target="#question-add" shiro:hasPermission="question:add">新增试题</a>
+                            <a href="javascript:void(0)" class="dropdown-item" onclick="updateDevice()" shiro:hasPermission="question:update">修改试题</a>
+                            <a href="javascript:void(0)" class="dropdown-item" onclick="deletQuestions()" shiro:hasPermission="question:delete">删除试题</a>
                         </div>
                     </div>
                 </div>
@@ -32,23 +32,26 @@
                 <div id="data-table_filter" class="dataTables_filter">
                     <form class="question-table-form">
                         <div class="row">
+
                             <div class="col-sm-3">
                                 <div class="input-group">
-                                    <span class="input-group-addon"> 设备编码： </span>
+                                    <span class="input-group-addon"> 试题类型： </span>
                                     <div class="form-group">
-                                        <input type="text" name="questionCode" class="form-control"> <i class="form-group__bar"></i>
+                                        <select class="form-control" name="questionType">
+                                            <option value="0" selected>单选题</option>
+                                            <option value="1">多选题</option>
+                                            <option value="2">填空题</option>
+                                            <option value="3">简答题</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-sm-3">
                                 <div class="input-group">
-                                    <span class="input-group-addon"> 设备状态： </span>
+                                    <span class="input-group-addon"> 题目描述： </span>
                                     <div class="form-group">
-                                        <select class="form-control" name="ssex">
-                                            <option value="" selected>所有</option>
-                                            <option value="0">男</option>
-                                            <option value="1">女</option>
-                                        </select>
+                                        <input type="text" name="questionDecs" class="form-control"> <i class="form-group__bar"></i>
                                     </div>
                                 </div>
                             </div>
