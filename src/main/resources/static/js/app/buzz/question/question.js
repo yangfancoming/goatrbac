@@ -16,7 +16,15 @@ $(function() {
 
         columns: [{checkbox: true},
             {field: 'questionId',visible: false},
-            {field: 'questionType',title: '类型'},
+            {field: 'questionType',title: '类型',
+                formatter: function(value, row, index) {
+                    if (value == '0') return '单选题';
+                    if (value == '1') return '多选题';
+                    if (value == '2') return '填空题';
+                    if (value == '3') return '简答题';
+                    else return '未知题型';
+                }
+             },
             {field: 'questionStatus',title: '状态'},
             {field: 'questionAudio',title: '音频解答'},
             {field: 'questioScore',title: '分值'},

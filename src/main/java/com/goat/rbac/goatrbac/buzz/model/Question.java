@@ -11,14 +11,11 @@ public class Question implements Serializable {
 	// 主键id
 	private Long questionId;
 
-	// 试题 类型  【单选、多选、填空、简答】
+	// 试题 类型  【0单选、1多选、2填空、3简答】
     private Integer questionType;
 
     // 试题 状态
     private Integer questionStatus;
-
-    // 试题 音频解答
-    private String questionAudio;
 
     // 试题 分值
     private Integer questioScore;
@@ -31,6 +28,12 @@ public class Question implements Serializable {
 
     // 试题 选项
     private String questionOptions;
+
+    // 试题 音频解答
+    private String questionAudio;
+
+    // 试题 文字解析
+    private String questionText;
 
     private Date modifyTime;
 
@@ -114,6 +117,14 @@ public class Question implements Serializable {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getQuestionText() {
+        return questionText;
+    }
+
+    public void setQuestionText(String questionText) {
+        this.questionText = questionText;
     }
 }
 

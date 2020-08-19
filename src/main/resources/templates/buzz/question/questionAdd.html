@@ -11,15 +11,35 @@
                         <div class="col-sm-11">
                             <div class="input-group">
                                 <span class="input-group-addon">类型：</span>
-                                <div class="form-group"> <input type="text" name="questionType" class="form-control"></div>
+                                <div class="form-group">
+                                    <select class="form-control" name="questionType">
+                                        <option value="0" selected>单选题</option>
+                                        <option value="1">多选题</option>
+                                        <option value="2">填空题</option>
+                                        <option value="3">简答题</option>
+                                    </select>
+
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-sm-11">
                             <div class="input-group">
-                                <span class="input-group-addon">设备编码：</span>
-                                <div class="form-group"> <input type="text" name="questionStatus" class="form-control"></div>
+                                <span class="input-group-addon">题目：</span>
+                                <div class="form-group">
+                                    <textarea class="form-control"  name="questionDesc" rows="5" cols="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">选项：</span>
+                                <div class="form-group"> <input placeholder="示例：选项A-选项B-选项C-选项D" type="text" name="questionOptions" class="form-control"></div>
                             </div>
                         </div>
                     </div>
@@ -32,30 +52,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-11">
-                            <div class="input-group">
-                                <span class="input-group-addon">描述：</span>
-                                <div class="form-group"> <input type="text" name="questionDesc" class="form-control"></div>
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="row">
                         <div class="col-sm-11">
                             <div class="input-group">
-                                <span class="input-group-addon">选项：</span>
-                                <div class="form-group"> <input type="text" name="questionOptions" class="form-control"></div>
+                                <span class="input-group-addon">文字解析：</span>
+                                <div class="form-group"> <input type="text" name="questionText" class="form-control"></div>
                             </div>
                         </div>
                     </div>
 
 
-
                     <div class="row">
                         <div class="col-sm-11">
                             <div class="input-group">
-                                <span class="input-group-addon">音频解答：</span>
+                                <span class="input-group-addon">音频解析：</span>
                                 <div class="form-group"> <input type="text" name="questionAudio" class="form-control"></div>
                             </div>
                         </div>
