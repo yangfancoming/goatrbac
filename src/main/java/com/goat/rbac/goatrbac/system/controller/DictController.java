@@ -8,9 +8,7 @@ import com.goat.rbac.goatrbac.system.model.QueryRequest;
 import com.goat.rbac.goatrbac.system.model.ResponseBo;
 import com.goat.rbac.goatrbac.system.service.IDictService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -23,7 +21,7 @@ public class DictController extends BaseController {
 	@Autowired
 	private IDictService dictService;
 
-    @RequestMapping("list")
+    @GetMapping("list")
     public Map<String, Object> list(QueryRequest request, Dict dict) {
         PageHelper.startPage(request.getPageNum(), request.getPageSize());
         List<Dict> list = dictService.findAllDicts(dict);
@@ -37,9 +35,17 @@ public class DictController extends BaseController {
         return ResponseBo.ok("新增字典成功！");
     }
 
-    @RequestMapping("delete")
+    @PostMapping("delete")
     public ResponseBo delete(String ids) {
         dictService.deleteDicts(ids);
         return ResponseBo.ok("删除字典成功！");
+    }
+
+
+    @PostMapping("ssex")
+    public ResponseBo ssex(String table,String field) {
+        System.out.println(table + field);
+        String result = "[{\"id\":\"0\",\"text\":\"男\"},{\"id\":\"1\",\"text\":\"女\"}]";
+        return ResponseBo.ok(result);
     }
 }

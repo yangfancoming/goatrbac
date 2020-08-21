@@ -101,3 +101,23 @@ function exportUserCsv(){
 		}
 	});
 }
+
+
+function findCenterName(){
+    //清空原有select内的数据
+    $("#ssex").empty();
+
+    $.post(ctx + 'dict/ssex', {"table":"chen","field":"alien"}, function(r) {
+        if (r.code == 0) {
+            var data = JSON.parse(r.msg);// sos 调试好久就是缺少了 这一句转换啊！！！
+            $.each(data, function (index, item) {
+                $("#ssex").append("<option value='"+item.id+"'>"+item.text+"</option>");
+            });
+            $MB.n_success(r.msg);
+            refresh();
+        } else {
+            $MB.n_danger(r.msg);
+        }
+    },'json');
+
+}
