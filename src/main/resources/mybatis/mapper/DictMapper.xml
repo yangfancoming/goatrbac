@@ -36,4 +36,11 @@
         </if>
     </select>
 
+
+    <delete id="deleteByIds" parameterType="Long">
+        delete from t_dict where dict_id in
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
 </mapper>
