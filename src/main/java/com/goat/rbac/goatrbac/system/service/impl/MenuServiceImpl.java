@@ -8,6 +8,7 @@ import com.goat.rbac.goatrbac.system.service.IRoleMenuServie;
 import com.goat.rbac.goatrbac.system.util.TreeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -83,6 +84,9 @@ public class MenuServiceImpl implements IMenuService {
 
     @Override
     public int update(Menu menu) {
+        if(StringUtils.isEmpty(menu.getParentId())){
+            menu.setParentId(0L);
+        }
         int update = menuMapper.update(menu);
         return update;
     }
