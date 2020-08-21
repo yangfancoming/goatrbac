@@ -7,6 +7,7 @@ import com.goat.rbac.goatrbac.system.service.IDictService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -26,8 +27,8 @@ public class DictServiceImpl implements IDictService {
 	}
 
 	@Override
-	public void deleteDicts(String dictIds) {
-	    throw new RuntimeException("123");
+	public void deleteDicts(String ids) {
+        dictMapper.deleteByIds(Arrays.asList(ids.split(",")));
 	}
 
 	@Override
