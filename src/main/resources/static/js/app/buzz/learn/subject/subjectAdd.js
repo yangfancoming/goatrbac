@@ -3,7 +3,7 @@ var $subjectAddForm = $("#subject-add-form");
 
 $(function() {
     // validateRule();
-
+    getSubject();
     // 点击保存按钮
     $("#subject-add .btn-save").click(function() {
         var name = $(this).attr("name");
@@ -44,3 +44,5 @@ function closeModal() {
     // validator.resetForm(); // doit  这里放开后 为啥报错？？？
     $("#subject-add-modal-title").html('新增科目');
 }
+
+

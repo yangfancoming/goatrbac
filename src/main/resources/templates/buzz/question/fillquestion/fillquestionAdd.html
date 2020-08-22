@@ -10,6 +10,16 @@
                     <div class="row">
                         <div class="col-sm-11">
                             <div class="input-group">
+                                <span class="input-group-addon">科目：</span>
+                                <div class="form-group">  <select class="form-control" name="subject" id="subject"> </select> </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
                                 <span class="input-group-addon">题目：</span>
                                 <div class="form-group">
                                     <textarea class="form-control"  name="questionDesc" rows="5" cols="5"></textarea>
@@ -21,17 +31,8 @@
                     <div class="row">
                         <div class="col-sm-11">
                             <div class="input-group">
-                                <span class="input-group-addon">选项：</span>
-                                <div class="form-group"> <input placeholder="示例：选项A-选项B-选项C-选项D" type="text" name="questionOptions" class="form-control"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-11">
-                            <div class="input-group">
                                 <span class="input-group-addon">答案：</span>
-                                <div class="form-group"> <input type="text" name="questionAnswer" class="form-control"></div>
+                                <div class="form-group"> <input type="text" placeholder="请输入正确答案内容" name="questionAnswer" class="form-control"></div>
                             </div>
                         </div>
                     </div>
@@ -88,3 +89,7 @@
     </div>
 </div>
 <script data-th-src="@{js/app/buzz/question/fillquestion/fillquestionAdd.js}"></script>
+<script data-th-src="@{js/app/system/util/dictUtil.js}"></script>
+<script type="text/javascript">
+    $.fn.getSubject('subject','question','type');
+</script>

@@ -46,6 +46,6 @@ $(function() {
 function closeModal() {
 	$("#fillquestion-add-button").attr("name", "save");
     $MB.closeAndRestModal("fillquestion-add");
-    validator.resetForm();
+    // validator.resetForm();
     $("#fillquestion-add-modal-title").html('新增字典');
 }

@@ -12,8 +12,6 @@ public class FillQuestion extends Question {
 
     // 试题 答案
     private String questionAnswer;
-    // 试题 选项
-    private String questionOptions;
 
     public String getQuestionAnswer() {
         return questionAnswer;
@@ -23,11 +21,4 @@ public class FillQuestion extends Question {
         this.questionAnswer = questionAnswer;
     }
 
-    public String getQuestionOptions() {
-        return questionOptions;
-    }
-
-    public void setQuestionOptions(String questionOptions) {
-        this.questionOptions = questionOptions;
-    }
 }

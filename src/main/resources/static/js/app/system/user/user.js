@@ -120,5 +120,4 @@ function findCenterName(){
             $MB.n_danger(r.msg);
         }
     },'json');
-
 }

@@ -2,9 +2,7 @@ package com.goat.rbac.goatrbac.buzz.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.goat.rbac.goatrbac.buzz.model.Question;
 import com.goat.rbac.goatrbac.buzz.model.Subject;
-import com.goat.rbac.goatrbac.buzz.service.IQuestionService;
 import com.goat.rbac.goatrbac.buzz.service.ISubjectService;
 import com.goat.rbac.goatrbac.system.controller.BaseController;
 import com.goat.rbac.goatrbac.system.model.QueryRequest;
