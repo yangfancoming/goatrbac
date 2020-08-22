@@ -41,11 +41,9 @@ public class DictController extends BaseController {
         return ResponseBo.ok("删除字典成功！");
     }
 
-
     @PostMapping("ssex")
-    public ResponseBo ssex(String table,String field) {
-        System.out.println(table + field);
-        String result = "[{\"id\":\"0\",\"text\":\"男\"},{\"id\":\"1\",\"text\":\"女\"}]";
-        return ResponseBo.ok(result);
+    public ResponseBo ssex(Dict dict) {
+        List<Dict> dictKV = dictService.findDictKV(dict);
+        return ResponseBo.ok(dictKV);
     }
 }

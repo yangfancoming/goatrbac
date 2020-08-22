@@ -16,4 +16,6 @@ public interface IDictService  {
 	void deleteDicts(String dictIds);
 
 	void updateDict(Dict dicdt);
+
+    List<Dict> findDictKV(Dict dict);
 }

@@ -36,7 +36,13 @@ public class DictServiceImpl implements IDictService {
 
 	}
 
-	@Override
+    @Override
+    public List<Dict> findDictKV(Dict dict) {
+        List<Dict> dictKV = dictMapper.findDictKV(dict);
+        return dictKV;
+    }
+
+    @Override
 	public Dict findById(Long dictId) {
         return null;
 	}

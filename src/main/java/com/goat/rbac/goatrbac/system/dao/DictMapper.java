@@ -12,4 +12,6 @@ public interface DictMapper {
     List<Dict> findDictList(Dict dict);
 
     int deleteByIds(List<String> ids);
+
+    List<Dict> findDictKV(Dict dict);
 }
