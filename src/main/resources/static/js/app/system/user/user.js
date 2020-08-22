@@ -104,16 +104,18 @@ function exportUserCsv(){
 
 
 function findCenterName(){
-    //清空原有select内的数据
+    // 清空原有select内的数据
     $("#ssex").empty();
-
+    // 添加下拉框 默认选项
+    $("#ssex").append("<option value='' selected>所有</option>");
+    // 动态初始化 性别下拉框
     $.post(ctx + 'dict/ssex', {"table":"chen","field":"alien"}, function(r) {
         if (r.code == 0) {
+
             var data = JSON.parse(r.msg);// sos 调试好久就是缺少了 这一句转换啊！！！
             $.each(data, function (index, item) {
                 $("#ssex").append("<option value='"+item.id+"'>"+item.text+"</option>");
             });
-            $MB.n_success(r.msg);
             refresh();
         } else {
             $MB.n_danger(r.msg);
