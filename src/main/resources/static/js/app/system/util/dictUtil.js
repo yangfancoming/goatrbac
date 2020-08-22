@@ -2,10 +2,8 @@
 (function ($) {
 
     $.fn.getSubject = function (elId,tableName,fieldName) {
-        alert('调用自定义js文件中的自定义方法');
         // 清空原有select内的数据
         $("#" + elId + "").empty;
-
         // 添加下拉框 默认选项
         $("#" + elId + "").append("<option value='' selected>所有</option>");
         // 动态初始化 性别下拉框
