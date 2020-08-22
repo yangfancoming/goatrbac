@@ -4,15 +4,15 @@ $(function() {
 
     // 页面加载的初始化请求
     var settings = {
-        url: ctx + "question/list",
+        url: ctx + "fillquestion/list",
         pageSize: 10,
         queryParams: function(params) {
             return {
                 pageSize: params.limit,
                 pageNum: params.offset / params.limit + 1,
-                questionType: $(".question-table-form").find("select[name='questionType']").val().trim(),
-                ssex: $(".question-table-form").find("select[name='ssex']").val(),
-                status: $(".question-table-form").find("select[name='status']").val()
+                questionType: $(".fillquestion-table-form").find("select[name='questionType']").val().trim(),
+                ssex: $(".fillquestion-table-form").find("select[name='ssex']").val(),
+                status: $(".fillquestion-table-form").find("select[name='status']").val()
             };
         },
 
@@ -45,20 +45,20 @@ $(function() {
 
         ]
     }
-    $MB.initTable('questionTable', settings);
+    $MB.initTable('fillquestionTable', settings);
 });
 
 function search() {
-    $MB.refreshTable('questionTable');
+    $MB.refreshTable('fillquestionTable');
 }
 
 function refresh() {
-    $(".question-table-form")[0].reset();
-    $MB.refreshTable('questionTable');
+    $(".fillquestion-table-form")[0].reset();
+    $MB.refreshTable('fillquestionTable');
 }
 
 function deletQuestions() {
-    var selected = $("#questionTable").bootstrapTable('getSelections');
+    var selected = $("#fillquestionTable").bootstrapTable('getSelections');
     var selected_length = selected.length;
     if (!selected_length) {
         $MB.n_warning('请勾选需要删除的用户！');
@@ -74,7 +74,7 @@ function deletQuestions() {
         text: "确定删除选中用户？",
         confirmButtonText: "确定删除"
     }, function() {
-        $.post(ctx + 'question/delete', { "ids": ids }, function(r) {
+        $.post(ctx + 'fillquestion/delete', { "ids": ids }, function(r) {
             if (r.code == 0) {
                 $MB.n_success(r.msg);
                 refresh();

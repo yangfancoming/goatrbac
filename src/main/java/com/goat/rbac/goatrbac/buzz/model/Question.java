@@ -4,12 +4,19 @@ package com.goat.rbac.goatrbac.buzz.model;
 import java.io.Serializable;
 import java.util.Date;
 
+// 试题实体类
 public class Question implements Serializable {
 
 	private static final long serialVersionUID = -7790334862410409053L;
 
 	// 主键id
 	private Long questionId;
+
+//	// 所属分类(科目)
+//	private Long subjectId;
+//
+//    // 试题 标签
+//	private Long questionLabel;
 
 	// 试题 类型  【0单选、1多选、2填空、3简答】
     private Integer questionType;
@@ -20,14 +27,8 @@ public class Question implements Serializable {
     // 试题 分值
     private Integer questioScore;
 
-    // 试题 答案
-    private String questionAnswer;
-
     // 试题 描述
     private String questionDesc;
-
-    // 试题 选项
-    private String questionOptions;
 
     // 试题 音频解答
     private String questionAudio;
@@ -79,28 +80,12 @@ public class Question implements Serializable {
         this.questioScore = questioScore;
     }
 
-    public String getQuestionAnswer() {
-        return questionAnswer;
-    }
-
-    public void setQuestionAnswer(String questionAnswer) {
-        this.questionAnswer = questionAnswer;
-    }
-
     public String getQuestionDesc() {
         return questionDesc;
     }
 
     public void setQuestionDesc(String questionDesc) {
         this.questionDesc = questionDesc;
-    }
-
-    public String getQuestionOptions() {
-        return questionOptions;
-    }
-
-    public void setQuestionOptions(String questionOptions) {
-        this.questionOptions = questionOptions;
     }
 
     public Date getModifyTime() {
@@ -126,6 +111,7 @@ public class Question implements Serializable {
     public void setQuestionText(String questionText) {
         this.questionText = questionText;
     }
+
 }
 
 

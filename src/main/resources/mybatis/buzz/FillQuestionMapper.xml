@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.goat.rbac.goatrbac.buzz.dao.QuestionMapper">
+<mapper namespace="com.goat.rbac.goatrbac.buzz.dao.FillQuestionMapper">
 
-    <resultMap id="questionMap" type="com.goat.rbac.goatrbac.buzz.model.Question">
+    <resultMap id="fillQuestionMap" type="com.goat.rbac.goatrbac.buzz.model.FillQuestion">
         <id column="QUESTION_ID" jdbcType="DECIMAL" property="questionId" />
         <result column="QUESTION_TYPE" jdbcType="INTEGER" property="questionType" />
         <result column="QUESTION_STATUS" jdbcType="INTEGER" property="questionStatus" />
@@ -19,8 +19,8 @@
     </resultMap>
 
 
-    <select id="find" resultMap="questionMap" parameterType="question">
-        SELECT *  FROM b_question WHERE 1=1
+    <select id="find" resultMap="fillQuestionMap" parameterType="question">
+        SELECT *  FROM b_fill_question WHERE 1=1
 <!--        <if test="deviceId !=null and deviceId != ''">-->
 <!--            AND DEVICE_ID = #{deviceId}-->
 <!--        </if>-->
@@ -34,7 +34,7 @@
 
 
     <insert id="insert" parameterType="question" useGeneratedKeys="true" keyProperty="questionId">
-        INSERT INTO b_question (
+        INSERT INTO b_fill_question (
         <trim suffix="" suffixOverrides=",">
             <if test="questionType!=null and questionType!='' or questionType==0 ">QUESTION_TYPE, </if>
             <if test="questionStatus!=null and questionStatus!='' ">QUESTION_STATUS, </if>
@@ -65,7 +65,7 @@
 
 
     <delete id="deleteByIds" parameterType="Long">
-        delete from b_question where QUESTION_ID in
+        delete from b_fill_question where QUESTION_ID in
         <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
             #{item}
         </foreach>
