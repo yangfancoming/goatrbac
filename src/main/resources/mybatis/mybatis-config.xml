@@ -28,6 +28,8 @@
         <typeAlias alias="roleWithMenu" type="com.goat.rbac.goatrbac.system.model.RoleWithMenu"/>
         <typeAlias alias="device" type="com.goat.rbac.goatrbac.buzz.model.Device"/>
         <typeAlias alias="question" type="com.goat.rbac.goatrbac.buzz.model.Question"/>
+        <typeAlias alias="fillquestion" type="com.goat.rbac.goatrbac.buzz.model.FillQuestion"/>
+        <typeAlias alias="subject" type="com.goat.rbac.goatrbac.buzz.model.Subject"/>
     </typeAliases>
 
 </configuration>
