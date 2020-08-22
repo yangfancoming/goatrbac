@@ -17,7 +17,7 @@ function updateDict() {
             var dict = r.msg;
             $("#dict-add-modal-title").html('修改字典');
             $form.find("input[name='dictId']").val(dict.dictId);
-            $form.find("input[name='key']").val(dict.key);
+            $form.find("input[name='keyy']").val(dict.keyy);
             $form.find("input[name='value']").val(dict.value);
             $form.find("input[name='tableName']").val(dict.tableName);
             $form.find("input[name='fieldName']").val(dict.fieldName);

@@ -47,7 +47,7 @@ function validateRule() {
     var icon = "<i class='zmdi zmdi-close-circle zmdi-hc-fw'></i> ";
     validator = $dictAddForm.validate({
         rules: {
-            key: {
+            keyy: {
                 required: true,
                 digits: true,
                 maxlength: 10,
@@ -66,7 +66,7 @@ function validateRule() {
             }
         },
         messages: {
-            key: {
+            keyy: {
                 required: icon + "请输入键名",
                 digits: icon + "请输入整数",
                 maxlength: icon + "长度不能超过10个字符",

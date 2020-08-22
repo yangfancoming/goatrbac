@@ -6,7 +6,7 @@ $(function() {
             return {
                 pageSize: params.limit,
                 pageNum: params.offset / params.limit + 1,
-                key: $(".dict-table-form").find("input[name='key']").val().trim(),
+                keyy: $(".dict-table-form").find("input[name='keyy']").val().trim(),
                 value: $(".dict-table-form").find("input[name='value']").val().trim(),
                 tableName: $(".dict-table-form").find("input[name='tableName']").val().trim(),
                 fieldName: $(".dict-table-form").find("input[name='fieldName']").val().trim(),
@@ -20,7 +20,7 @@ $(function() {
                 title: '字典ID',
                 width: 150
             }, {
-                field: 'key',
+                field: 'keyy',
                 title: '键'
             }, {
                 field: 'value',
