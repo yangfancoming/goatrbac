@@ -12,10 +12,10 @@ public class Question extends BaseModel implements Serializable {
 	private Long questionId;
 
 //	// 所属分类(科目)
-//	private Long subjectId;
+	private Long subjectId;
 //
 //    // 试题 标签
-//	private Long questionLabel;
+	private Long questionLabel;
 
 	// 试题 类型  【0单选、1多选、2填空、3简答】
     private Integer questionType;
@@ -91,6 +91,21 @@ public class Question extends BaseModel implements Serializable {
         this.questionText = questionText;
     }
 
+    public Long getSubjectId() {
+        return subjectId;
+    }
+
+    public void setSubjectId(Long subjectId) {
+        this.subjectId = subjectId;
+    }
+
+    public Long getQuestionLabel() {
+        return questionLabel;
+    }
+
+    public void setQuestionLabel(Long questionLabel) {
+        this.questionLabel = questionLabel;
+    }
 }
 
 

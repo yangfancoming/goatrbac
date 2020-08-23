@@ -25,6 +25,8 @@ $(function() {
                 }
              },
             {field: 'questionDesc',title: '题目'},
+            {field: 'subjectId',title: '所属科目'},
+            {field: 'questionLabel',title: '标签'},
             {field: 'questionOptions',title: '选项'},
             {field: 'questionAnswer',title: '答案'},
 

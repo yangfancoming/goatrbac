@@ -11,6 +11,8 @@
         <result column="QUESTION_SCORE" jdbcType="INTEGER" property="questioScore" />
         <result column="QUESTION_ANSWER" jdbcType="VARCHAR" property="questionAnswer" />
         <result column="QUESTION_DESC" jdbcType="VARCHAR" property="questionDesc" />
+        <result column="QUESTION_LABEL" jdbcType="VARCHAR" property="questionLabel" />
+        <result column="SUBJECTID" jdbcType="VARCHAR" property="subjectId" />
         <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
         <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
 
@@ -40,6 +42,8 @@
             <if test="questioScore!=null and questioScore!='' ">QUESTION_SCORE, </if>
             <if test="questionAnswer!=null and questionAnswer!='' ">QUESTION_ANSWER, </if>
             <if test="questionDesc!=null and questionDesc!='' ">QUESTION_DESC, </if>
+            <if test="questionLabel!=null and questionLabel!='' ">QUESTION_LABEL, </if>
+            <if test="subjectId!=null and subjectId!='' or subjectId==0">SUBJECTID, </if>
             <if test="modifyTime!=null  ">MODIFY_TIME, </if>
             <if test="createTime!=null  ">CREATE_TIME, </if>
 
@@ -47,11 +51,14 @@
         VALUES (
         <trim suffix="" suffixOverrides=",">
             <if test="questionStatus!=null and questionStatus!='' ">#{questionStatus}, </if>
+            <if test="questionStatus!=null and questionStatus!='' ">#{questionStatus}, </if>
             <if test="questionAudio!=null and questionAudio!='' ">#{questionAudio}, </if>
             <if test="questionText!=null and questionText!='' ">#{questionText}, </if>
             <if test="questioScore!=null and questioScore!='' ">#{questioScore}, </if>
             <if test="questionAnswer!=null and questionAnswer!='' ">#{questionAnswer}, </if>
             <if test="questionDesc!=null and questionDesc!='' ">#{questionDesc}, </if>
+            <if test="questionLabel!=null and questionLabel!='' ">#{questionDesc}, </if>
+            <if test="subjectId!=null and subjectId!='' or subjectId==0 ">#{subjectId}, </if>
             <if test="modifyTime!=null ">#{modifyTime}, </if>
             <if test="createTime!=null ">#{createTime}, </if>
         </trim>)
