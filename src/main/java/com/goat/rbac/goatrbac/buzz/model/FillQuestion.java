@@ -20,5 +20,4 @@ public class FillQuestion extends Question {
     public void setQuestionAnswer(String questionAnswer) {
         this.questionAnswer = questionAnswer;
     }
-
 }

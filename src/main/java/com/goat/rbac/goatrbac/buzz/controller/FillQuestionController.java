@@ -28,7 +28,7 @@ public class FillQuestionController extends BaseController {
     IFillQuestionService fillQuestionService;
 
     @GetMapping("list")
-    public Map<String, Object> deptList(QueryRequest request, FillQuestion question) {
+    public Map<String, Object> list(QueryRequest request, FillQuestion question) {
         PageHelper.startPage(request.getPageNum(), request.getPageSize());
         List<FillQuestion> devices = fillQuestionService.find(question);
         PageInfo<FillQuestion> pageInfo = new PageInfo<>(devices);
@@ -36,7 +36,7 @@ public class FillQuestionController extends BaseController {
     }
 
     @PostMapping("add")
-    public ResponseBo addRole(FillQuestion question) {
+    public ResponseBo add(FillQuestion question) {
         question.setCreateTime(new Date());
         int insert = fillQuestionService.insert(question);
         return ResponseBo.ok("新增试题成功！"+insert);

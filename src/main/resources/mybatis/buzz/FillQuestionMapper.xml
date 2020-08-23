@@ -51,13 +51,12 @@
         VALUES (
         <trim suffix="" suffixOverrides=",">
             <if test="questionStatus!=null and questionStatus!='' ">#{questionStatus}, </if>
-            <if test="questionStatus!=null and questionStatus!='' ">#{questionStatus}, </if>
             <if test="questionAudio!=null and questionAudio!='' ">#{questionAudio}, </if>
             <if test="questionText!=null and questionText!='' ">#{questionText}, </if>
             <if test="questioScore!=null and questioScore!='' ">#{questioScore}, </if>
             <if test="questionAnswer!=null and questionAnswer!='' ">#{questionAnswer}, </if>
             <if test="questionDesc!=null and questionDesc!='' ">#{questionDesc}, </if>
-            <if test="questionLabel!=null and questionLabel!='' ">#{questionDesc}, </if>
+            <if test="questionLabel!=null and questionLabel!='' ">#{questionLabel}, </if>
             <if test="subjectId!=null and subjectId!='' or subjectId==0 ">#{subjectId}, </if>
             <if test="modifyTime!=null ">#{modifyTime}, </if>
             <if test="createTime!=null ">#{createTime}, </if>

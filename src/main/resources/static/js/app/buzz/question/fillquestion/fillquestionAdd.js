@@ -4,11 +4,19 @@ var $fillquestionAddForm = $("#fillquestion-add-form");
 $(function() {
     // validateRule();
 
-    $("input[name='status']").change(function() {
+    $("input[name='questionStatus']").change(function() {
         var checked = $(this).is(":checked");
-        var $status_label = $("#status");
-        if (checked) $status_label.html('可用');
-        else $status_label.html('禁用');
+        var $status_label = $("#questionStatusDes");
+        if (checked) {
+            $status_label.html('可用');
+            $("input[name='questionStatus']").val(1)
+        }
+        else {
+            $status_label.html('禁用');
+            $("input[name='questionStatus']").val(0)
+        }
+
+       console.log($("input[name='questionStatus']").val(),12321)
     });
 
     $("#fillquestion-add .btn-save").click(function() {

@@ -12,7 +12,7 @@ $(function() {
                 pageNum: params.offset / params.limit + 1,
                 questionType: $(".fillquestion-table-form").find("select[name='questionType']").val().trim(),
                 ssex: $(".fillquestion-table-form").find("select[name='ssex']").val(),
-                status: $(".fillquestion-table-form").find("select[name='status']").val()
+                questionStatus: $(".fillquestion-table-form").find("select[name='questionStatus']").val()
             };
         },
 
