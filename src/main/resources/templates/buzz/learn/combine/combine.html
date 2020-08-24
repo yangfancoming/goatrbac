@@ -1,0 +1,60 @@
+<div class="card" xmlns:shiro="http://www.w3.org/1999/xhtml">
+
+
+
+    <div data-th-include="buzz/learn/combine/combineAdd"></div>
+
+    <div class="card-block">
+        <div class="table-responsive">
+            <div id="data-table_wrapper" class="dataTables_wrapper">
+
+<!--表格顶部右侧工具栏-->
+                <div class="dataTables_buttons hidden-sm-down actions">
+                    <span class="actions__item zmdi zmdi-search" onclick="search()" title="搜索" />
+                    <span class="actions__item zmdi zmdi-refresh-alt" onclick="refresh()" title="刷新" />
+
+                    <div class="dropdown actions__item" shiro:hasAnyPermissions="combine:add,combine:delete,combine:update">
+                        <i data-toggle="dropdown" class="zmdi zmdi-more-vert"></i>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="javascript:void(0)" class="dropdown-item" data-toggle="modal" data-target="#combine-add" shiro:hasPermission="combine:add">新增试题</a>
+                            <a href="javascript:void(0)" class="dropdown-item" onclick="updateDevice()" shiro:hasPermission="combine:update">修改试题</a>
+                            <a href="javascript:void(0)" class="dropdown-item" onclick="deletcombines()" shiro:hasPermission="combine:delete">删除试题</a>
+                        </div>
+                    </div>
+                </div>
+
+<!--表格顶部左侧查询条件-->
+                <div id="data-table_filter" class="dataTables_filter">
+                    <form class="combine-table-form">
+                        <div class="row">
+
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon"> 试题类型： </span>
+                                    <div class="form-group">
+                                        <select class="form-control" name="combineType">
+                                            <option value="0" selected>单选题</option>
+                                            <option value="1">多选题</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon"> 题目描述： </span>
+                                    <div class="form-group">
+                                        <input type="text" name="combineDecs" class="form-control"> <i class="form-group__bar"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+                <table id="combineTable" data-mobile-responsive="true" class="mb-bootstrap-table text-nowrap"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-th-src="@{js/app/buzz/learn/combine/combine.js}"></script>
