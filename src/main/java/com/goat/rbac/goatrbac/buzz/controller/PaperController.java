@@ -2,9 +2,7 @@ package com.goat.rbac.goatrbac.buzz.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.goat.rbac.goatrbac.buzz.model.FillQuestion;
 import com.goat.rbac.goatrbac.buzz.model.Paper;
-import com.goat.rbac.goatrbac.buzz.service.IFillQuestionService;
 import com.goat.rbac.goatrbac.buzz.service.IPaperService;
 import com.goat.rbac.goatrbac.system.controller.BaseController;
 import com.goat.rbac.goatrbac.system.model.QueryRequest;
@@ -19,7 +17,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-// 题库管理--- 填空题
+// 试卷管理
 @RestController
 @RequestMapping("paper")
 public class PaperController extends BaseController {

@@ -1,31 +1,31 @@
 var validator;
-var $fillquestionAddForm = $("#fillquestion-add-form");
+var $paperAddForm = $("#paper-add-form");
 
 $(function() {
     // validateRule();
 
-    $("input[name='questionStatus']").change(function() {
+    $("input[name='paperStatus']").change(function() {
         var checked = $(this).is(":checked");
-        var $status_label = $("#questionStatusDes");
+        var $status_label = $("#paperStatusDes");
         if (checked) {
             $status_label.html('可用');
-            $("input[name='questionStatus']").val(1)
+            $("input[name='paperStatus']").val(1)
         }
         else {
             $status_label.html('禁用');
-            $("input[name='questionStatus']").val(0)
+            $("input[name='paperStatus']").val(0)
         }
 
-       console.log($("input[name='questionStatus']").val(),12321)
+       console.log($("input[name='paperStatus']").val(),12321)
     });
 
-    $("#fillquestion-add .btn-save").click(function() {
+    $("#paper-add .btn-save").click(function() {
         var name = $(this).attr("name");
-        validator = $fillquestionAddForm.validate();
+        validator = $paperAddForm.validate();
         var flag = validator.form();
         if (flag) {
             if (name == "save") {
-                $.post(ctx + "fillquestion/add", $fillquestionAddForm.serialize(), function(r) {
+                $.post(ctx + "paper/add", $paperAddForm.serialize(), function(r) {
                     if (r.code == 0) {
                         closeModal();
                         refresh();
@@ -34,7 +34,7 @@ $(function() {
                 });
             }
             if (name == "update") {
-                $.post(ctx + "fillquestion/update", $fillquestionAddForm.serialize(), function(r) {
+                $.post(ctx + "paper/update", $paperAddForm.serialize(), function(r) {
                     if (r.code == 0) {
                         closeModal();
                         refresh();
@@ -45,15 +45,15 @@ $(function() {
         }
     });
 
-    $("#fillquestion-add .btn-close").click(function() {
+    $("#paper-add .btn-close").click(function() {
         closeModal();
     });
 
 });
 
 function closeModal() {
-	$("#fillquestion-add-button").attr("name", "save");
-    $MB.closeAndRestModal("fillquestion-add");
+	$("#paper-add-button").attr("name", "save");
+    $MB.closeAndRestModal("paper-add");
     // validator.resetForm();
-    $("#fillquestion-add-modal-title").html('新增字典');
+    $("#paper-add-modal-title").html('新增');
 }
