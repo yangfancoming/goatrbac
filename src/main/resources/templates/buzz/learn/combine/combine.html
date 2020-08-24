@@ -1,7 +1,6 @@
 <div class="card" xmlns:shiro="http://www.w3.org/1999/xhtml">
 
 
-
     <div data-th-include="buzz/learn/combine/combineAdd"></div>
 
     <div class="card-block">
@@ -23,10 +22,37 @@
                     </div>
                 </div>
 
+
+
+
 <!--表格顶部左侧查询条件-->
                 <div id="data-table_filter" class="dataTables_filter">
+
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <button type="button" class="btn btn-save"  onclick="jump()" name="save">点击返回</button>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <h3 > xxxx英语试卷</h3>
+                        </div>
+                    </div>
+
                     <form class="combine-table-form">
                         <div class="row">
+
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon"> 所属科目： </span>
+                                    <div class="form-group">
+                                        <select class="form-control" name="subjectId">
+                                            <option value="0" selected>单选题</option>
+                                            <option value="1">多选题</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
 
                             <div class="col-sm-3">
                                 <div class="input-group">
@@ -58,3 +84,12 @@
     </div>
 </div>
 <script data-th-src="@{js/app/buzz/learn/combine/combine.js}"></script>
+
+<script>
+    function jump() {
+        // 点击左侧菜单后 显示右侧内容
+        $.get(ctx + "paper", {}, function(r) {
+            $main_content.html("").append(r);
+        });
+    }
+</script>

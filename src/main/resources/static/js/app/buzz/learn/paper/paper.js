@@ -42,9 +42,10 @@ $(function() {
     }
     $MB.initTable('paperTable', settings);
 });
+
 function offline(id) {
     // 点击左侧菜单后 显示右侧内容
-    $.get(ctx + "combine", {}, function(r) {
+    $.get(ctx + "combine/jump", {}, function(r) {
         $main_content.html("").append(r);
     });
     console.log(id,1111)
