@@ -30,6 +30,7 @@
         <typeAlias alias="question" type="com.goat.rbac.goatrbac.buzz.model.Question"/>
         <typeAlias alias="fillquestion" type="com.goat.rbac.goatrbac.buzz.model.FillQuestion"/>
         <typeAlias alias="subject" type="com.goat.rbac.goatrbac.buzz.model.Subject"/>
+        <typeAlias alias="paper" type="com.goat.rbac.goatrbac.buzz.model.Paper"/>
     </typeAliases>
 
 </configuration>

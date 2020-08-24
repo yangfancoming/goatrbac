@@ -31,7 +31,7 @@ $(function() {
             {field: 'questionOptions',title: '选项'},
             {field: 'questionAnswer',title: '答案'},
 
-            {field: 'questioScore',title: '分值'},
+            {field: 'questionScore',title: '分值'},
             {field: 'questionAudio',title: '音频解答'},
             {field: 'modifyTime',title: '修改时间',visible: false},
             {field: 'createTime',title: '创建时间'},

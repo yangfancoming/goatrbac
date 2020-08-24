@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.goat.rbac.goatrbac.buzz.dao.PaperMapper">
+
+    <resultMap id="PaperMap" type="com.goat.rbac.goatrbac.buzz.model.Paper">
+        <id column="PAPER_ID" jdbcType="DECIMAL" property="paperId" />
+        <result column="PAPER_NAME" jdbcType="VARCHAR" property="paperName" />
+        <result column="SUBJECTID" jdbcType="VARCHAR" property="subjectId" />
+        <result column="PAPER_STATUS" jdbcType="INTEGER" property="paperStatus" />
+        <result column="PAPER_SCORE" jdbcType="INTEGER" property="paperScore" />
+        <result column="PAPER_DESC" jdbcType="VARCHAR" property="paperDesc" />
+        <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    </resultMap>
+
+
+    <select id="find" resultMap="PaperMap" parameterType="paper">
+        SELECT *  FROM b_paper WHERE 1=1
+    </select>
+
+
+    <insert id="insert" parameterType="paper" useGeneratedKeys="true" keyProperty="questionId">
+        INSERT INTO b_paper (
+        <trim suffix="" suffixOverrides=",">
+            <if test="paperName!=null and paperName!='' ">PAPER_NAME, </if>
+            <if test="subjectId!=null and subjectId!='' or subjectId==0">SUBJECTID, </if>
+            <if test="paperStatus!=null and paperStatus!='' ">PAPER_STATUS, </if>
+            <if test="paperScore!=null and paperScore!='' ">PAPER_SCORE, </if>
+            <if test="paperDesc!=null and paperDesc!='' ">PAPER_DESC, </if>
+            <if test="modifyTime!=null  ">MODIFY_TIME, </if>
+            <if test="createTime!=null  ">CREATE_TIME, </if>
+
+        </trim>)
+        VALUES (
+        <trim suffix="" suffixOverrides=",">
+            <if test="paperName!=null and paperName!='' ">#{paperName}, </if>
+            <if test="subjectId!=null and subjectId!='' or subjectId==0 ">#{subjectId}, </if>
+            <if test="paperStatus!=null and paperStatus!='' ">#{paperStatus}, </if>
+            <if test="paperScore!=null and paperScore!='' ">#{paperScore}, </if>
+            <if test="paperDesc!=null and paperDesc!='' ">#{paperDesc}, </if>
+            <if test="modifyTime!=null ">#{modifyTime}, </if>
+            <if test="createTime!=null ">#{createTime}, </if>
+        </trim>)
+    </insert>
+
+
+    <delete id="deleteByIds" parameterType="Long">
+        delete from b_paper where PAPER_ID in
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>

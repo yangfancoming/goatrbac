@@ -16,34 +16,86 @@ public class Paper implements Serializable {
     // 试卷 名称
     private String paperName;
 
-	// 试题 类型  【0单选、1多选、2填空、3简答】
-    private Integer paperType;
+	// 试卷 分类  （科目）
+    private Long subjectId;
 
-    // 试题 状态
+    // 试卷 状态
     private Integer paperStatus;
 
-    // 试题 分值
-    private Integer questioScore;
+    // 试卷 分值
+    private Integer paperScore;
 
-    // 试题 答案
-    private String paperAnswer;
-
-    // 试题 描述
+    // 试卷 描述
     private String paperDesc;
-
-    // 试题 选项
-    private String paperOptions;
-
-    // 试题 音频解答
-    private String paperAudio;
-
-    // 试题 文字解析
-
 
     private Date modifyTime;
 
     private Date createTime;
 
+    public Long getPaperId() {
+        return paperId;
+    }
+
+    public void setPaperId(Long paperId) {
+        this.paperId = paperId;
+    }
+
+    public String getPaperName() {
+        return paperName;
+    }
+
+    public void setPaperName(String paperName) {
+        this.paperName = paperName;
+    }
+
+    public Long getSubjectId() {
+        return subjectId;
+    }
+
+    public void setSubjectId(Long subjectId) {
+        this.subjectId = subjectId;
+    }
+
+    public Integer getPaperStatus() {
+        return paperStatus;
+    }
+
+    public void setPaperStatus(Integer paperStatus) {
+        this.paperStatus = paperStatus;
+    }
+
+
+    public Integer getPaperScore() {
+        return paperScore;
+    }
+
+    public void setPaperScore(Integer paperScore) {
+        this.paperScore = paperScore;
+    }
+
+    public String getPaperDesc() {
+        return paperDesc;
+    }
+
+    public void setPaperDesc(String paperDesc) {
+        this.paperDesc = paperDesc;
+    }
+
+    public Date getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime(Date modifyTime) {
+        this.modifyTime = modifyTime;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 }
 
 

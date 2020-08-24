@@ -24,7 +24,7 @@ public class Question extends BaseModel implements Serializable {
     private Integer questionStatus;
 
     // 试题 分值
-    private Integer questioScore;
+    private Integer questionScore;
 
     // 试题 描述
     private String questionDesc;
@@ -67,12 +67,12 @@ public class Question extends BaseModel implements Serializable {
         this.questionAudio = questionAudio;
     }
 
-    public Integer getQuestioScore() {
-        return questioScore;
+    public Integer getQuestionScore() {
+        return questionScore;
     }
 
-    public void setQuestioScore(Integer questioScore) {
-        this.questioScore = questioScore;
+    public void setQuestionScore(Integer questionScore) {
+        this.questionScore = questionScore;
     }
 
     public String getQuestionDesc() {
