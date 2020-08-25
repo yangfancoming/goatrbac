@@ -10,9 +10,9 @@ $(function() {
             return {
                 pageSize: params.limit,
                 pageNum: params.offset / params.limit + 1,
-                questionType: $(".fillquestion-table-form").find("select[name='questionType']").val().trim(),
-                ssex: $(".fillquestion-table-form").find("select[name='ssex']").val(),
-                questionStatus: $(".fillquestion-table-form").find("select[name='questionStatus']").val()
+                // questionType: $(".fillquestion-table-form").find("select[name='questionType']").val().trim(),
+                // ssex: $(".fillquestion-table-form").find("select[name='ssex']").val(),
+                // questionStatus: $(".fillquestion-table-form").find("select[name='questionStatus']").val()
             };
         },
 

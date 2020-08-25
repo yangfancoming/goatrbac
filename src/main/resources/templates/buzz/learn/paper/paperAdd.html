@@ -64,5 +64,5 @@
 <script data-th-src="@{js/app/buzz/learn/paper/paperAdd.js}"></script>
 <script data-th-src="@{js/app/system/util/dictUtil.js}"></script>
 <script type="text/javascript">
-    $.fn.getSubject('subjectId','subject','type','英语',false);
+    $.fn.getSubject('subjectId','subject','type','英语',false); // doit 为什么这里会导致页面连续请求两次？ 注释掉就好了。。。
 </script>
