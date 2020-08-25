@@ -33,7 +33,7 @@ $(function() {
             {
                 title: '操作',
                 formatter: function(value, row, index) {
-                    return "<button href='#' onclick='offline(1)'>管理试题</button>";
+                    return "<button href='#' onclick='jump(1)'>管理试题</button>";
                 }
             }
 
@@ -42,12 +42,11 @@ $(function() {
     $MB.initTable('paperTable', settings);
 });
 
-function offline(id) {
+function jump(id) {
     // 点击左侧菜单后 显示右侧内容
     $.get(ctx + "combine/jump", {}, function(r) {
         $main_content.html("").append(r);
     });
-    console.log(id,1111)
 }
 
 

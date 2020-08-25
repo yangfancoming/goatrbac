@@ -85,11 +85,4 @@
 </div>
 <script data-th-src="@{js/app/buzz/learn/combine/combine.js}"></script>
 
-<script>
-    function jump() {
-        // 点击左侧菜单后 显示右侧内容  doit 待封装  有好多这类相同的代码
-        $.get(ctx + "paper", {}, function(r) {
-            $main_content.html("").append(r);
-        });
-    }
-</script>
+<script data-th-src="@{js/app/system/util/myUtils.js}"></script>

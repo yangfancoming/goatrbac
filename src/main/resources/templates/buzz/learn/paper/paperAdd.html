@@ -1,3 +1,4 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:sys="">
 <div class="modal fade" id="paper-add" data-keyboard="false" data-backdrop="static" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -11,7 +12,9 @@
                         <div class="col-sm-11">
                             <div class="input-group">
                                 <span class="input-group-addon">科目：</span>
-                                <div class="form-group">  <select class="form-control" name="subjectId" id="subjectId"> </select> </div>
+                                <div class="form-group">
+                                    <sys:dict  name="subjectId" id="subjectId" tableName="b_subject" fieldName="type" class="form-control" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -62,7 +65,3 @@
     </div>
 </div>
 <script data-th-src="@{js/app/buzz/learn/paper/paperAdd.js}"></script>
-<script data-th-src="@{js/app/system/util/dictUtil.js}"></script>
-<script type="text/javascript">
-    $.fn.getSubject('subjectId','subject','type','英语',false); // doit 为什么这里会导致页面连续请求两次？ 注释掉就好了。。。
-</script>
