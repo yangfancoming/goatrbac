@@ -19,9 +19,9 @@
                     <div class="dropdown actions__item" shiro:hasAnyPermissions="paper:add,paper:delete,paper:update">
                         <i data-toggle="dropdown" class="zmdi zmdi-more-vert"></i>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="javascript:void(0)" class="dropdown-item" data-toggle="modal" data-target="#paper-add" shiro:hasPermission="paper:add">新增试题</a>
-                            <a href="javascript:void(0)" class="dropdown-item" onclick="updateDevice()" shiro:hasPermission="paper:update">修改试题</a>
-                            <a href="javascript:void(0)" class="dropdown-item" onclick="deletQuestions()" shiro:hasPermission="paper:delete">删除试题</a>
+                            <a href="javascript:void(0)" class="dropdown-item" data-toggle="modal" data-target="#paper-add" shiro:hasPermission="paper:add">新增试卷</a>
+                            <a href="javascript:void(0)" class="dropdown-item" onclick="updateDevice()" shiro:hasPermission="paper:update">修改试卷</a>
+                            <a href="javascript:void(0)" class="dropdown-item" onclick="deleteByIds()" shiro:hasPermission="paper:delete">删除试卷</a>
                         </div>
                     </div>
                 </div>
@@ -33,14 +33,9 @@
 
                             <div class="col-sm-3">
                                 <div class="input-group">
-                                    <span class="input-group-addon"> 试题类型： </span>
+                                    <span class="input-group-addon"> 科目： </span>
                                     <div class="form-group">
-                                        <select class="form-control" name="questionType">
-                                            <option value="0" selected>单选题</option>
-                                            <option value="1">多选题</option>
-                                            <option value="2">填空题</option>
-                                            <option value="3">简答题</option>
-                                        </select>
+                                        <sys:dict  name="subjectId" id="subjectId" tableName="b_subject" fieldName="type" class="form-control" />
                                     </div>
                                 </div>
                             </div>

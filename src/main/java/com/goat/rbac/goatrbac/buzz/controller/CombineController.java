@@ -29,9 +29,10 @@ public class CombineController extends BaseController {
     @ResponseBody
     public Map<String, Object> list(QueryRequest request, @RequestParam Map<String ,Object> params ) {
         PageHelper.startPage(request.getPageNum(), request.getPageSize());
-        List<Map> devices = combineService.list(params);
-        PageInfo<Map> pageInfo = new PageInfo<>(devices);
-        return getDataTable(pageInfo);
+//        List<Map> devices = combineService.list(params);
+//        PageInfo<Map> pageInfo = new PageInfo<>(devices);
+//        return getDataTable(pageInfo);
+        return getDataTable(null);
     }
 
 }

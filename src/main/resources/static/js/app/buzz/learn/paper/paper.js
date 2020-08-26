@@ -9,7 +9,7 @@ $(function() {
             return {
                 pageSize: params.limit,
                 pageNum: params.offset / params.limit + 1,
-                questionType: $(".paper-table-form").find("select[name='questionType']").val().trim(),
+                // questionType: $(".paper-table-form").find("select[name='questionType']").val().trim(),
                 ssex: $(".paper-table-form").find("select[name='ssex']").val(),
                 questionStatus: $(".paper-table-form").find("select[name='questionStatus']").val()
             };
@@ -59,7 +59,7 @@ function refresh() {
     $MB.refreshTable('paperTable');
 }
 
-function deletQuestions() {
+function deleteByIds() {
     var selected = $("#paperTable").bootstrapTable('getSelections');
     var selected_length = selected.length;
     if (!selected_length) {
@@ -68,7 +68,7 @@ function deletQuestions() {
     }
     var ids = "";
     for (var i = 0; i < selected_length; i++) {
-        ids += selected[i].questionId;
+        ids += selected[i].paperId;
         if (i != (selected_length - 1)) ids += ",";
     }
 

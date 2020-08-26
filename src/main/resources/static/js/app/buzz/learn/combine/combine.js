@@ -9,15 +9,14 @@ $(function() {
             return {
                 pageSize: params.limit,
                 pageNum: params.offset / params.limit + 1,
-                combineType: $(".combine-table-form").find("select[name='combineType']").val().trim(),
-                ssex: $(".combine-table-form").find("select[name='ssex']").val(),
-                status: $(".combine-table-form").find("select[name='status']").val()
+                subjectId: $(".combine-table-form").find("select[name='subjectId']").val(),// 试题所属科目
+                questionType: $(".combine-table-form").find("select[name='questionType']").val(), // 试题类型
             };
         },
 
         columns: [{checkbox: true},
             {field: 'combineId',visible: false},
-            {field: 'sujectId',title: '所属科目',
+            {field: 'subjectId',title: '所属科目',
                 formatter: function(value, row, index) {
                     if (value == '0') return '英语';
                     if (value == '1') return '语文';

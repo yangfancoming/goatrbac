@@ -36,8 +36,8 @@ public class PaperController extends BaseController {
     @PostMapping("add")
     public ResponseBo add(Paper model) {
         model.setCreateTime(new Date());
-        int insert = paperService.insert(model);
-        return ResponseBo.ok("新增试题成功！"+insert);
+        paperService.insert(model);
+        return ResponseBo.ok("新增试题成功！");
     }
 
     @RequestMapping("delete")
