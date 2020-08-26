@@ -2,11 +2,10 @@ package com.goat.rbac.goatrbac.buzz.model;
 
 
 import java.io.Serializable;
-import java.util.Date;
 
 
 // 试卷实体类
-public class Paper implements Serializable {
+public class Paper extends BaseModel implements Serializable {
 
 	private static final long serialVersionUID = -7790334862410409053L;
 
@@ -27,10 +26,6 @@ public class Paper implements Serializable {
 
     // 试卷 描述
     private String paperDesc;
-
-    private Date modifyTime;
-
-    private Date createTime;
 
     public Long getPaperId() {
         return paperId;
@@ -81,21 +76,6 @@ public class Paper implements Serializable {
         this.paperDesc = paperDesc;
     }
 
-    public Date getModifyTime() {
-        return modifyTime;
-    }
-
-    public void setModifyTime(Date modifyTime) {
-        this.modifyTime = modifyTime;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 }
 
 

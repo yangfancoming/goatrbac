@@ -5,8 +5,7 @@
 
 
     <select id="list" parameterType="java.util.Map" resultType="java.util.Map">
-        SELECT * FROM ${tableName} WHERE ${columnName} = #{ID}
+        SELECT * FROM ${tableName} WHERE SUBJECTID = #{subjectId}
     </select>
-
 
 </mapper>
