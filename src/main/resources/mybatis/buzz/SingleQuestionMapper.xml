@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.goat.rbac.goatrbac.buzz.dao.SingleQuestionMapper">
+
+    <resultMap id="singleQuestionMap" type="com.goat.rbac.goatrbac.buzz.model.SingleQuestion">
+        <id column="QUESTION_ID" jdbcType="DECIMAL" property="questionId" />
+        <result column="QUESTION_STATUS" jdbcType="INTEGER" property="questionStatus" />
+        <result column="QUESTION_AUDIO" jdbcType="VARCHAR" property="questionAudio" />
+        <result column="QUESTION_TEXT" jdbcType="VARCHAR" property="questionText" />
+        <result column="QUESTION_SCORE" jdbcType="INTEGER" property="questionScore" />
+        <result column="QUESTION_ANSWER" jdbcType="VARCHAR" property="questionAnswer" />
+        <result column="QUESTION_DESC" jdbcType="VARCHAR" property="questionDesc" />
+        <result column="QUESTION_LABEL" jdbcType="VARCHAR" property="questionLabel" />
+        <result column="SUBJECTID" jdbcType="VARCHAR" property="subjectId" />
+        <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+
+    </resultMap>
+
+
+    <select id="find" resultMap="singleQuestionMap" parameterType="singleQuestion">
+        SELECT *  FROM b_single_question WHERE 1=1
+<!--        <if test="deviceId !=null and deviceId != ''">-->
+<!--            AND DEVICE_ID = #{deviceId}-->
+<!--        </if>-->
+<!--        <if test="deviceName !=null and deviceName != ''">-->
+<!--            AND DEPT_NAME like concat('%', #{deviceName}, '%')-->
+<!--        </if>-->
+<!--        <if test="deviceCode !=null and deviceCode != ''">-->
+<!--            AND DEVICE_CODE like concat('%', #{deviceCode}, '%')-->
+<!--        </if>-->
+    </select>
+
+
+    <insert id="insert" parameterType="singleQuestion" useGeneratedKeys="true" keyProperty="questionId">
+        INSERT INTO b_single_question (
+        <trim suffix="" suffixOverrides=",">
+            <if test="questionStatus!=null and questionStatus!='' ">QUESTION_STATUS, </if>
+            <if test="questionAudio!=null and questionAudio!='' ">QUESTION_AUDIO, </if>
+            <if test="questionText!=null and questionText!='' ">QUESTION_TEXT, </if>
+            <if test="questionScore!=null and questionScore!='' ">QUESTION_SCORE, </if>
+            <if test="questionAnswer!=null and questionAnswer!='' ">QUESTION_ANSWER, </if>
+            <if test="questionDesc!=null and questionDesc!='' ">QUESTION_DESC, </if>
+            <if test="questionLabel!=null and questionLabel!='' ">QUESTION_LABEL, </if>
+            <if test="subjectId!=null and subjectId!='' or subjectId==0">SUBJECTID, </if>
+            <if test="modifyTime!=null  ">MODIFY_TIME, </if>
+            <if test="createTime!=null  ">CREATE_TIME, </if>
+
+        </trim>)
+        VALUES (
+        <trim suffix="" suffixOverrides=",">
+            <if test="questionStatus!=null and questionStatus!='' ">#{questionStatus}, </if>
+            <if test="questionAudio!=null and questionAudio!='' ">#{questionAudio}, </if>
+            <if test="questionText!=null and questionText!='' ">#{questionText}, </if>
+            <if test="questionScore!=null and questionScore!='' ">#{questionScore}, </if>
+            <if test="questionAnswer!=null and questionAnswer!='' ">#{questionAnswer}, </if>
+            <if test="questionDesc!=null and questionDesc!='' ">#{questionDesc}, </if>
+            <if test="questionLabel!=null and questionLabel!='' ">#{questionLabel}, </if>
+            <if test="subjectId!=null and subjectId!='' or subjectId==0 ">#{subjectId}, </if>
+            <if test="modifyTime!=null ">#{modifyTime}, </if>
+            <if test="createTime!=null ">#{createTime}, </if>
+        </trim>)
+    </insert>
+
+
+    <delete id="deleteByIds" parameterType="Long">
+        delete from b_single_question where QUESTION_ID in
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>

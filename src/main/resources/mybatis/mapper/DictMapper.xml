@@ -52,6 +52,7 @@
         <if test="fieldName !=null and fieldName != ''">
             AND FIELD_NAME = #{fieldName}
         </if>
+        ORDER BY KEYY
     </select>
 
 

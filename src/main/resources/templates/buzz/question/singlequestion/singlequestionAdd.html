@@ -1,0 +1,106 @@
+<div class="modal fade" id="fillquestion-add" data-keyboard="false" data-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title pull-left" id="fillquestion-add-modal-title">新增填空题</h3>
+            </div>
+            <div class="modal-body">
+                <form id="fillquestion-add-form">
+
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">科目：</span>
+                                <div class="form-group">  <select class="form-control" name="subjectId" id="subjectId"> </select> </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">题目：</span>
+                                <div class="form-group">
+                                    <textarea class="form-control"  name="questionDesc" rows="5" cols="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">标签：</span>
+                                <div class="form-group">
+                                    <div class="form-group"> <input type="text" name="questionLabel" class="form-control"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">答案：</span>
+                                <div class="form-group"> <input type="text" placeholder="请输入正确答案内容" name="questionAnswer" class="form-control"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">文字解析：</span>
+                                <div class="form-group"> <input type="text" name="questionText" class="form-control"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">音频解析：</span>
+                                <div class="form-group"> <input type="text" name="questionAudio" class="form-control"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group">
+                                <span class="input-group-addon">分值：</span>
+                                <div class="form-group"> <input type="text" name="questionScore" class="form-control"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-11">
+                            <div class="input-group" style="margin-top:10px;">
+                                <span class="input-group-addon">状态：</span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" name="questionStatus" value="1" checked class="toggle-switch__checkbox">
+                                    <i class="toggle-switch__helper"></i>
+                                </div>
+                                <span class="input-group-addon" id="questionStatusDes" style="margin-left: 10px;">可用</span>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-save" id="fillquestion-add-button" name="save">保存</button>
+                <button type="button" class="btn btn-secondary btn-close">关闭</button>
+                <button class="btn-hide"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-th-src="@{js/app/buzz/question/fillquestion/fillquestionAdd.js}"></script>
+<script data-th-src="@{js/app/system/util/dictUtil.js}"></script>
+<script type="text/javascript">
+    $.fn.getSubject('subjectId','subject','type','英语',false);
+</script>
