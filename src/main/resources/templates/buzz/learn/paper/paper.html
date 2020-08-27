@@ -22,6 +22,7 @@
                             <a href="javascript:void(0)" class="dropdown-item" data-toggle="modal" data-target="#paper-add" shiro:hasPermission="paper:add">新增试卷</a>
                             <a href="javascript:void(0)" class="dropdown-item" onclick="updateDevice()" shiro:hasPermission="paper:update">修改试卷</a>
                             <a href="javascript:void(0)" class="dropdown-item" onclick="deleteByIds()" shiro:hasPermission="paper:delete">删除试卷</a>
+                            <a href="javascript:void(0)" class="dropdown-item" onclick="previewPaper()" shiro:hasPermission="paper:delete">预览试卷</a>
                         </div>
                     </div>
                 </div>
@@ -58,3 +59,11 @@
     </div>
 </div>
 <script data-th-src="@{js/app/buzz/learn/paper/paper.js}"></script>
+<script>
+    function previewPaper() {
+        // 点击左侧菜单后 显示右侧内容  doit 待封装  有好多这类相同的代码
+        $.get(ctx + "paper/jump", {}, function(r) {
+            $main_content.html("").append(r);
+        });
+    }
+</script>
