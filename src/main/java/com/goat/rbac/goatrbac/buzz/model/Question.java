@@ -11,9 +11,12 @@ public class Question extends BaseModel implements Serializable {
 	// 主键id
 	private Long questionId;
 
-//	// 所属分类(科目)
+	// 所属分类id(科目)
 	private Long subjectId;
-//
+
+    // 所属分类名称 (科目)  给前端返回使用
+	private String subjectName;
+
 //    // 试题 标签
 	private Long questionLabel;
 
@@ -105,6 +108,14 @@ public class Question extends BaseModel implements Serializable {
 
     public void setQuestionLabel(Long questionLabel) {
         this.questionLabel = questionLabel;
+    }
+
+    public String getSubjectName() {
+        return subjectName;
+    }
+
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
     }
 }
 

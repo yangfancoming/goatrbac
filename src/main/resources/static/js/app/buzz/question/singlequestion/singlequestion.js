@@ -18,30 +18,14 @@ $(function() {
 
         columns: [{checkbox: true},
             {field: 'questionId',visible: false},
-            {field: 'questionType',title: '类型',
-                formatter: function(value, row, index) {
-                    if (value == 0) return '单选题';
-                    else return '未知题型';
-                }
-             },
+            {field: 'subjectName',title: '所属科目'},
             {field: 'questionDesc',title: '题目'},
-            {field: 'subjectId',title: '所属科目'},
-            {field: 'questionLabel',title: '标签'},
             {field: 'questionOptions',title: '选项'},
             {field: 'questionAnswer',title: '答案'},
-
             {field: 'questionScore',title: '分值'},
-            {field: 'questionAudio',title: '音频解答'},
+            {field: 'questionLabel',title: '标签'},
+            {field: 'questionText',title: '文字解答'},
             {field: 'modifyTime',title: '修改时间',visible: false},
-            {field: 'createTime',title: '创建时间'},
-            {
-                field: 'questionStatus',title: '状态',
-                formatter: function(value, row, index) {
-                    if (value == '1') return '<span class="badge badge-success">有效</span>';
-                    if (value == '0') return '<span class="badge badge-warning">锁定</span>';
-                }
-            }
-
         ]
     }
     $MB.initTable('singlequestionTable', settings);

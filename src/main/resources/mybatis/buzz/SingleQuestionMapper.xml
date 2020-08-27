@@ -22,16 +22,16 @@
 
 
     <select id="find" resultMap="singleQuestionMap" parameterType="singleQuestion">
-        SELECT *  FROM b_single_question WHERE 1=1
-<!--        <if test="deviceId !=null and deviceId != ''">-->
-<!--            AND DEVICE_ID = #{deviceId}-->
-<!--        </if>-->
-<!--        <if test="deviceName !=null and deviceName != ''">-->
-<!--            AND DEPT_NAME like concat('%', #{deviceName}, '%')-->
-<!--        </if>-->
-<!--        <if test="deviceCode !=null and deviceCode != ''">-->
-<!--            AND DEVICE_CODE like concat('%', #{deviceCode}, '%')-->
-<!--        </if>-->
+        SELECT
+              dict.value AS subjectName,
+               b.QUESTION_DESC,
+               b.QUESTION_LABEL,
+               b.QUESTION_OPTIONS,
+               b.QUESTION_ANSWER,
+               b.SUBJECTID,
+               b.QUESTION_SCORE
+        FROM b_single_question b
+                 INNER JOIN (SELECT keyy  ,value FROM t_dict WHERE TABLE_NAME = 'b_subject') dict ON b.SUBJECTID = dict.KEYY
     </select>
 
 
