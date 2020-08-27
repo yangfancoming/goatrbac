@@ -20,7 +20,7 @@ $(function() {
             {field: 'questionId',visible: false},
             {field: 'questionType',title: '类型',
                 formatter: function(value, row, index) {
-                    if (value == '3') return '填空题';
+                    if (value == 0) return '单选题';
                     else return '未知题型';
                 }
              },

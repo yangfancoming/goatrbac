@@ -3,9 +3,23 @@
 
 <mapper namespace="com.goat.rbac.goatrbac.buzz.dao.CombineMapper">
 
+    <resultMap id="questionMap" type="com.goat.rbac.goatrbac.buzz.model.Question">
+        <id column="QUESTION_ID" jdbcType="DECIMAL" property="questionId" />
+        <result column="QUESTION_TYPE" jdbcType="INTEGER" property="questionType" />
+        <result column="QUESTION_STATUS" jdbcType="INTEGER" property="questionStatus" />
+        <result column="QUESTION_AUDIO" jdbcType="VARCHAR" property="questionAudio" />
+        <result column="QUESTION_TEXT" jdbcType="VARCHAR" property="questionText" />
+        <result column="QUESTION_SCORE" jdbcType="INTEGER" property="questionScore" />
+        <result column="QUESTION_ANSWER" jdbcType="VARCHAR" property="questionAnswer" />
+        <result column="QUESTION_DESC" jdbcType="VARCHAR" property="questionDesc" />
+        <result column="QUESTION_OPTIONS" jdbcType="VARCHAR" property="questionOptions" />
+        <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    </resultMap>
 
-    <select id="list" parameterType="java.util.Map" resultType="java.util.Map">
-        SELECT * FROM ${tableName} WHERE SUBJECTID = #{subjectId}
+    <select id="list" parameterType="java.util.Map" resultMap="questionMap">
+        SELECT q.QUESTION_TYPE,q.QUESTION_DESC,q.QUESTION_LABEL,q.QUESTION_SCORE,q.SUBJECTID FROM ${tableName} as q WHERE SUBJECTID = #{subjectId}
     </select>
 
 </mapper>
+

@@ -1,6 +1,7 @@
 package com.goat.rbac.goatrbac.buzz.service.impl;
 
 import com.goat.rbac.goatrbac.buzz.dao.CombineMapper;
+import com.goat.rbac.goatrbac.buzz.model.Question;
 import com.goat.rbac.goatrbac.buzz.service.ICombineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,8 +23,8 @@ public class CombineServiceImpl implements ICombineService {
     CombineMapper combineMapper;
 
     @Override
-    public List<Map> list(Map map) {
-        List<Map> list = combineMapper.list(map);
+    public List<Question> list(Map map) {
+        List<Question> list = combineMapper.list(map);
         return list;
     }
 }

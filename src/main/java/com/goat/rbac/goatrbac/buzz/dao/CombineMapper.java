@@ -1,6 +1,8 @@
 package com.goat.rbac.goatrbac.buzz.dao;
 
 
+import com.goat.rbac.goatrbac.buzz.model.Question;
+
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +10,6 @@ import java.util.Map;
 public interface CombineMapper {
 
 
-    List<Map> list(Map map);
+    List<Question> list(Map map);
 
 }

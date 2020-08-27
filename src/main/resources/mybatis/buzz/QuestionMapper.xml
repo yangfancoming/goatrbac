@@ -15,7 +15,6 @@
         <result column="QUESTION_OPTIONS" jdbcType="VARCHAR" property="questionOptions" />
         <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
         <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
-
     </resultMap>
 
 

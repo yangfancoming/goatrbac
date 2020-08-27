@@ -3,6 +3,7 @@ package com.goat.rbac.goatrbac.buzz.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.goat.rbac.goatrbac.buzz.common.QuestionType;
+import com.goat.rbac.goatrbac.buzz.model.Question;
 import com.goat.rbac.goatrbac.buzz.service.ICombineService;
 import com.goat.rbac.goatrbac.system.controller.BaseController;
 import com.goat.rbac.goatrbac.system.model.QueryRequest;
@@ -34,8 +35,8 @@ public class CombineController extends BaseController {
         Map<String ,String> param = new HashMap<>(2);
         param.put("tableName",QuestionType.kv.get(params.get("questionType")));// 试题类型下拉框
         param.put("subjectId",params.get("subjectId")); // 所属科目下拉框
-        List<Map> devices = combineService.list(param);
-        PageInfo<Map> pageInfo = new PageInfo<>(devices);
+        List<Question> devices = combineService.list(param);
+        PageInfo<Question> pageInfo = new PageInfo<>(devices);
         return getDataTable(pageInfo);
     }
 
