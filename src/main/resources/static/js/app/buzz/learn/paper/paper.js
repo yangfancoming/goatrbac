@@ -33,7 +33,8 @@ $(function() {
             {
                 title: '操作',
                 formatter: function(value, row, index) {
-                    return "<button href='#' onclick='jump(1)'>管理试题</button>";
+                    return "<button type=\"button\" class=\"btn btn-save\" href='#' onclick='jump(1)'>管理试题</button>   " +
+                           "<button type=\"button\" class=\"btn btn-edit\"  href='#' onclick='jump(1)'>预览试卷</button>" ;
                 }
             }
 

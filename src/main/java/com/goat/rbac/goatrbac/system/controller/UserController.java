@@ -101,4 +101,18 @@ public class UserController extends BaseController {
         model.addAttribute("user", user);
         return "system/user/profile";
     }
+
+    @RequestMapping("getUserProfile")
+    @ResponseBody
+    public ResponseBo getUserProfile(Long userId) {
+        try {
+            User user = new User();
+            user.setUserId(userId);
+            return ResponseBo.ok(this.userService.findUserProfile(user));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseBo.error("获取用户信息失败，请联系网站管理员！");
+        }
+    }
+
 }
