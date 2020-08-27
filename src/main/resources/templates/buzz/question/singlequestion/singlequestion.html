@@ -33,14 +33,9 @@
 
                             <div class="col-sm-3">
                                 <div class="input-group">
-                                    <span class="input-group-addon"> 试题类型： </span>
+                                    <span class="input-group-addon"> 科目： </span>
                                     <div class="form-group">
-                                        <select class="form-control" name="questionType">
-                                            <option value="0" selected>单选题</option>
-                                            <option value="1">多选题</option>
-                                            <option value="2">填空题</option>
-                                            <option value="3">简答题</option>
-                                        </select>
+                                        <sys:dict  name="subjectId" id="subjectId" tableName="b_subject" fieldName="type" class="form-control" />
                                     </div>
                                 </div>
                             </div>

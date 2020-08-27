@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -33,11 +32,11 @@ public class SingleQuestionController extends BaseController {
         return getDataTable(pageInfo);
     }
 
+
     @PostMapping("add")
     public ResponseBo add(SingleQuestion question) {
-        question.setCreateTime(new Date());
-        int insert = singleQuestionService.insert(question);
-        return ResponseBo.ok("新增试题成功！"+insert);
+        singleQuestionService.insert(question);
+        return ResponseBo.ok("新增试题成功！");
     }
 
     @RequestMapping("delete")

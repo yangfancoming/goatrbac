@@ -11,6 +11,8 @@
         <result column="QUESTION_SCORE" jdbcType="INTEGER" property="questionScore" />
         <result column="QUESTION_ANSWER" jdbcType="VARCHAR" property="questionAnswer" />
         <result column="QUESTION_DESC" jdbcType="VARCHAR" property="questionDesc" />
+        <result column="QUESTION_OPTIONS" jdbcType="VARCHAR" property="questionOptions" />
+        <result column="QUESTION_FORMAT" jdbcType="VARCHAR" property="questionFormat" />
         <result column="QUESTION_LABEL" jdbcType="VARCHAR" property="questionLabel" />
         <result column="SUBJECTID" jdbcType="VARCHAR" property="subjectId" />
         <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
@@ -42,6 +44,8 @@
             <if test="questionScore!=null and questionScore!='' ">QUESTION_SCORE, </if>
             <if test="questionAnswer!=null and questionAnswer!='' ">QUESTION_ANSWER, </if>
             <if test="questionDesc!=null and questionDesc!='' ">QUESTION_DESC, </if>
+            <if test="questionOptions!=null and questionOptions!='' ">QUESTION_OPTIONS, </if>
+            <if test="questionFormat!=null and questionFormat!='' ">QUESTION_FORMAT, </if>
             <if test="questionLabel!=null and questionLabel!='' ">QUESTION_LABEL, </if>
             <if test="subjectId!=null and subjectId!='' or subjectId==0">SUBJECTID, </if>
             <if test="modifyTime!=null  ">MODIFY_TIME, </if>
@@ -56,6 +60,8 @@
             <if test="questionScore!=null and questionScore!='' ">#{questionScore}, </if>
             <if test="questionAnswer!=null and questionAnswer!='' ">#{questionAnswer}, </if>
             <if test="questionDesc!=null and questionDesc!='' ">#{questionDesc}, </if>
+            <if test="questionOptions!=null and questionOptions!='' ">#{questionOptions}, </if>
+            <if test="questionFormat!=null and questionFormat!='' ">#{questionFormat}, </if>
             <if test="questionLabel!=null and questionLabel!='' ">#{questionLabel}, </if>
             <if test="subjectId!=null and subjectId!='' or subjectId==0 ">#{subjectId}, </if>
             <if test="modifyTime!=null ">#{modifyTime}, </if>

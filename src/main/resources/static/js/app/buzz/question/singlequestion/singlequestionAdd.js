@@ -20,9 +20,9 @@ $(function() {
     });
 
     $("#singlequestion-add .btn-save").click(function() {
-        var name = $(this).attr("name");
+        let name = $(this).attr("name");
         validator = $singlequestionAddForm.validate();
-        var flag = validator.form();
+        let flag = validator.form();
         if (flag) {
             if (name == "save") {
                 $.post(ctx + "singlequestion/add", $singlequestionAddForm.serialize(), function(r) {
