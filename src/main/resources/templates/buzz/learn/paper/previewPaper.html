@@ -1,49 +1,221 @@
 
 <div class="card" xmlns:th="http://www.thymeleaf.org">
 
+    <!-- preview paper-->
+    <link rel="stylesheet" data-th-href="@{css/buzz/test.css}">
 
-    <h2>用户列表</h2>
-    <!--说明： th:each="obj,stat:${objects}" 分别代表单个实例,状态(可省略),待遍历对象-->
-    <div th:each="user:${userList}">
-        <input type="text" name="id" th:value="${user.id}"/>
-        用户姓名：<input type="text" name="password" th:value="${user.username}"/>
-        登录密码：<input type="text" name="username" th:value="${user.password}"/>
+    <div class="main">
+        <div class="test_main">
+            <div class="nr_left">
+                <div class="test">
+                    <div class="test_content">
+                        <div class="test_content_title">
+                            <h2>单选题</h2>
+                            <p>
+                                <span>共</span><i class="content_lit">60</i><span>题，</span><span>合计</span><i class="content_fs">60</i><span>分</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="test_content_nr">
+                        <ul>
+
+                            <!-- 试题开始-->
+                            <li id="qu_0_0">
+                                <div class="test_content_nr_tt">
+                                    <i>1</i> <span>(1分)</span><font>在生产管理信息系统中，下列操作步骤能正确将工单推进流程的是（  ）</font>
+                                </div>
+
+                                <div class="test_content_nr_main">
+                                    <ul>
+                                        <li class="option">
+                                            <input type="radio" class="radioOrCheck" name="answer1" id="0_answer_1_option_1" />
+                                            <label for="0_answer_1_option_1">
+                                                A. <p class="ue" style="display: inline;">在工具栏中点击“workflow”标签</p>
+                                            </label>
+                                        </li>
+
+                                        <li class="option">
+                                            <input type="radio" class="radioOrCheck" name="answer1" id="0_answer_1_option_2" />
+                                            <label for="0_answer_1_option_2">
+                                                B. <p class="ue" style="display: inline;">在缺陷单界面中点击“推进流程”按钮</p>
+                                            </label>
+                                        </li>
+
+                                        <li class="option">
+                                            <input type="radio" class="radioOrCheck" name="answer1" id="0_answer_1_option_3" />
+                                            <label for="0_answer_1_option_3">
+                                                C.<p class="ue" style="display: inline;">在缺陷单界面中点击“提交”按钮</p>
+                                            </label>
+                                        </li>
+
+                                        <li class="option">
+                                            <input type="radio" class="radioOrCheck" name="answer1" id="0_answer_1_option_4" />
+                                            <label for="0_answer_1_option_4">
+                                                D. <p class="ue" style="display: inline;">后台启动流程推进</p>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <!-- 试题开始-->
+                            <li id="qu_0_1">
+                                <div class="test_content_nr_tt">
+                                    <i>1</i> <span>(1分)</span><font>在生产管理信息系统中，下列操作步骤能正确将工单推进流程的是（  ）</font>
+                                </div>
+
+                                <div class="test_content_nr_main">
+                                    <ul>
+                                        <li class="option">
+                                            <input type="radio" class="radioOrCheck" name="answer1" id="0_answer_1_option_1" />
+                                            <label for="0_answer_1_option_1">
+                                                A. <p class="ue" style="display: inline;">在工具栏中点击“workflow”标签</p>
+                                            </label>
+                                        </li>
+
+                                        <li class="option">
+                                            <input type="radio" class="radioOrCheck" name="answer1" id="0_answer_1_option_2" />
+                                            <label for="0_answer_1_option_2">
+                                                B. <p class="ue" style="display: inline;">在缺陷单界面中点击“推进流程”按钮</p>
+                                            </label>
+                                        </li>
+
+                                        <li class="option">
+                                            <input type="radio" class="radioOrCheck" name="answer1" id="0_answer_1_option_3" />
+                                            <label for="0_answer_1_option_3">
+                                                C.<p class="ue" style="display: inline;">在缺陷单界面中点击“提交”按钮</p>
+                                            </label>
+                                        </li>
+
+                                        <li class="option">
+                                            <input type="radio" class="radioOrCheck" name="answer1" id="0_answer_1_option_4" />
+                                            <label for="0_answer_1_option_4">
+                                                D. <p class="ue" style="display: inline;">后台启动流程推进</p>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+
+                    <div class="test_content">
+                        <div class="test_content_title">
+                            <h2>多选题</h2>
+                            <p>
+                                <span>共</span><i class="content_lit">30</i><span>题，</span><span>合计</span><i class="content_fs">30</i><span>分</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="test_content_nr">
+                        <ul>
+                            <!-- 试题开始-->
+                            <li id="qu_1_0">
+                                <div class="test_content_nr_tt">
+                                    <i>1</i><span>(1分)</span><font>以下属于南方电网员工职业操守中明文规定的有()</font><b class="icon iconfont">&#xe881;</b>
+                                </div>
+
+                                <div class="test_content_nr_main">
+                                    <ul>
+                                        <li class="option">
+                                            <input type="checkbox" class="radioOrCheck" name="answer1" id="1_answer_1_option_1" />
+                                            <label for="1_answer_1_option_1">
+                                                A.<p class="ue" style="display: inline;">热爱祖国、热爱南网、热爱岗位</p>
+                                            </label>
+                                        </li>
+
+                                        <li class="option">
+                                            <input type="checkbox" class="radioOrCheck" name="answer1" id="1_answer_1_option_2" />
+                                            <label for="1_answer_1_option_2">
+                                                B.<p class="ue" style="display: inline;">遵纪守法、忠于职守、令行禁止</p>
+                                            </label>
+                                        </li>
+
+                                        <li class="option">
+                                            <input type="checkbox" class="radioOrCheck" name="answer1" id="1_answer_1_option_3" />
+                                            <label for="1_answer_1_option_3">
+                                                C.<p class="ue" style="display: inline;">客户至上、诚实守信、优质服务</p>
+                                            </label>
+                                        </li>
+
+                                        <li class="option">
+                                            <input type="checkbox" class="radioOrCheck" name="answer1" id="1_answer_1_option_4" />
+                                            <label for="1_answer_1_option_4">
+                                                D.<p class="ue" style="display: inline;">公平竞争、互相监督、服从监管</p>
+                                            </label>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+
+
+                        </ul>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-
-    <h3>单选题</h3>  <br/>
-
-    1.__________ is in the bag? —— There are some books in it. <br/>
-    A. Who     B. Whose    C. What     D. Where <br/>
-    2. There __________ a dog and two cows on the farm. <br/>
-    A. be      B. am      C. is     D. are <br/>
-    3. I don’t like milk in my coffee. I like __________ coffee. <br/>
-    A. green     B. black      C. white      D. blue <br/>
-    4. There are some birds singing ___________ the tree. <br/>
-    A. in      B. on     C. front      D. behind <br/>
-    5. Fifteen minutes is a ___________ of an hour. <br/>
-    A. half        B. third        C. quarter        D. fifth <br/>
-
-
-    <h3>多选题</h3>  <br/>
-
-    1.	a loaf of ______________ <br/>
-    2.	a bar of ______________ <br/>
-    3.	a bottle of _____________  <br/>
-    4.	a pound of ____________ <br/>
-    5.	half a pound of ___________ <br/>
-    6.	a quarter of _____________ <br/>
-    7.	a tin of ____________ <br/>
-    8.	a cup of _____________ <br/>
+</div>
+</div>
 
 
 
-    <h3>填空题</h3>
-    1.	There  __________ (be) some tea in the cup. <br/>
-    2.	Would you like _________ (some ) coffee? <br/>
-    3.	Is there ____________ (some ) water in the bottle? <br/>
-    4.	___________ (be) there any apples in the basket? <br/>
-    5.	Is that tin of tobacco for ____________ (I)? <br/>
+
+
+<h2>用户列表</h2>
+<!--说明： th:each="obj,stat:${objects}" 分别代表单个实例,状态(可省略),待遍历对象-->
+<div th:each="user:${userList}">
+    <input type="text" name="id" th:value="${user.id}"/>
+    用户姓名：<input type="text" name="password" th:value="${user.username}"/>
+    登录密码：<input type="text" name="username" th:value="${user.password}"/>
+</div>
+
+
+<h3>单选题</h3>  <br/>
+
+1.__________ is in the bag? —— There are some books in it. <br/>
+A. Who     B. Whose    C. What     D. Where <br/>
+2. There __________ a dog and two cows on the farm. <br/>
+A. be      B. am      C. is     D. are <br/>
+3. I don’t like milk in my coffee. I like __________ coffee. <br/>
+A. green     B. black      C. white      D. blue <br/>
+4. There are some birds singing ___________ the tree. <br/>
+A. in      B. on     C. front      D. behind <br/>
+5. Fifteen minutes is a ___________ of an hour. <br/>
+A. half        B. third        C. quarter        D. fifth <br/>
+
+
+<h3>多选题</h3>  <br/>
+
+1.	a loaf of ______________ <br/>
+2.	a bar of ______________ <br/>
+3.	a bottle of _____________  <br/>
+4.	a pound of ____________ <br/>
+5.	half a pound of ___________ <br/>
+6.	a quarter of _____________ <br/>
+7.	a tin of ____________ <br/>
+8.	a cup of _____________ <br/>
+
+
+
+<h3>填空题</h3>
+1.	There  __________ (be) some tea in the cup. <br/>
+2.	Would you like _________ (some ) coffee? <br/>
+3.	Is there ____________ (some ) water in the bottle? <br/>
+4.	___________ (be) there any apples in the basket? <br/>
+5.	Is that tin of tobacco for ____________ (I)? <br/>
 
 
 </div>
