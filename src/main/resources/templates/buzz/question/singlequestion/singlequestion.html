@@ -1,6 +1,6 @@
 <div class="card" xmlns:shiro="http://www.w3.org/1999/xhtml">
 
-    <div data-th-include="buzz/question/fillquestion/fillquestionAdd"></div>
+    <div data-th-include="buzz/question/singlequestion/singlequestionAdd"></div>
 
     <div class="card-block">
         <div class="table-responsive">
@@ -16,19 +16,19 @@
                             <a href="javascript:void(0)" class="dropdown-item" data-table-action="csv" onclick="exportDeviceCsv()"> CSV(.csv) </a>
                         </ul>
                     </div>
-                    <div class="dropdown actions__item" shiro:hasAnyPermissions="fillquestion:add,fillquestion:delete,fillquestion:update">
+                    <div class="dropdown actions__item" shiro:hasAnyPermissions="singlequestion:add,singlequestion:delete,singlequestion:update">
                         <i data-toggle="dropdown" class="zmdi zmdi-more-vert"></i>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="javascript:void(0)" class="dropdown-item" data-toggle="modal" data-target="#fillquestion-add" shiro:hasPermission="fillquestion:add">新增试题</a>
-                            <a href="javascript:void(0)" class="dropdown-item" onclick="updateDevice()" shiro:hasPermission="fillquestion:update">修改试题</a>
-                            <a href="javascript:void(0)" class="dropdown-item" onclick="deletQuestions()" shiro:hasPermission="fillquestion:delete">删除试题</a>
+                            <a href="javascript:void(0)" class="dropdown-item" data-toggle="modal" data-target="#singlequestion-add" shiro:hasPermission="singlequestion:add">新增试题</a>
+                            <a href="javascript:void(0)" class="dropdown-item" onclick="updateDevice()" shiro:hasPermission="singlequestion:update">修改试题</a>
+                            <a href="javascript:void(0)" class="dropdown-item" onclick="deletQuestions()" shiro:hasPermission="singlequestion:delete">删除试题</a>
                         </div>
                     </div>
                 </div>
 
 <!--表格顶部左侧查询条件-->
                 <div id="data-table_filter" class="dataTables_filter">
-                    <form class="fillquestion-table-form">
+                    <form class="singlequestion-table-form">
                         <div class="row">
 
                             <div class="col-sm-3">
@@ -57,9 +57,9 @@
                         </div>
                     </form>
                 </div>
-                <table id="fillquestionTable" data-mobile-responsive="true" class="mb-bootstrap-table text-nowrap"></table>
+                <table id="singlequestionTable" data-mobile-responsive="true" class="mb-bootstrap-table text-nowrap"></table>
             </div>
         </div>
     </div>
 </div>
-<script data-th-src="@{js/app/buzz/question/fillquestion/fillquestion.js}"></script>
+<script data-th-src="@{js/app/buzz/question/singlequestion/singlequestion.js}"></script>

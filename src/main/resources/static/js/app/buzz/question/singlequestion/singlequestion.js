@@ -4,15 +4,15 @@ $(function() {
 
     // 页面加载的初始化请求
     var settings = {
-        url: ctx + "fillquestion/list",
+        url: ctx + "singlequestion/list",
         pageSize: 10,
         queryParams: function(params) {
             return {
                 pageSize: params.limit,
                 pageNum: params.offset / params.limit + 1,
-                // questionType: $(".fillquestion-table-form").find("select[name='questionType']").val().trim(),
-                // ssex: $(".fillquestion-table-form").find("select[name='ssex']").val(),
-                // questionStatus: $(".fillquestion-table-form").find("select[name='questionStatus']").val()
+                // questionType: $(".singlequestion-table-form").find("select[name='questionType']").val().trim(),
+                // ssex: $(".singlequestion-table-form").find("select[name='ssex']").val(),
+                // questionStatus: $(".singlequestion-table-form").find("select[name='questionStatus']").val()
             };
         },
 
@@ -44,20 +44,20 @@ $(function() {
 
         ]
     }
-    $MB.initTable('fillquestionTable', settings);
+    $MB.initTable('singlequestionTable', settings);
 });
 
 function search() {
-    $MB.refreshTable('fillquestionTable');
+    $MB.refreshTable('singlequestionTable');
 }
 
 function refresh() {
-    $(".fillquestion-table-form")[0].reset();
-    $MB.refreshTable('fillquestionTable');
+    $(".singlequestion-table-form")[0].reset();
+    $MB.refreshTable('singlequestionTable');
 }
 
 function deletQuestions() {
-    var selected = $("#fillquestionTable").bootstrapTable('getSelections');
+    var selected = $("#singlequestionTable").bootstrapTable('getSelections');
     var selected_length = selected.length;
     if (!selected_length) {
         $MB.n_warning('请勾选需要删除的用户！');
@@ -73,7 +73,7 @@ function deletQuestions() {
         text: "确定删除选中用户？",
         confirmButtonText: "确定删除"
     }, function() {
-        $.post(ctx + 'fillquestion/delete', { "ids": ids }, function(r) {
+        $.post(ctx + 'singlequestion/delete', { "ids": ids }, function(r) {
             if (r.code == 0) {
                 $MB.n_success(r.msg);
                 refresh();

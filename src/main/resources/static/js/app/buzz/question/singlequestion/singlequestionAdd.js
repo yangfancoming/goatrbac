@@ -1,5 +1,5 @@
 var validator;
-var $fillquestionAddForm = $("#fillquestion-add-form");
+var $singlequestionAddForm = $("#singlequestion-add-form");
 
 $(function() {
     // validateRule();
@@ -19,13 +19,13 @@ $(function() {
        console.log($("input[name='questionStatus']").val(),12321)
     });
 
-    $("#fillquestion-add .btn-save").click(function() {
+    $("#singlequestion-add .btn-save").click(function() {
         var name = $(this).attr("name");
-        validator = $fillquestionAddForm.validate();
+        validator = $singlequestionAddForm.validate();
         var flag = validator.form();
         if (flag) {
             if (name == "save") {
-                $.post(ctx + "fillquestion/add", $fillquestionAddForm.serialize(), function(r) {
+                $.post(ctx + "singlequestion/add", $singlequestionAddForm.serialize(), function(r) {
                     if (r.code == 0) {
                         closeModal();
                         refresh();
@@ -34,7 +34,7 @@ $(function() {
                 });
             }
             if (name == "update") {
-                $.post(ctx + "fillquestion/update", $fillquestionAddForm.serialize(), function(r) {
+                $.post(ctx + "singlequestion/update", $singlequestionAddForm.serialize(), function(r) {
                     if (r.code == 0) {
                         closeModal();
                         refresh();
@@ -45,15 +45,15 @@ $(function() {
         }
     });
 
-    $("#fillquestion-add .btn-close").click(function() {
+    $("#singlequestion-add .btn-close").click(function() {
         closeModal();
     });
 
 });
 
 function closeModal() {
-	$("#fillquestion-add-button").attr("name", "save");
-    $MB.closeAndRestModal("fillquestion-add");
+	$("#singlequestion-add-button").attr("name", "save");
+    $MB.closeAndRestModal("singlequestion-add");
     // validator.resetForm();
-    $("#fillquestion-add-modal-title").html('新增字典');
+    $("#singlequestion-add-modal-title").html('新增字典');
 }

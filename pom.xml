@@ -8,6 +8,8 @@
         <version>2.0.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
+    <packaging>war</packaging>
     <groupId>com.goat.rbac</groupId>
     <artifactId>goatrbac</artifactId>
     <version>0.0.1-SNAPSHOT</version>

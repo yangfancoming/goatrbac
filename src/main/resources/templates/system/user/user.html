@@ -49,7 +49,8 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"> 性别： </span>
                                     <div class="form-group">
-                                        <select class="form-control" name="ssex" id="ssex"> </select>
+
+                                        <sys:dict  name="ssex" id="ssex" tableName="t_user" fieldName="ssex" class="form-control" />
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +77,3 @@
 <script data-th-src="@{js/app/system/user/user.js}"></script>
 <script data-th-src="@{js/app/system/user/userEdit.js}"></script>
 
-<script data-th-src="@{js/app/system/util/dictUtil.js}"></script>
-<script type="text/javascript">
-    $.fn.getSubject('ssex','t_user','ssex',null,true);
-</script>
