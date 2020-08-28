@@ -33,7 +33,10 @@ $(function() {
             {
                 title: '操作',
                 formatter: function(value, row, index) {
-                    return "<button type=\"button\" class=\"btn btn-save\" href='#' onclick='jump(1)'>管理试题</button>"
+                    return "<button type=\"button\" class=\"btn btn-save\" href='#' onclick='jump(\"combine/jump\")'>管理试题</button>     " +
+                           "<button type=\"button\" class=\"btn btn-save\" href='#' onclick='jump(\"paper/jump\")'>预览试卷</button>" ;
+
+
                 }
             }
 
@@ -42,13 +45,12 @@ $(function() {
     $MB.initTable('paperTable', settings);
 });
 
-function jump(id) {
-    // 点击左侧菜单后 显示右侧内容
-    $.get(ctx + "combine/jump", {}, function(r) {
+function jump(url) {
+    // 点击左侧菜单后 显示右侧内容  doit 待封装  有好多这类相同的代码
+    $.get(ctx + url, {}, function(r) {
         $main_content.html("").append(r);
     });
 }
-
 
 function search() {
     $MB.refreshTable('paperTable');
