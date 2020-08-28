@@ -2,7 +2,6 @@ package com.goat.rbac.goatrbac.system.service.impl;
 
 import com.goat.rbac.goatrbac.system.dao.UserRoleMapper;
 import com.goat.rbac.goatrbac.system.model.User;
-import com.goat.rbac.goatrbac.system.model.UserRole;
 import com.goat.rbac.goatrbac.system.model.UserWithRole;
 import com.goat.rbac.goatrbac.system.service.IUserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;

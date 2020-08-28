@@ -1,7 +1,6 @@
 package com.goat.rbac.goatrbac.buzz.service.impl;
 
 import com.goat.rbac.goatrbac.buzz.dao.PaperMapper;
-import com.goat.rbac.goatrbac.buzz.model.FillQuestion;
 import com.goat.rbac.goatrbac.buzz.model.Paper;
 import com.goat.rbac.goatrbac.buzz.service.IPaperService;
 import org.springframework.beans.factory.annotation.Autowired;
