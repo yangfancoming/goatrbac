@@ -42,5 +42,4 @@ public class CombineController extends BaseController {
         PageInfo<Question> pageInfo = new PageInfo<>(devices);
         return getDataTable(pageInfo);
     }
-
 }
