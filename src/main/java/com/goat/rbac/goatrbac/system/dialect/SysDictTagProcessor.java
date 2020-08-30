@@ -76,6 +76,14 @@ public class SysDictTagProcessor extends AbstractElementTagProcessor {
 
         // 这里是将字典的内容拼装成一个下拉框
         model.add(modelFactory.createOpenElementTag(String.format("select name='%s' id='%s' class='%s'", name, name,dictClass)));
+        // 判断 isAll 属性，如果为true 则下拉框第一项显示 <所有项>。
+        String isAll = iProcessableElementTag.getAttributeValue("isAll");
+        if (Boolean.valueOf(isAll)){
+            model.add(modelFactory.createOpenElementTag(String.format("option value='%s'", "")));
+            model.add(modelFactory.createText("所有"));
+            model.add(modelFactory.createCloseElementTag("option"));
+        }
+
         for (Dict dict : dictList) {
             //  <option value="" selected>所有</option>
             //  <option value="" selected>
