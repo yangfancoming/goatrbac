@@ -16,7 +16,14 @@
 
 
     <select id="find" resultMap="PaperMap" parameterType="paper">
-        SELECT *  FROM b_paper WHERE 1=1
+        SELECT
+            dict.value AS subjectName,
+            b.PAPER_NAME,
+            b.PAPER_DESC,
+            b.PAPER_SCORE,
+            b.SUBJECTID
+        FROM b_paper b
+                 INNER JOIN (SELECT keyy  ,value FROM t_dict WHERE TABLE_NAME = 'b_subject') dict ON b.SUBJECTID = dict.KEYY
     </select>
 
 

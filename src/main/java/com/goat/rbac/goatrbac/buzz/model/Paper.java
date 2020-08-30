@@ -15,6 +15,9 @@ public class Paper extends BaseModel implements Serializable {
     // 试卷 名称
     private String paperName;
 
+    // 所属分类名称 (科目)  给前端返回使用
+    private String subjectName;
+
 	// 试卷 分类  （科目）
     private Long subjectId;
 
@@ -76,6 +79,13 @@ public class Paper extends BaseModel implements Serializable {
         this.paperDesc = paperDesc;
     }
 
+    public String getSubjectName() {
+        return subjectName;
+    }
+
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
+    }
 }
 
 

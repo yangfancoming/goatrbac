@@ -17,7 +17,7 @@ $(function() {
 
         columns: [{checkbox: true},
             {field: 'paperId',visible: false},
-            {field: 'subjectId',title: '所属科目'},
+            {field: 'subjectName',title: '所属科目'},
             {field: 'paperName',title: '试卷名称'},
             {field: 'paperDesc',title: '试卷描述'},
             {field: 'paperScore',title: '试卷总分'},
