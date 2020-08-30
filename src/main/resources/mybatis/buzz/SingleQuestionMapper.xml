@@ -24,6 +24,7 @@
     <select id="find" resultMap="singleQuestionMap" parameterType="singleQuestion">
         SELECT
               dict.value AS subjectName,
+               b.QUESTION_ID,
                b.QUESTION_DESC,
                b.QUESTION_LABEL,
                b.QUESTION_OPTIONS,

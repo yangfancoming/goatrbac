@@ -17,7 +17,7 @@ $(function() {
         },
 
         columns: [{checkbox: true},
-            {field: 'questionId',visible: false},
+            {field: 'questionId',visible: true},
             {field: 'subjectName',title: '所属科目'},
             {field: 'questionDesc',title: '题目'},
             {field: 'questionOptions',title: '选项'},
