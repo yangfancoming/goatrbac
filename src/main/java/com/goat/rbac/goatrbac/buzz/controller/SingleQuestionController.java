@@ -32,7 +32,6 @@ public class SingleQuestionController extends BaseController {
         return getDataTable(pageInfo);
     }
 
-
     @PostMapping("add")
     public ResponseBo add(SingleQuestion question) {
         singleQuestionService.insert(question);
@@ -44,5 +43,4 @@ public class SingleQuestionController extends BaseController {
         singleQuestionService.deleteByIds(ids);
         return ResponseBo.ok("删除试题成功！");
     }
-
 }

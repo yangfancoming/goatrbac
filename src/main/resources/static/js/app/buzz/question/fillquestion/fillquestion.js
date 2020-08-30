@@ -18,18 +18,10 @@ $(function() {
 
         columns: [{checkbox: true},
             {field: 'questionId',visible: false},
-            {field: 'questionType',title: '类型',
-                formatter: function(value, row, index) {
-                    if (value == '3') return '填空题';
-                    else return '未知题型';
-                }
-             },
+            {field: 'subjectName',title: '所属科目'},
             {field: 'questionDesc',title: '题目'},
-            {field: 'subjectId',title: '所属科目'},
             {field: 'questionLabel',title: '标签'},
-            {field: 'questionOptions',title: '选项'},
             {field: 'questionAnswer',title: '答案'},
-
             {field: 'questionScore',title: '分值'},
             {field: 'questionAudio',title: '音频解答'},
             {field: 'modifyTime',title: '修改时间',visible: false},
