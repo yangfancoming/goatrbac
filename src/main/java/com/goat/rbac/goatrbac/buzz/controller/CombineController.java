@@ -9,6 +9,7 @@ import com.goat.rbac.goatrbac.system.controller.BaseController;
 import com.goat.rbac.goatrbac.system.model.QueryRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,7 +28,8 @@ public class CombineController extends BaseController {
     ICombineService combineService;
 
     @GetMapping("/jump")
-    public String index() {
+    public String index(Model model, @RequestParam Map<String ,String> params) {
+        model.addAttribute("params",params);
         return "buzz/learn/combine/combine";
     }
 

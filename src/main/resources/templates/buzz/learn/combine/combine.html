@@ -1,4 +1,4 @@
-<div class="card" xmlns:shiro="http://www.w3.org/1999/xhtml" xmlns:sys="">
+<div class="card" xmlns:shiro="http://www.w3.org/1999/xhtml" xmlns:sys="" xmlns:th="http://www.w3.org/1999/xhtml">
 
     <div data-th-include="buzz/learn/combine/combineAdd"></div>
 
@@ -30,9 +30,11 @@
                         <div class="col-sm-1">
                             <button type="button" class="btn btn-save"  onclick="jump()" name="save">点击返回</button>
                         </div>
-
                         <div class="col-sm-2">
-                            <h3 > xxxx英语试卷</h3>
+                            <!-- 回显 试卷名称-->
+                            <h3 th:text="${params.paperName}"></h3>
+                            <!-- 隐藏域 当前组卷的主键id  -->
+                            <input id="paperId" type="hidden" th:value="${params.paperId}"/>
                         </div>
                     </div>
 

@@ -8,11 +8,11 @@ $(function() {
 
         // 给组卷页面 添加选中添加试题，取消选中取消试题的触发事件
         onCheck:function(row){
-            $MB.n_success('添加试题成功');
+            $MB.n_success($('#paperId').val());
         },
 
         onUncheck:function(row){
-            $MB.n_success('取消试题成功');
+            $MB.n_success($('#paperId').val());
         },
 
         queryParams: function(params) {
