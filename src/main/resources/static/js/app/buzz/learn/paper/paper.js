@@ -16,7 +16,7 @@ $(function() {
         },
 
         columns: [{checkbox: true},
-            {field: 'paperId',visible: false},
+            {field: 'paperId',visible: true},
             {field: 'subjectName',title: '所属科目'},
             {field: 'paperName',title: '试卷名称'},
             {field: 'paperDesc',title: '试卷描述'},
@@ -33,7 +33,7 @@ $(function() {
             {
                 title: '操作',
                 formatter: function(value, row, index) {
-                    return "<button type=\"button\" class=\"btn btn-save\" href='#' onclick='jump(\"combine/jump\",\"" + row.paperId + "\",\"" + row.paperName + "\")'>管理试题</button>     " +
+                    return "<button type=\"button\" class=\"btn btn-save\" href='#' onclick='jump(\"combine/jump\",\"" + row.paperId + "\",\"" + row.paperName + "\",\"" + row.subjectId + "\")'>管理试题</button>     " +
                            "<button type=\"button\" class=\"btn btn-save\" href='#' onclick='jump(\"paper/jump\",\"" + row.paperId + "\",\"" + row.paperName + "\")'>预览试卷</button>" ;
 
 
@@ -45,9 +45,9 @@ $(function() {
     $MB.initTable('paperTable', settings);
 });
 
-function jump(url,id,name) {
+function jump(url,id,name,subjectId) {
     // 点击左侧菜单后 显示右侧内容  doit 待封装  有好多这类相同的代码
-    $.get(ctx + url, {"paperId": id,"paperName": name}, function(r) {
+    $.get(ctx + url, {"paperId": id,"paperName": name,"subjectId": subjectId}, function(r) {
         $main_content.html("").append(r);
     });
 }

@@ -35,20 +35,13 @@
                             <h3 th:text="${params.paperName}"></h3>
                             <!-- 隐藏域 当前组卷的主键id  -->
                             <input id="paperId" type="hidden" th:value="${params.paperId}"/>
+                            <!-- 隐藏域 当前所属科目的主键id  -->
+                            <input id="subjectId" type="hidden" th:value="${params.subjectId}"/>
                         </div>
                     </div>
 
                     <form class="combine-table-form">
                         <div class="row">
-
-                            <div class="col-sm-3">
-                                <div class="input-group">
-                                    <span class="input-group-addon"> 所属科目： </span>
-                                    <div class="form-group">
-                                        <sys:dict  name="subjectId" id="subjectId" tableName="b_subject" fieldName="type" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="col-sm-3">
                                 <div class="input-group">

@@ -18,6 +18,7 @@
     <select id="find" resultMap="PaperMap" parameterType="paper">
         SELECT
             dict.value AS subjectName,
+            b.PAPER_ID,
             b.PAPER_NAME,
             b.PAPER_DESC,
             b.PAPER_SCORE,

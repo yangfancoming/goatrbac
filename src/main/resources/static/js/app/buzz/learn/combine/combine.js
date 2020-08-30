@@ -19,7 +19,7 @@ $(function() {
             return {
                 pageSize: params.limit,
                 pageNum: params.offset / params.limit + 1,
-                subjectId: $(".combine-table-form").find("select[name='subjectId']").val(),// 试题所属科目
+                subjectId: $('#subjectId').val(),//  从隐藏域获取 试卷所属科目
                 questionType: $(".combine-table-form").find("select[name='questionType']").val(), // 试题类型
             };
         },
