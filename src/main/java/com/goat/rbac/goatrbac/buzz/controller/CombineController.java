@@ -37,7 +37,7 @@ public class CombineController extends BaseController {
     public Map<String, Object> list(QueryRequest request, @RequestParam Map<String ,String> params ) {
         PageHelper.startPage(request.getPageNum(), request.getPageSize());
         String questionType = params.get("questionType");
-        Map<String ,String> param = new HashMap<>(2);
+        Map<String ,String> param = new HashMap<>(4);
         param.put("tableName",QuestionType.kv.get(questionType));// 试题类型下拉框
         param.put("subjectId",params.get("subjectId")); // 所属科目下拉框
         param.put("questionType",params.get("questionType")); // 所属科目下拉框

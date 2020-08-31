@@ -44,6 +44,16 @@ public class Question extends BaseModel implements Serializable {
     // 试题 文字解析
     private String questionText;
 
+    // doit 过度。。。。。
+    // 试题 选项
+    private String questionOptions;
+
+    // 试题 答案
+    private String questionAnswer;
+
+    // 试题 选项格式化
+    private String questionFormat;
+
     public Long getQuestionId() {
         return questionId;
     }
@@ -138,6 +148,30 @@ public class Question extends BaseModel implements Serializable {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getQuestionOptions() {
+        return questionOptions;
+    }
+
+    public void setQuestionOptions(String questionOptions) {
+        this.questionOptions = questionOptions;
+    }
+
+    public String getQuestionAnswer() {
+        return questionAnswer;
+    }
+
+    public void setQuestionAnswer(String questionAnswer) {
+        this.questionAnswer = questionAnswer;
+    }
+
+    public String getQuestionFormat() {
+        return questionFormat;
+    }
+
+    public void setQuestionFormat(String questionFormat) {
+        this.questionFormat = questionFormat;
     }
 }
 

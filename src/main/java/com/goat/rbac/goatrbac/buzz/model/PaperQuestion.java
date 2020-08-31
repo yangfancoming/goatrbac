@@ -17,6 +17,9 @@ public class PaperQuestion {
     // 试题 主键id
     private Long questionId;
 
+    // 接收前台参数用
+    private Long subjectId;
+
     public Long getPaperId() {
         return paperId;
     }
@@ -39,5 +42,13 @@ public class PaperQuestion {
 
     public void setQuestionId(Long questionId) {
         this.questionId = questionId;
+    }
+
+    public Long getSubjectId() {
+        return subjectId;
+    }
+
+    public void setSubjectId(Long subjectId) {
+        this.subjectId = subjectId;
     }
 }

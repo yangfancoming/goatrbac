@@ -28,10 +28,17 @@
         INNER JOIN (SELECT keyy  ,value FROM t_dict WHERE TABLE_NAME = 'b_subject') dict2 ON q.SUBJECTID = dict2.KEYY
         WHERE  1=1
         <if test="subjectId !=null and subjectId != '' or subjectId == 0">
-            AND SUBJECTID = #{subjectId}
+            AND q.SUBJECTID = #{subjectId}
         </if>
         <if test="questionType !=null and questionType != '' or questionType == 0">
-            AND QUESTION_TYPE = #{questionType}
+            AND q.QUESTION_TYPE = #{questionType}
+        </if>
+
+        <if test="questionIds !=null and questionIds != '' ">
+             AND q.QUESTION_ID IN
+            <foreach collection="questionIds" item="questionIds" separator="," open="(" close=")">
+                #{questionIds}
+            </foreach>
         </if>
     </select>
 
