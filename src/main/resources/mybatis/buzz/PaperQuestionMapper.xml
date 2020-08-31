@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.goat.rbac.goatrbac.buzz.dao.PaperQuestionMapper">
+
+
+    <resultMap id="paperQuestionMap" type="com.goat.rbac.goatrbac.buzz.model.PaperQuestion">
+        <id column="QUESTION_ID" jdbcType="DECIMAL" property="questionId" />
+        <result column="QUESTION_TYPE" jdbcType="INTEGER" property="questionType" />
+        <result column="PAPER_ID" jdbcType="DECIMAL" property="paperId" />
+    </resultMap>
+
+    <select id="preview" resultMap="paperQuestionMap" >
+        SELECT QUESTION_TYPE  ,QUESTION_ID   FROM b_paper_question WHERE PAPER_ID = #{paperId}
+    </select>
+
+</mapper>
+

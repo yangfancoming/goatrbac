@@ -40,4 +40,5 @@ public class CombineServiceImpl implements ICombineService {
         int i = combineMapper.delete(model);
         return i;
     }
+
 }

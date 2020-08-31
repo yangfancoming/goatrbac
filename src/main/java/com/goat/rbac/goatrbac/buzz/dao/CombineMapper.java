@@ -14,5 +14,7 @@ public interface CombineMapper {
 
     int insert(PaperQuestion paperQuestion);
 
-    int delete(PaperQuestion ids);
+    int delete(PaperQuestion model);
+
+
 }

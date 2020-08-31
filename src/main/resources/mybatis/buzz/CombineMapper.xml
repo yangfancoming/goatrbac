@@ -45,5 +45,7 @@
     <delete id="delete" parameterType="paperQuestion">
         delete from b_paper_question where PAPER_ID = #{paperId} AND QUESTION_TYPE = #{questionType} AND QUESTION_ID = #{questionId}
     </delete>
+
+
 </mapper>
 

@@ -34,7 +34,7 @@ $(function() {
                 title: '操作',
                 formatter: function(value, row, index) {
                     return "<button type=\"button\" class=\"btn btn-save\" href='#' onclick='jump(\"combine/jump\",\"" + row.paperId + "\",\"" + row.paperName + "\",\"" + row.subjectId + "\")'>管理试题</button>     " +
-                           "<button type=\"button\" class=\"btn btn-save\" href='#' onclick='jump(\"paper/jump\",\"" + row.paperId + "\",\"" + row.paperName + "\")'>预览试卷</button>" ;
+                           "<button type=\"button\" class=\"btn btn-save\" href='#' onclick='jump(\"paper/preview\",\"" + row.paperId + "\")'>预览试卷</button>" ;
 
 
                 }

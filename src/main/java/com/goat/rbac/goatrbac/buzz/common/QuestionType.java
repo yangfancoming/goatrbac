@@ -9,6 +9,7 @@ public class QuestionType {
     public static Map<String,String> kv = new HashMap<>(16);
 
     // 根据前端2个下拉框中的key值(字典表中的key)  来获取要查询哪张试题表
+    // 根据试题类型 获取 对应的表名
     static {
         kv.put("0","b_single_question"); // 单选
         kv.put("1","b_single_question"); // 多选

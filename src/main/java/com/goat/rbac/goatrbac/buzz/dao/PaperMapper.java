@@ -12,4 +12,5 @@ public interface PaperMapper {
     List<Paper> find(Paper question);
 
     int deleteByIds(List<String> ids);
+
 }
