@@ -8,7 +8,7 @@ $(function() {
 
         // 给组卷页面 添加选中添加试题，取消选中取消试题的触发事件
         onCheck:function(row){
-            $.post(ctx + 'combine/add', { "paperId": $('#paperId').val() ,"questionId": row.questionId }, function(r) {
+            $.post(ctx + 'combine/add', { "paperId": $('#paperId').val() ,"questionId": row.questionId,"questionType": row.questionType }, function(r) {
                 if (r.code == 0) {
                     $MB.n_success(r.msg);
                 } else {
@@ -18,7 +18,7 @@ $(function() {
         },
 
         onUncheck:function(row){
-            $.post(ctx + 'combine/delete', { "paperId": $('#paperId').val() ,"questionId": row.questionId }, function(r) {
+            $.post(ctx + 'combine/delete', { "paperId": $('#paperId').val() ,"questionId": row.questionId,"questionType": row.questionType }, function(r) {
                 if (r.code == 0) {
                     $MB.n_success(r.msg);
                 } else {
@@ -33,13 +33,25 @@ $(function() {
                 pageNum: params.offset / params.limit + 1,
                 subjectId: $('#subjectId').val(),//  从隐藏域获取 试卷所属科目
                 questionType: $(".combine-table-form").find("select[name='questionType']").val(), // 试题类型
+                paperId:$('#paperId').val(),//  从隐藏域获取 试卷所属科目
             };
         },
 
-        columns: [{checkbox: true},
+        columns: [
+            {checkbox: true ,
+                formatter:function(value,row,index){
+                console.log(row.state,111);
+                    if (row.state == "1")
+                        return {
+                            checked : true //设置选中
+                        };
+                    return value;
+                }},
+
             {field: 'combineId',visible: false},
             {field: 'subjectName',title: '所属科目',},
             {field: 'questionTypeName',title: '试题类型'},
+            {field: 'questionType',visible: false},
             {field: 'questionDesc',title: '试题描述'},
             {field: 'questionLabel',title: '试题标签'},
             {field: 'questionScore',title: '分值'},

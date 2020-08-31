@@ -12,6 +12,8 @@ public class PaperQuestion {
     // 试卷 主键id
     private Long paperId;
 
+    private Integer questionType;
+
     // 试题 主键id
     private Long questionId;
 
@@ -21,6 +23,14 @@ public class PaperQuestion {
 
     public void setPaperId(Long paperId) {
         this.paperId = paperId;
+    }
+
+    public Integer getQuestionType() {
+        return questionType;
+    }
+
+    public void setQuestionType(Integer questionType) {
+        this.questionType = questionType;
     }
 
     public Long getQuestionId() {

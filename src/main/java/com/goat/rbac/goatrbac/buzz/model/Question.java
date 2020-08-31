@@ -22,8 +22,12 @@ public class Question extends BaseModel implements Serializable {
 
 	// 试题 类型  【0单选、1多选、2填空、3简答】
     private Integer questionType;
+
     // 试题 类型名称  给前端返回使用
     private String questionTypeName;
+
+    // 回显试题勾选状态  给前端返回使用
+    private String state;
 
     // 试题 状态
     private Integer questionStatus;
@@ -126,6 +130,14 @@ public class Question extends BaseModel implements Serializable {
 
     public void setQuestionTypeName(String questionTypeName) {
         this.questionTypeName = questionTypeName;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 }
 

@@ -41,6 +41,7 @@ public class CombineController extends BaseController {
         param.put("tableName",QuestionType.kv.get(questionType));// 试题类型下拉框
         param.put("subjectId",params.get("subjectId")); // 所属科目下拉框
         param.put("questionType",params.get("questionType")); // 所属科目下拉框
+        param.put("paperId",params.get("paperId")); // 所属科目下拉框
         List<Question> result = combineService.list(param);
         PageInfo<Question> pageInfo = new PageInfo<>(result);
         return getDataTable(pageInfo);

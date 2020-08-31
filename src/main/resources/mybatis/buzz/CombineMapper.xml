@@ -20,6 +20,7 @@
     <select id="list" parameterType="java.util.Map" resultMap="questionMap">
         SELECT dict.value as questionTypeName,
                dict2.value as subjectName,
+               exists(SELECT 1 FROM b_paper_question pq WHERE q.QUESTION_ID = pq.QUESTION_ID AND q.QUESTION_TYPE = pq.QUESTION_TYPE AND pq.PAPER_ID = #{paperId}) AS state,
                q.QUESTION_ID,
                q.QUESTION_TYPE,q.QUESTION_DESC,q.QUESTION_LABEL,q.QUESTION_SCORE,q.SUBJECTID
         FROM ${tableName} as q
@@ -35,13 +36,14 @@
     </select>
 
 
+
     <insert id="insert" parameterType="paperQuestion" >
-        insert into b_paper_question (PAPER_ID,QUESTION_ID) values(#{paperId},#{questionId})
+        insert into b_paper_question (PAPER_ID,QUESTION_TYPE,QUESTION_ID) values(#{paperId},#{questionType},#{questionId})
     </insert>
 
 
     <delete id="delete" parameterType="paperQuestion">
-        delete from b_paper_question where PAPER_ID = #{paperId} AND QUESTION_ID = #{questionId}
+        delete from b_paper_question where PAPER_ID = #{paperId} AND QUESTION_TYPE = #{questionType} AND QUESTION_ID = #{questionId}
     </delete>
 </mapper>
 
