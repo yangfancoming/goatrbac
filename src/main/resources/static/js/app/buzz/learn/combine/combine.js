@@ -23,18 +23,13 @@ $(function() {
                 questionType: $(".combine-table-form").find("select[name='questionType']").val(), // 试题类型
             };
         },
-
+        // SELECT dict.value as questionTypeName,
+        // dict2.value as subjectName,
         columns: [{checkbox: true},
             {field: 'combineId',visible: false},
-            {field: 'subjectId',title: '所属科目',
-                formatter: function(value, row, index) {
-                    if (value == '0') return '英语';
-                    if (value == '1') return '语文';
-                    if (value == '2') return '数学';
-                    else return '未知题型';
-                }
-             },
-            {field: 'questionType',title: '试题类型'},
+            {field: 'subjectName',title: '所属科目',},
+            // {field: 'questionType',title: '试题类型'},
+            {field: 'questionTypeName',title: '试题类型'},
             {field: 'questionDesc',title: '试题描述'},
             {field: 'questionLabel',title: '试题标签'},
 

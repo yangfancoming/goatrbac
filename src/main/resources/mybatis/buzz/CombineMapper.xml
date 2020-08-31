@@ -18,7 +18,19 @@
     </resultMap>
 
     <select id="list" parameterType="java.util.Map" resultMap="questionMap">
-        SELECT q.QUESTION_TYPE,q.QUESTION_DESC,q.QUESTION_LABEL,q.QUESTION_SCORE,q.SUBJECTID FROM ${tableName} as q WHERE SUBJECTID = #{subjectId}
+        SELECT dict.value as questionTypeName,
+               dict2.value as subjectName,
+               q.QUESTION_TYPE,q.QUESTION_DESC,q.QUESTION_LABEL,q.QUESTION_SCORE,q.SUBJECTID
+        FROM ${tableName} as q
+        INNER JOIN (SELECT keyy  ,value FROM t_dict WHERE TABLE_NAME = 'b_question') dict ON q.QUESTION_TYPE = dict.KEYY
+        INNER JOIN (SELECT keyy  ,value FROM t_dict WHERE TABLE_NAME = 'b_subject') dict2 ON q.SUBJECTID = dict2.KEYY
+        WHERE  1=1
+        <if test="subjectId !=null and subjectId != '' or subjectId == 0">
+            AND SUBJECTID = #{subjectId}
+        </if>
+        <if test="questionType !=null and questionType != '' or questionType == 0">
+            AND QUESTION_TYPE = #{questionType}
+        </if>
     </select>
 
 </mapper>
