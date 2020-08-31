@@ -15,7 +15,6 @@
         <result column="SUBJECTID" jdbcType="VARCHAR" property="subjectId" />
         <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
         <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
-
     </resultMap>
 
 
