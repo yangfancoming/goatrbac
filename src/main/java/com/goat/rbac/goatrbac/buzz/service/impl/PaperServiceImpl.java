@@ -4,14 +4,12 @@ import com.goat.rbac.goatrbac.buzz.dao.PaperMapper;
 import com.goat.rbac.goatrbac.buzz.dao.PaperQuestionMapper;
 import com.goat.rbac.goatrbac.buzz.model.Paper;
 import com.goat.rbac.goatrbac.buzz.model.PaperQuestion;
-import com.goat.rbac.goatrbac.buzz.model.Question;
 import com.goat.rbac.goatrbac.buzz.service.IPaperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Administrator on 2020/3/2.

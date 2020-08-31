@@ -2,7 +2,6 @@ package com.goat.rbac.goatrbac.buzz.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.goat.rbac.goatrbac.buzz.common.QuestionType;
 import com.goat.rbac.goatrbac.buzz.model.Paper;
 import com.goat.rbac.goatrbac.buzz.model.PaperQuestion;
 import com.goat.rbac.goatrbac.buzz.service.IPaperService;
@@ -17,7 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.*;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import static java.util.stream.Collectors.*;
 
