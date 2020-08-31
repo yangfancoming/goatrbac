@@ -3,17 +3,16 @@ package com.goat.rbac.goatrbac.buzz.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.goat.rbac.goatrbac.buzz.common.QuestionType;
+import com.goat.rbac.goatrbac.buzz.model.PaperQuestion;
 import com.goat.rbac.goatrbac.buzz.model.Question;
 import com.goat.rbac.goatrbac.buzz.service.ICombineService;
 import com.goat.rbac.goatrbac.system.controller.BaseController;
 import com.goat.rbac.goatrbac.system.model.QueryRequest;
+import com.goat.rbac.goatrbac.system.model.ResponseBo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -45,5 +44,19 @@ public class CombineController extends BaseController {
         List<Question> result = combineService.list(param);
         PageInfo<Question> pageInfo = new PageInfo<>(result);
         return getDataTable(pageInfo);
+    }
+
+    @PostMapping("add")
+    @ResponseBody
+    public ResponseBo add(PaperQuestion model) {
+        combineService.insert(model);
+        return ResponseBo.ok("添加试题成功！");
+    }
+
+    @PostMapping("delete")
+    @ResponseBody
+    public ResponseBo delete(PaperQuestion model) {
+        combineService.delete(model);
+        return ResponseBo.ok("取消试题成功！");
     }
 }

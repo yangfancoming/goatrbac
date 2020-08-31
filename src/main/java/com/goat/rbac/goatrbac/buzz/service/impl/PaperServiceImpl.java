@@ -35,7 +35,7 @@ public class PaperServiceImpl implements IPaperService {
     }
 
     @Override
-    public void deleteByIds(String ids) {
-        paperMapper.deleteByIds(Arrays.asList(ids.split(",")));
+    public int deleteByIds(String ids) {
+        return paperMapper.deleteByIds(Arrays.asList(ids.split(",")));
     }
 }

@@ -11,5 +11,5 @@ public interface IPaperService {
 
     List<Paper> find(Paper question);
 
-    void deleteByIds(String ids);
+    int deleteByIds(String ids);
 }

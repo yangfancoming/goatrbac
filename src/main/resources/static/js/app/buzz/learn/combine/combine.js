@@ -8,11 +8,23 @@ $(function() {
 
         // 给组卷页面 添加选中添加试题，取消选中取消试题的触发事件
         onCheck:function(row){
-            $MB.n_success($('#paperId').val());
+            $.post(ctx + 'combine/add', { "paperId": $('#paperId').val() ,"questionId": row.questionId }, function(r) {
+                if (r.code == 0) {
+                    $MB.n_success(r.msg);
+                } else {
+                    $MB.n_danger(r.msg);
+                }
+            });
         },
 
         onUncheck:function(row){
-            $MB.n_success($('#paperId').val());
+            $.post(ctx + 'combine/delete', { "paperId": $('#paperId').val() ,"questionId": row.questionId }, function(r) {
+                if (r.code == 0) {
+                    $MB.n_success(r.msg);
+                } else {
+                    $MB.n_danger(r.msg);
+                }
+            });
         },
 
         queryParams: function(params) {
@@ -23,19 +35,16 @@ $(function() {
                 questionType: $(".combine-table-form").find("select[name='questionType']").val(), // 试题类型
             };
         },
-        // SELECT dict.value as questionTypeName,
-        // dict2.value as subjectName,
+
         columns: [{checkbox: true},
             {field: 'combineId',visible: false},
             {field: 'subjectName',title: '所属科目',},
-            // {field: 'questionType',title: '试题类型'},
             {field: 'questionTypeName',title: '试题类型'},
             {field: 'questionDesc',title: '试题描述'},
             {field: 'questionLabel',title: '试题标签'},
-
             {field: 'questionScore',title: '分值'},
-            {field: 'modifyTime',title: '修改时间',visible: false},
-            {field: 'createTime',title: '创建时间'},
+            // {field: 'modifyTime',title: '修改时间',visible: false},
+            // {field: 'createTime',title: '创建时间'},
         ]
     }
     $MB.initTable('combineTable', settings);
