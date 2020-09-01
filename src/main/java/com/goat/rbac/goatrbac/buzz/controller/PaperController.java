@@ -72,8 +72,9 @@ public class PaperController extends BaseController {
             param.put("paperId",paperQuestion.getPaperId().toString()); // 试卷id
             param.put("tableName",QuestionType.kv.get(k.toString()));// 通过map的key获取对应的表名
             param.put("questionType",k.toString()); // 试题类型
+            // 将List<Long> 转成 List<Long> 再转成 String[]
             List<String> str = new ArrayList<>();
-            v.stream().forEach(x-> str.add(String.valueOf(v)));
+            v.stream().forEach(t-> str.add(String.valueOf(t)));
             param.put("questionIds", str.stream().toArray(String[]::new)); // 试题类型 sos 注意学习 mybatis 这种查询方式
             List<Question> result = combineService.list(param);
             // 将试题类型作为key  将其下试题作为value  便于前端 thymeleaf遍历

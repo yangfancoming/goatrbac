@@ -36,8 +36,8 @@
 
         <if test="questionIds !=null and questionIds != '' ">
              AND q.QUESTION_ID IN
-            <foreach collection="questionIds" item="questionIds" separator="," open="(" close=")">
-                #{questionIds}
+            <foreach collection="questionIds" item="questionId" separator="," open="(" close=")">
+                #{questionId}
             </foreach>
         </if>
     </select>
