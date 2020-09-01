@@ -21,7 +21,7 @@
         SELECT dict.value as questionTypeName,
                dict2.value as subjectName,
                exists(SELECT 1 FROM b_paper_question pq WHERE q.QUESTION_ID = pq.QUESTION_ID AND q.QUESTION_TYPE = pq.QUESTION_TYPE AND pq.PAPER_ID = #{paperId}) AS state,
-               q.QUESTION_ID,
+               q.QUESTION_ID,q.QUESTION_FORMAT,
                q.QUESTION_TYPE,q.QUESTION_DESC,q.QUESTION_LABEL,q.QUESTION_SCORE,q.SUBJECTID
         FROM ${tableName} as q
         INNER JOIN (SELECT keyy  ,value FROM t_dict WHERE TABLE_NAME = 'b_question') dict ON q.QUESTION_TYPE = dict.KEYY

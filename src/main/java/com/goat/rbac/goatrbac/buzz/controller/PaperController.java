@@ -63,10 +63,8 @@ public class PaperController extends BaseController {
         List<PaperQuestion> paperQuestions = paperService.preview(paperQuestion);
         // 分组后 key为 questionType value为当前试题类型下的题目 questionId
         Map<Integer, List<Long>> map = paperQuestions.stream().collect(groupingBy(x->x.getQuestionType(), mapping(x->x.getQuestionId(), toList())));
-        //
         Map<String, List<Question>> resultList = new HashMap<>(16);
         map.forEach((k, v) -> {
-            System.out.println(v);
             Map<String ,Object> param = new HashMap<>(4);
             param.put("subjectId",paperQuestion.getSubjectId().toString()); // 所属科目
             param.put("paperId",paperQuestion.getPaperId().toString()); // 试卷id
@@ -80,7 +78,7 @@ public class PaperController extends BaseController {
             // 将试题类型作为key  将其下试题作为value  便于前端 thymeleaf遍历
             resultList.put(k.toString(),result);
         });
-        model.addAttribute("resultList", resultList);
+        model.addAttribute("questions", resultList);
         return "buzz/learn/paper/previewPaper";
     }
 
