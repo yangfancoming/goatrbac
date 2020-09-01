@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Created by Administrator on 2020/3/2.
@@ -24,19 +22,31 @@ public class SingleQuestionServiceImpl implements ISingleQuestionService {
     @Autowired
     SingleQuestionMapper singleQuestionMapper;
 
-
     @Override
     public int insert(SingleQuestion question) {
         // 获取选项    A. Who     B. Whose    C. What     D. Where
         String options = question.getQuestionOptions();
-        // 按照空串分隔
-        String[] s = options.split(" ");
-        // 过滤掉 A. B. 等元素 和 空元素
-        Stream<String> stringStream = Arrays.stream(s).filter((item)->item.indexOf(".") == - 1 && !item.isEmpty());
-        // 拿到最终选项 Who Whose What Where
-        List<String> collect = stringStream.collect(Collectors.toList());
-        // 将过滤后的选项 按照 - 分隔  拼接后 Who-Whose-What-Where  插入表
-        question.setQuestionFormat(String.join("-", collect));
+         /**  按照空串分隔
+          0 = "A."
+          1 = "Who"
+          2 = "B."
+          3 = "Whose"
+          4 = "C."
+          5 = "What"
+          6 = "D."
+          7 = "Where"
+         */
+        List<String> list = Arrays.asList(options.split(" "));
+        // 将过滤后的选项 按照 - 分隔  拼接后  A.Who-B.Whose-C.What-D.Where-  插入表
+        StringBuilder sb = new StringBuilder(16);
+        for (int i = 0; i < list.size(); i++) {
+            sb.append(list.get(i));
+            if (i%2!=0) {
+                sb.append("-");
+            }
+        }
+        // 干掉字符串最后一个字符 -
+        question.setQuestionFormat(sb.toString().substring(0,sb.toString().length()-1));
         int insert = singleQuestionMapper.insert(question);
         return insert;
     }
