@@ -19,7 +19,8 @@
                     <!-- 题目内容 -->
                     <div class="test_content_nr" th:each="question:${item.value}">
                         <ul>
-                            <li id="qu_0_0">
+                            <!-- 试题id的组成为：  试卷id + 试题类型 + 试题id -->
+                            <li th:id="${paperId} +  '-' + ${question.getQuestionType()} +  '-' + ${question.getQuestionId()}">
                                 <div class="test_content_nr_tt">
                                     <i>2</i> <span>(1分)</span><span th:text="${question.getQuestionDesc()}" > </span>
                                 </div>
@@ -28,12 +29,11 @@
                                     <ul>
                                         <li class="option" th:each="format:${question.getQuestionFormat()}">
                                             <div th:each="option,stat:${#strings.listSplit(format, '-')}">
-                                                <input type="radio" class="radioOrCheck" name="answer1" id="0_answer_1_option_1" />
-                                                <label for="0_answer_1_option_1" >
+                                                <input type="radio" class="radioOrCheck" th:name="${question.getQuestionId()}" th:value="${#strings.substringBefore(option,'.')}" id="test" />
+                                                <label for="test" >
                                                     <!-- 截取出 A B C D -->
                                                     <div style="display: inline;" th:text="${#strings.substringBefore(option,'.')}"></div>.
                                                     <!--  或者这种方式： [[${#strings.substringBefore(option,'.')}]].-->
-
                                                     <!-- 截取出 选项内容 -->
                                                     <p class="ue" style="display: inline;" th:text="${#strings.substringAfter(option,'.')}"></p>
                                                 </label>

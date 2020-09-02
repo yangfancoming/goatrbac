@@ -79,6 +79,7 @@ public class PaperController extends BaseController {
             resultList.put(k.toString(),result);
         });
         model.addAttribute("questions", resultList);
+        model.addAttribute("paperId", paperQuestion.getPaperId());
         return "buzz/learn/paper/previewPaper";
     }
 
