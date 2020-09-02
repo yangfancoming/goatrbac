@@ -22,13 +22,13 @@
                                 </div>
                             </div>
                             <!-- 题目内容 -->
-                            <div class="test_content_nr" th:each="question:${map.value}">
+                            <div class="test_content_nr" th:each="question,stat:${map.value}">
                                 <ul>
                                     <!-- 试题id的组成为：  试卷id + 试题类型 + 试题id -->
                                     <li th:id="${paperId} +  '-' + ${question.getQuestionType()} +  '-' + ${question.getQuestionId()}">
                                         <!-- 题干 -->
                                         <div class="test_content_nr_tt">
-                                            <i>2</i> <span>(1分)</span><span th:text="${question.getQuestionDesc()}" > </span>
+                                            <i>[[${stat.index} + 1]]</i> <span>(1分)</span><span th:text="${question.getQuestionDesc()}" > </span>
                                         </div>
 
                                         <!-- 选项 -->
@@ -66,13 +66,13 @@
                                 </div>
                             </div>
                             <!-- 题目内容 -->
-                            <div class="test_content_nr" th:each="question:${map.value}">
+                            <div class="test_content_nr" th:each="question,stat:${map.value}">
                                 <ul>
                                     <!-- 试题id的组成为：  试卷id + 试题类型 + 试题id -->
                                     <li th:id="${paperId} +  '-' + ${question.getQuestionType()} +  '-' + ${question.getQuestionId()}">
                                         <!-- 题干 -->
                                         <div class="test_content_nr_tt">
-                                            <i>2</i> <span>(1分)</span><span th:text="${question.getQuestionDesc()}" > </span>
+                                            <i>[[${stat.index} + 1]]</i> <span>(1分)</span><span th:text="${question.getQuestionDesc()}" > </span>
                                         </div>
                                     </li>
                                 </ul>
