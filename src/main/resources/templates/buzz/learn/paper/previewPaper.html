@@ -30,7 +30,12 @@
                                             <div th:each="option,stat:${#strings.listSplit(format, '-')}">
                                                 <input type="radio" class="radioOrCheck" name="answer1" id="0_answer_1_option_1" />
                                                 <label for="0_answer_1_option_1" >
-                                                    [[${stat.index}]] . <p class="ue" style="display: inline;" th:text="${option}"></p>
+                                                    <!-- 截取出 A B C D -->
+                                                    <div style="display: inline;" th:text="${#strings.substringBefore(option,'.')}"></div>.
+                                                    <!--  或者这种方式： [[${#strings.substringBefore(option,'.')}]].-->
+
+                                                    <!-- 截取出 选项内容 -->
+                                                    <p class="ue" style="display: inline;" th:text="${#strings.substringAfter(option,'.')}"></p>
                                                 </label>
                                             </div>
 
