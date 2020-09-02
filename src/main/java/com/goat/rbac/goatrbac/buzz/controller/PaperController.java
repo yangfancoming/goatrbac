@@ -1,5 +1,7 @@
 package com.goat.rbac.goatrbac.buzz.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.goat.rbac.goatrbac.buzz.common.QuestionType;
@@ -58,8 +60,12 @@ public class PaperController extends BaseController {
     @Autowired
     ICombineService combineService;
 
+
+    @Autowired
+    private ObjectMapper mapper;
+
     @GetMapping("preview")
-    public String preview(Model model,PaperQuestion paperQuestion) {
+    public String preview(Model model,PaperQuestion paperQuestion) throws JsonProcessingException {
         List<PaperQuestion> paperQuestions = paperService.preview(paperQuestion);
         // 分组后 key为 questionType value为当前试题类型下的题目 questionId
         Map<Integer, List<Long>> map = paperQuestions.stream().collect(groupingBy(x->x.getQuestionType(), mapping(x->x.getQuestionId(), toList())));
@@ -80,6 +86,8 @@ public class PaperController extends BaseController {
         });
         model.addAttribute("questions", resultList);
         model.addAttribute("paperId", paperQuestion.getPaperId());
+        String jsonStr = mapper.writeValueAsString(resultList);
+        System.out.println(jsonStr);
         return "buzz/learn/paper/previewPaper";
     }
 
