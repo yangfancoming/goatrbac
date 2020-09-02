@@ -7,24 +7,27 @@
     <div class="main">
         <div class="test_main">
             <div class="nr_left">
-                <div class="test" th:each="item:${questions}">
+                <!-- 试卷-->
+                <div class="test" th:each="map:${questions}">
 
-                    <!-- 题干-->
+                    <!-- 题型-->
                     <div class="test_content">
                         <div class="test_content_title">
-                            <h2 th:text="${item.key}"></h2>
+                            <h2 th:text="${map.key}"></h2>
                             <p><span>共</span><i class="content_lit">60</i><span>题，</span><span>合计</span><i class="content_fs">60</i><span>分</span> </p>
                         </div>
                     </div>
                     <!-- 题目内容 -->
-                    <div class="test_content_nr" th:each="question:${item.value}">
+                    <div class="test_content_nr" th:each="question:${map.value}">
                         <ul>
                             <!-- 试题id的组成为：  试卷id + 试题类型 + 试题id -->
                             <li th:id="${paperId} +  '-' + ${question.getQuestionType()} +  '-' + ${question.getQuestionId()}">
+                                <!-- 题干 -->
                                 <div class="test_content_nr_tt">
                                     <i>2</i> <span>(1分)</span><span th:text="${question.getQuestionDesc()}" > </span>
                                 </div>
 
+                                <!-- 选项 -->
                                 <div class="test_content_nr_main">
                                     <ul>
                                         <li class="option" th:each="format:${question.getQuestionFormat()}">
