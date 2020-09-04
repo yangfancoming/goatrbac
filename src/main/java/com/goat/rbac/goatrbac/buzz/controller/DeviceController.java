@@ -45,5 +45,4 @@ public class DeviceController extends BaseController {
         int insert = deviceService.insert(device);
         return ResponseBo.ok("新增角色成功！"+insert);
     }
-
 }
