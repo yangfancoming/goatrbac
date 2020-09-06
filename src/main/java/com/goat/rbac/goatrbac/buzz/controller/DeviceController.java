@@ -46,3 +46,5 @@ public class DeviceController extends BaseController {
         return ResponseBo.ok("新增角色成功！"+insert);
     }
 }
+
+
