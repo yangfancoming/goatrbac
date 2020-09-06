@@ -23,19 +23,18 @@ public class PaperServiceImpl implements IPaperService {
 
     @Autowired
     PaperMapper paperMapper;
+
     @Autowired
     PaperQuestionMapper paperQuestionMapper;
 
     @Override
     public int insert(Paper question) {
-        int insert = paperMapper.insert(question);
-        return insert;
+        return  paperMapper.insert(question);
     }
 
     @Override
     public List<Paper> find(Paper question) {
-        List<Paper> devices = paperMapper.find(question);
-        return devices;
+        return paperMapper.find(question);
     }
 
     @Override
@@ -45,8 +44,8 @@ public class PaperServiceImpl implements IPaperService {
 
 
     @Override
-    public  List<PaperQuestion> preview(PaperQuestion model) {
-        List<PaperQuestion> preview = paperQuestionMapper.preview(model);
-        return preview;
+    public  List<PaperQuestion> preview(Long paperId) {
+        return paperQuestionMapper.preview(paperId);
     }
+
 }

@@ -9,12 +9,10 @@ import java.util.Map;
 
 public interface ICombineService {
 
-
     List<Question> list(Map map);
 
     int insert(PaperQuestion model);
 
     int delete(PaperQuestion model);
-
 
 }

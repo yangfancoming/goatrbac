@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface PaperQuestionMapper {
 
-    List<PaperQuestion> preview(PaperQuestion model);
+    List<PaperQuestion> preview(Long paperId);
 }
