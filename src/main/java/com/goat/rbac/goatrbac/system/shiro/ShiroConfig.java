@@ -53,6 +53,7 @@ public class ShiroConfig {
         chainDefinition.addPathDefinition("/img/**", "anon");
         chainDefinition.addPathDefinition("/druid/**", "anon");
         chainDefinition.addPathDefinition("/paper/preview", "anon"); // 开放接口 http://localhost:8082/paper/preview
+        chainDefinition.addPathDefinition("/app/getPaper", "anon"); // 开放接口 http://localhost:8082/paper/preview
         chainDefinition.addPathDefinition("/gifCode", "anon");
         chainDefinition.addPathDefinition("/logout", "logout");
         chainDefinition.addPathDefinition("/", "anon");
