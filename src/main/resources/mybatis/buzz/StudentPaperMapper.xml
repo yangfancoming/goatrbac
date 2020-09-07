@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.goat.rbac.goatrbac.buzz.dao.StudentPaperMapper">
+
+
+    <resultMap id="studentPaperMap" type="com.goat.rbac.goatrbac.buzz.model.StudentPaper">
+        <result column="STUDENT_ID" jdbcType="DECIMAL" property="studentId" />
+        <result column="PAPER_ID" jdbcType="DECIMAL" property="paperId" />
+        <result column="ANSWER"  jdbcType="VARCHAR" property="answer" />
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    </resultMap>
+
+    <select id="find" resultMap="studentPaperMap" >
+        SELECT * FROM c_student_paper;
+    </select>
+
+</mapper>
+

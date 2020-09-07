@@ -11,7 +11,7 @@
     </resultMap>
 
     <select id="preview" resultMap="paperQuestionMap" >
-        SELECT QUESTION_TYPE  ,QUESTION_ID   FROM b_paper_question WHERE PAPER_ID = #{paperId}
+        SELECT QUESTION_TYPE  ,QUESTION_ID   FROM c_paper_question WHERE PAPER_ID = #{paperId}
     </select>
 
 </mapper>

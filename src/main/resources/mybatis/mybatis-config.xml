@@ -33,6 +33,7 @@
         <typeAlias alias="subject" type="com.goat.rbac.goatrbac.buzz.model.Subject"/>
         <typeAlias alias="paper" type="com.goat.rbac.goatrbac.buzz.model.Paper"/>
         <typeAlias alias="paperQuestion" type="com.goat.rbac.goatrbac.buzz.model.PaperQuestion"/>
+        <typeAlias alias="studentPaper" type="com.goat.rbac.goatrbac.buzz.model.StudentPaper"/>
     </typeAliases>
 
 </configuration>
