@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.goat.rbac.goatrbac.buzz.dao.StudentMapper">
+
+  <resultMap id="studentMap" type="com.goat.rbac.goatrbac.buzz.model.Student">
+      <result column="STUDENT_ID" jdbcType="DECIMAL" property="studentId" />
+      <result column="STUDENT_NAME" jdbcType="VARCHAR" property="studentName" />
+      <result column="STUDENT_TEL" jdbcType="VARCHAR" property="studentTel" />
+      <result column="STUDENT_CODE" jdbcType="VARCHAR" property="studentCode" />
+      <result column="CLASSES_ID" jdbcType="DECIMAL" property="classesId" />
+      <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
+      <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+
+    <select id="find" resultMap="studentMap" parameterType="student">
+        SELECT *  FROM b_student WHERE 1=1
+        <if test="studentId !=null and studentId != ''">
+            AND STUDENT_ID = #{studentId}
+        </if>
+        <if test="studentName !=null and studentName != ''">
+            AND STUDENT_NAME like concat('%', #{studentName}, '%')
+        </if>
+    </select>
+
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="classesId">
+        INSERT INTO b_student (
+        <trim suffix="" suffixOverrides=",">
+            <if test="studentName!=null and studentName!='' ">STUDENT_NAME, </if>
+            <if test="studentTel!=null and studentTel!='' ">STUDENT_TEL, </if>
+            <if test="classesId!=null and classesId!='' ">CLASSES_ID, </if>
+            <if test="createTime!=null  ">CREATE_TIME, </if>
+            <if test="modifyTime!=null  ">MODIFY_TIME, </if>
+        </trim>)
+        VALUES (
+        <trim suffix="" suffixOverrides=",">
+            <if test="studentName!=null and studentName!='' ">#{studentName}, </if>
+            <if test="studentTel!=null and studentTel!='' ">#{studentTel}, </if>
+            <if test="classesId!=null and classesId!='' ">#{classesId}, </if>
+            <if test="createTime!=null ">#{createTime}, </if>
+            <if test="modifyTime!=null ">#{modifyTime}, </if>
+        </trim>)
+    </insert>
+
+
+    <delete id="deleteByIds" parameterType="Long">
+        delete from b_student where STUDENT_ID in
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+
+</mapper>
