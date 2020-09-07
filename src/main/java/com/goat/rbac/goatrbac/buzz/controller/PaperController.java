@@ -44,14 +44,14 @@ public class PaperController extends BaseController {
     public ResponseBo add(Paper model) {
         model.setCreateTime(new Date());
         paperService.insert(model);
-        return ResponseBo.ok("新增试题成功！");
+        return ResponseBo.ok("新增试卷成功！");
     }
 
     @RequestMapping("delete")
     @ResponseBody
     public ResponseBo delete(String ids) {
         paperService.deleteByIds(ids);
-        return ResponseBo.ok("删除试题成功！");
+        return ResponseBo.ok("删除试卷成功！");
     }
 
     @GetMapping("preview")
@@ -61,6 +61,5 @@ public class PaperController extends BaseController {
         model.addAttribute("paperId", paperQuestion.getPaperId());
         return "buzz/learn/paper/previewPaper";
     }
-
 
 }
