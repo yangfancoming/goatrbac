@@ -19,6 +19,9 @@ public class Student implements Serializable {
     // 手机号码
 	private String studentTel;
 
+    // 学生班级年级
+	private String studentClass;
+
     private Date modifyTime;
 
 	private Date createTime;
@@ -54,6 +57,8 @@ public class Student implements Serializable {
     public void setStudentTel(String studentTel) {
         this.studentTel = studentTel;
     }
+
+
 
     public Date getModifyTime() {
         return modifyTime;

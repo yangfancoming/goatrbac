@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.goat.rbac.goatrbac.buzz.dao.ClassesMapper">
+
+
+  <resultMap id="classesMap" type="com.goat.rbac.goatrbac.buzz.model.Classes">
+      <result column="CLASSES_ID" jdbcType="DECIMAL" property="classesId" />
+      <result column="CLASSES_NAME" jdbcType="VARCHAR" property="classesName" />
+      <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
+      <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+
+    <select id="find" resultMap="classesMap" parameterType="classes">
+        SELECT *  FROM b_classes WHERE 1=1
+        <if test="classesId !=null and classesId != ''">
+            AND CLASSES_ID = #{classesId}
+        </if>
+        <if test="classesName !=null and classesName != ''">
+            AND CLASSES_NAME like concat('%', #{classesName}, '%')
+        </if>
+    </select>
+
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="classesId">
+        INSERT INTO b_classes (
+        <trim suffix="" suffixOverrides=",">
+            <if test="classesName!=null and classesName!='' ">CLASSES_NAME, </if>
+            <if test="createTime!=null  ">CREATE_TIME, </if>
+            <if test="modifyTime!=null  ">MODIFY_TIME, </if>
+        </trim>)
+        VALUES (
+        <trim suffix="" suffixOverrides=",">
+            <if test="classesName!=null and classesName!='' ">#{classesName}, </if>
+            <if test="createTime!=null ">#{createTime}, </if>
+            <if test="modifyTime!=null ">#{modifyTime}, </if>
+        </trim>)
+    </insert>
+
+
+    <delete id="deleteByIds" parameterType="Long">
+        delete from b_classes where CLASSES_ID in
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+
+</mapper>
