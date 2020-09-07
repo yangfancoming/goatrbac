@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface ISingleQuestionService {
 
-    int insert(SingleQuestion question);
+    int insert(SingleQuestion model);
 
-    List<SingleQuestion> find(SingleQuestion question);
+    List<SingleQuestion> find(SingleQuestion model);
 
     void deleteByIds(String ids);
 }

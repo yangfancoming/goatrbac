@@ -10,9 +10,9 @@ import java.util.Map;
 
 public interface IPaperService {
 
-    int insert(Paper question);
+    int insert(Paper model);
 
-    List<Paper> find(Paper question);
+    List<Paper> find(Paper model);
 
     int deleteByIds(String ids);
 

@@ -13,8 +13,8 @@ import java.util.List;
  */
 public interface IDeviceService {
 
-    int insert(Device device);
+    int insert(Device model);
 
-    List<Device> find(Device dept);
+    List<Device> find(Device model);
 
 }

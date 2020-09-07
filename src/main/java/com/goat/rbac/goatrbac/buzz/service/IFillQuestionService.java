@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface IFillQuestionService {
 
-    int insert(FillQuestion question);
+    int insert(FillQuestion model);
 
-    List<FillQuestion> find(FillQuestion question);
+    List<FillQuestion> find(FillQuestion model);
 
     void deleteByIds(String ids);
 }

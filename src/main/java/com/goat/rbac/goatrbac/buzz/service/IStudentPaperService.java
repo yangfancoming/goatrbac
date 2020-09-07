@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface IStudentPaperService {
 
-    List<StudentPaper> find(StudentPaper question);
+    List<StudentPaper> find(StudentPaper model);
 
 }

@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface ISubjectService {
 
-    int insert(Subject question);
+    int insert(Subject model);
 
-    List<Subject> find(Subject question);
+    List<Subject> find(Subject model);
 
     void deleteByIds(String ids);
 }

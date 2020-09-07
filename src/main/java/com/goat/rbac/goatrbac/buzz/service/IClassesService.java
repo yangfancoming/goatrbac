@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface IClassesService {
 
-    int insert(Classes question);
+    int insert(Classes model);
 
-    List<Classes> find(Classes question);
+    List<Classes> find(Classes model);
 
     void deleteByIds(String ids);
 }
