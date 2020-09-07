@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface PaperMapper {
 
-    int insert(Paper question);
+    int insert(Paper model);
 
-    List<Paper> find(Paper question);
+    List<Paper> find(Paper model);
 
     int deleteByIds(List<String> ids);
 

@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface ClassesMapper {
 
-    int insert(Classes question);
+    int insert(Classes model);
 
-    List<Classes> find(Classes question);
+    List<Classes> find(Classes model);
 
     int deleteByIds(List<String> ids);
 }

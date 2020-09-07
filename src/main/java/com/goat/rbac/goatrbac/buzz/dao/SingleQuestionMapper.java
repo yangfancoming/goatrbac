@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface SingleQuestionMapper {
 
-    int insert(SingleQuestion question);
+    int insert(SingleQuestion model);
 
-    List<SingleQuestion> find(SingleQuestion question);
+    List<SingleQuestion> find(SingleQuestion model);
 
     int deleteByIds(List<String> ids);
 }

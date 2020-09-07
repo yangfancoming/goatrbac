@@ -2,9 +2,8 @@ package com.goat.rbac.goatrbac.buzz.model;
 
 
 import java.io.Serializable;
-import java.util.Date;
 
-public class Student implements Serializable {
+public class Student extends BaseModel implements Serializable {
 
 	private static final long serialVersionUID = -7790334862410409053L;
 
@@ -19,12 +18,8 @@ public class Student implements Serializable {
     // 手机号码
 	private String studentTel;
 
-    // 学生班级年级
-	private String studentClass;
-
-    private Date modifyTime;
-
-	private Date createTime;
+    // 所属班级
+	private String classesId;
 
     public Long getStudentId() {
         return studentId;
@@ -58,21 +53,12 @@ public class Student implements Serializable {
         this.studentTel = studentTel;
     }
 
-
-
-    public Date getModifyTime() {
-        return modifyTime;
+    public String getClassesId() {
+        return classesId;
     }
 
-    public void setModifyTime(Date modifyTime) {
-        this.modifyTime = modifyTime;
+    public void setClassesId(String classesId) {
+        this.classesId = classesId;
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 }

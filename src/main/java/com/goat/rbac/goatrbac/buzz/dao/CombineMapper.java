@@ -12,7 +12,7 @@ public interface CombineMapper {
 
     List<Question> list(Map map);
 
-    int insert(PaperQuestion paperQuestion);
+    int insert(PaperQuestion model);
 
     int delete(PaperQuestion model);
 

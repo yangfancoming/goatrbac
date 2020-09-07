@@ -7,7 +7,7 @@ package com.goat.rbac.goatrbac.buzz.model;
  * @ author  山羊来了
  * @ date 2020/8/31---15:45
  */
-public class PaperQuestion {
+public class PaperQuestion extends BaseModel {
 
     // 试卷 主键id
     private Long paperId;
