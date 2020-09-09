@@ -28,5 +28,4 @@ public class AppController {
     public Map<String, List<Question>> getPaper(PaperQuestion paperQuestion) {
         return paperService.getPaper(paperQuestion.getPaperId(), paperQuestion.getSubjectId());
     }
-
 }
