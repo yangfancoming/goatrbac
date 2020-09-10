@@ -6,6 +6,7 @@ import com.goat.rbac.goatrbac.system.model.User;
 import com.goat.rbac.goatrbac.system.model.UserRole;
 import com.goat.rbac.goatrbac.system.service.IUserService;
 import com.goat.rbac.goatrbac.system.util.MD5Utils;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -100,7 +101,10 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public void updatePassword(String password) {
-
+        User user = (User) SecurityUtils.getSubject().getPrincipal();
+        String newPassword = MD5Utils.encrypt(user.getUsername().toLowerCase(), password);
+        user.setPassword(newPassword);
+        userMapper.update(user);
     }
 
     @Override

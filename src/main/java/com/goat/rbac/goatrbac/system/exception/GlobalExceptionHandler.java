@@ -51,7 +51,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(RuntimeException.class)
     public ResponseBo runtimeException(RuntimeException e) {
         log.error(e.getMessage());
-        return ResponseBo.error("操作失败！");
+        return ResponseBo.error(e.getMessage());
     }
 
     //    方法 defaultErrorHandler() 就会处理所有 Controller 层抛出的 Exception 及其子类的异常，这是最基本的用法了
@@ -61,9 +61,6 @@ public class GlobalExceptionHandler {
         log.error(e.getMessage());
         return ResponseBo.error("操作失败！Exception" + e.getMessage());
     }
-
-
-
 
 }
 

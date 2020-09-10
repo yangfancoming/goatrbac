@@ -7,7 +7,7 @@ $(document).ready(function() {
     });
 
     var panelOne = $('.form-panel.two').height();
-        panelTwo = $('.form-panel.two')[0].scrollHeight;
+        // panelTwo = $('.form-panel.two')[0].scrollHeight;
 
    $('.form-panel.two').not('.form-panel.two.active').on('click', function(e) {
         e.preventDefault();
@@ -72,53 +72,53 @@ function login() {
     });
 }
 
-function regist() {
-    var username = $(".two input[name='username']").val().trim();
-    var password = $(".two input[name='password']").val().trim();
-    var cpassword = $(".two input[name='cpassword']").val().trim();
-    if (username == "") {
-        $MB.n_warning("用户名不能为空！");
-        return;
-    } else if (username.length > 10) {
-        $MB.n_warning("用户名长度不能超过10个字符！");
-        return;
-    } else if (username.length < 3) {
-        $MB.n_warning("用户名长度不能少于3个字符！");
-        return;
-    }
-    if (password == "") {
-        $MB.n_warning("密码不能为空！");
-        return;
-    }
-    if (cpassword == "") {
-        $MB.n_warning("请再次输入密码！");
-        return;
-    }
-    if (cpassword != password) {
-        $MB.n_warning("两次密码输入不一致！");
-        return;
-    }
-    $.ajax({
-        type: "post",
-        url: ctx + "user/regist",
-        data: {
-            "username": username,
-            "password": password,
-        },
-        dataType: "json",
-        success: function(r) {
-            if (r.code == 0) {
-                $MB.n_success("注册成功，请登录");
-                $(".two input[name='username']").val("");
-                $(".two input[name='password']").val("");
-                $(".two input[name='cpassword']").val("");
-                $('.form-toggle').trigger('click');
-            } else {
-                $MB.n_warning(r.msg);
-            }
-        }
-    });
-}
+// function regist() {
+//     var username = $(".two input[name='username']").val().trim();
+//     var password = $(".two input[name='password']").val().trim();
+//     var cpassword = $(".two input[name='cpassword']").val().trim();
+//     if (username == "") {
+//         $MB.n_warning("用户名不能为空！");
+//         return;
+//     } else if (username.length > 10) {
+//         $MB.n_warning("用户名长度不能超过10个字符！");
+//         return;
+//     } else if (username.length < 3) {
+//         $MB.n_warning("用户名长度不能少于3个字符！");
+//         return;
+//     }
+//     if (password == "") {
+//         $MB.n_warning("密码不能为空！");
+//         return;
+//     }
+//     if (cpassword == "") {
+//         $MB.n_warning("请再次输入密码！");
+//         return;
+//     }
+//     if (cpassword != password) {
+//         $MB.n_warning("两次密码输入不一致！");
+//         return;
+//     }
+//     $.ajax({
+//         type: "post",
+//         url: ctx + "user/regist",
+//         data: {
+//             "username": username,
+//             "password": password,
+//         },
+//         dataType: "json",
+//         success: function(r) {
+//             if (r.code == 0) {
+//                 $MB.n_success("注册成功，请登录");
+//                 $(".two input[name='username']").val("");
+//                 $(".two input[name='password']").val("");
+//                 $(".two input[name='cpassword']").val("");
+//                 $('.form-toggle').trigger('click');
+//             } else {
+//                 $MB.n_warning(r.msg);
+//             }
+//         }
+//     });
+// }
 
 document.onkeyup = function(e) {
     if (window.event)

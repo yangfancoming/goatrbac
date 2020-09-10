@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -24,8 +25,12 @@ public class AppController {
     @Autowired
     IPaperService paperService;
 
+    // http://localhost:8080/app/getPaper?paperId=3
     @GetMapping("getPaper")
-    public Map<String, List<Question>> getPaper(PaperQuestion paperQuestion) {
-        return paperService.getPaper(paperQuestion.getPaperId(), paperQuestion.getSubjectId());
+    public List<Question> getPaper(PaperQuestion paperQuestion) {
+        Map<String, List<Question>> paper = paperService.getPaper(paperQuestion.getPaperId(), paperQuestion.getSubjectId());
+        List<Question> list = new ArrayList<>(32);
+        paper.keySet().forEach(k ->list.addAll(paper.get(k)));
+        return list;
     }
 }

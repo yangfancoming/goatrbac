@@ -26,6 +26,7 @@
         <set>
             DEPT_ID = #{deptId},
             <if test="email != null and email != ''">EMAIL = #{email},</if>
+            <if test="password != null and password != ''">PASSWORD = #{password},</if>
             <if test="mobile != null and mobile != ''">MOBILE = #{mobile},</if>
             <if test="status != null and status != ''">STATUS = #{status},</if>
             <if test="ssex != null and ssex != ''">SSEX = #{ssex},</if>

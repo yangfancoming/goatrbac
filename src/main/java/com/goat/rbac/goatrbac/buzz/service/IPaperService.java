@@ -16,7 +16,7 @@ public interface IPaperService {
 
     int deleteByIds(String ids);
 
-    // 通过试卷主键id 查询出该试卷中的包含的所有试题id
+    // 通过试卷主键id 查询出该试卷中的包含的所有试题id及对应试题类型
     List<PaperQuestion> preview(Long paperId);
 
     // 通过试题ids  查询出所有试题
