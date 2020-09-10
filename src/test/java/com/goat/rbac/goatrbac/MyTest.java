@@ -1,5 +1,6 @@
 package com.goat.rbac.goatrbac;
 
+import com.goat.rbac.goatrbac.system.util.MD5Utils;
 import org.junit.Test;
 
 /**
@@ -18,4 +19,14 @@ public class MyTest {
             System.out.println((char)(96+i));
         }
     }
+
+
+    @Test
+    public void md5(){
+        String username = "yangfan";
+        String password = "123123";
+        password = MD5Utils.encrypt(username.toLowerCase(), password);
+        System.out.println(password);
+    }
+
 }
