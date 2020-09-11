@@ -85,5 +85,4 @@ public class ShiroRealm extends AuthorizingRealm {
         return authInfo;
     }
 
-
 }
