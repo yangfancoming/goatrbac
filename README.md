@@ -23,7 +23,13 @@
 
 
 
+# https
+    访问地址 
+    https://www.goatcoming.cn/login
 
+
+# todo 
+    发布阿里云后   nignx 把https转发到项目后  一直重定向的问题 
 
 
 

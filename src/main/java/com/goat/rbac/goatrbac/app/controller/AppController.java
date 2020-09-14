@@ -26,6 +26,7 @@ public class AppController {
     IPaperService paperService;
 
     // http://localhost:8080/app/getPaper?paperId=3
+    // http://goatcoming.cn/app/getPaper?paperId=3
     @GetMapping("getPaper")
     public List<Question> getPaper(PaperQuestion paperQuestion) {
         Map<String, List<Question>> paper = paperService.getPaper(paperQuestion.getPaperId(), paperQuestion.getSubjectId());
