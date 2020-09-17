@@ -43,7 +43,6 @@
     </select>
 
 
-
     <insert id="insert" parameterType="paperQuestion" >
         insert into c_paper_question (PAPER_ID,QUESTION_TYPE,QUESTION_ID) values(#{paperId},#{questionType},#{questionId})
     </insert>
